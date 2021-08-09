@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -97,49 +99,48 @@ public class QLSPController {
 	}
 
 	// mapping thêm mới
-	@GetMapping("/admin/quanlysanpham/sanphamdt/insert")
+	@GetMapping("/admin/quanlysanpham/dienthoai/insert")
 	public String insertSanPham(Model model) {
 		SanPhamDT sanphamdt = new SanPhamDT();
 		model.addAttribute("sanphamdt", sanphamdt);
 		model.addAttribute("titleNut", "Thêm mới");
-		return "admin/quanlysanpham/sanphamdt/insert";
+		return "admin/quanlysanpham/dienthoai/insert";
 	}
 
 	@Autowired
 	SanPhamDTReponsitory sanphamReponsitory;
 
-	@PostMapping(path = "/admin/quanlysanpham/sanphamdt/insertComplete")
-	public String insertCompleteSanPham(@Valid @ModelAttribute("sanphamdt") SanPhamDT dienthoai, BindingResult result,
+	@PostMapping(path = "/admin/quanlysanpham/dienthoai/insert")
+	public String insertCompleteSanPham(@Validated @ModelAttribute("sanphamdt") SanPhamDT dienthoai, Errors errors,
 			Model model) {
-		if (result.hasErrors()) {
-			model.addAttribute("titleNut", "Thêm mới");
-			return "admin/quanlysanpham/sanphamdt/insert";
+		if (errors.hasErrors()) {
+			return "admin/quanlysanpham/dienthoai/insert";
 		}
 		sanphamReponsitory.save(dienthoai);
 		return "redirect:/admin/quanlysanpham";
 	}
 
 	// chức năng sửa
-	@GetMapping("/admin/quanlysanpham/sanphamdt/edit")
+	@GetMapping("/admin/quanlysanpham/dienthoai/edit")
 	public String indexSanPham(@RequestParam(name = "sanpham_dt_id") int sanpham_id, Model model) {
 		Optional<SanPhamDT> sanphamOption = sanphamReponsitory.findById(sanpham_id);
 		if (sanphamOption.isEmpty()) {
 			return "redirect:/admin/quanlysanpham";
 		}
 		model.addAttribute("sanphamdt", sanphamOption.get());
-		model.addAttribute("titleNut", "Cập nhật");
-		return "admin/quanlysanpham/sanphamdt/insert";
+
+		return "admin/quanlysanpham/dienthoai/insert";
 	}
 
-	@PostMapping("/admin/quanlysanpham/sanphamdt/edit")
-	public String indexSanPham(@Valid @ModelAttribute("sanphamdt") SanPhamDT sanpham, BindingResult result,
+	@PostMapping("/admin/quanlysanpham/dienthoai/edit")
+	public String indexSanPham(@Validated @ModelAttribute("sanphamdt") SanPhamDT sanpham, Errors errors,
 			ModelAttribute model) {
-		if (result.hasErrors()) {
-			return "admin/quanlysanpham/sanphamdt/insert";
+		if (errors.hasErrors()) {
+			return "admin/quanlysanpham/dienthoai/insert";
 		}
 		Optional<SanPhamDT> sanphamOption = sanphamReponsitory.findById(sanpham.getSanpham_id());
 		if (sanphamOption.isEmpty()) {
-			return "admin/quanlysanpham/sanphamdt/insert";
+			return "admin/quanlysanpham/dienthoai/insert";
 		}
 		SanPhamDT sanphamld = sanphamOption.get();
 
@@ -165,11 +166,11 @@ public class QLSPController {
 	}
 
 	// chức năng xóa
-	@GetMapping("/admin/quanlysanpham/sanphamdt/delete")
+	@GetMapping("/admin/quanlysanpham/dienthoai/delete")
 	public String deleteSanPham(@RequestParam(name = "sanpham_dt_id") int sanpham_id) {
 		Optional<SanPhamDT> sanphamOption = sanphamReponsitory.findById(sanpham_id);
 		if (sanphamOption.isEmpty()) {
-			return "redirect:/admin/quanlysanpham/page";
+			return "redirect:/admin/quanlysanpham";
 		}
 		sanphamReponsitory.delete(sanphamOption.get());
 		return "redirect:/admin/quanlysanpham";

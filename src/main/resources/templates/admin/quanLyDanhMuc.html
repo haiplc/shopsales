@@ -204,7 +204,7 @@
                                     <tbody th:each="mau : ${mausacdt}">
                                         <tr>
                                             <td style="text-align: center; line-height: 20px">[[${mau.getMausac_id()}]]</td>
-                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_name()}]]</td>
                                             <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
                                                 <a th:href="@{'/admin/quanlydanhmuc/mausacdt/edit?mausac_id='+${mau.getMausac_id()}}">
                                                     <i class="far fa-edit" style="color: green;"></i>

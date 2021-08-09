@@ -242,14 +242,14 @@
                                         <ul class="pagination">
                                             <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 600px; margin-top: -20px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
                                                 <li class="page-item">
-                                                    <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page-1}+'&search='+${search}">[[#{lo.index.pre}]]</a>
+                                                    <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
                                                 </li>
                                                 <li th:each="i : ${#numbers.sequence(0, maxPage - 1)}">
-                                                    <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${i}+'&search='+${search}" th:utext="${i+1}">
+                                                    <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${i}+'&search='+${search}}" th:utext="${i+1}">
                                                     </a>
                                                 </li>
                                                 <li class="page-item">
-                                                    <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page+1}+'&search='+${search}">[[#{lo.index.next}]]</a>
+                                                    <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page+1}+'&search='+${search}}">[[#{lo.index.next}]]</a>
                                                 </li>
                                             </div>
 

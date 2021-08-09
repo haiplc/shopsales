@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Thêm mới Loại Điện thoại</title>
+    <title>[[#{lo.index.tmloaidt}]]</title>
     <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/insertDanhMuc.css}">
     <link rel="stylesheet" href="fonts/fontawesome-free-5.13.0-web/css/all.min.css">
@@ -13,20 +13,20 @@
 <body>
     <div class="main-insert">
         <div class="the-tieu-de-danhmuc">
-            <label>Loại điện thoại</label>
-            <a t:href="@{/admin/quanlydanhmuc}"><i class="fas fa-times " style="color: red; font-size: 16px"></i></a>
+            <label>[[#{lo.index.loaidddt}]]</label>
+            <a th:href="@{/admin/quanlydanhmuc}"><i class="fas fa-times " style="color: red; font-size: 16px"></i></a>
         </div>
         <form class="the-form-danhmuc" action="/admin/quanlydanhmuc/loaidt/insert" method="post" th:object="${loaidt}">
             <input th:field="*{loai_id}" type="hidden">
             <br/>
-            <label th:field="*{loai_name}" class="tieu-de-danhmuc">Loại điện thoại</label>
+            <label th:field="*{loai_name}" class="tieu-de-danhmuc">[[#{lo.index.phanloai}]]</label>
             <br/>
             <input th:field="*{loai_name}" class="input-danhmuc" />
             <br/>
             <i th:errors="*{loai_name}" style="color:red; font-style: italic; margin-left: 60px; position: absolute; margin-top: 5px;"></i>
             <br/>
             <div class="thao-tac" style="margin-top: 10px">
-                <input type="submit" value="Thêm mới">
+                <input type="submit" th:value="#{lo.index.themmoi}">
             </div>
         </form>
     </div>

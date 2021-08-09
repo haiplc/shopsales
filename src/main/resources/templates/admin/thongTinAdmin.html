@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>[[#{lo.index.qldmh}]] | ShopSale</title>
+    <title>Thông tin Admin | ShopSale</title>
     <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -59,7 +59,7 @@
                             <p>[[#{lo.index.qldm}]]</p>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a th:href="@{/admin/quanlydanhmuchang}"> <i class="far fa-building"></i>
                             <p>[[#{lo.index.qldmh}]]</p>
                         </a>
@@ -74,7 +74,7 @@
                             <p>[[#{lo.index.qluser}]]</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a th:href="@{/admin/thongtinadmin}"> <i class="fas fa-user-shield"></i>
                             <p>[[#{lo.index.ttadmin}]]</p>
                         </a>
@@ -94,7 +94,7 @@
 									class="navbar-toggler-bar bar3"></span>
 							</button>
                         </div>
-                        <a class="navbar-brand" th:href="@{admin/quanlydanhmuchang}" style="font-size: 16px">[[#{lo.index.qldmh}]]</a>
+                        <a class="navbar-brand" th:href="@{/admin/thongtinadmin}" style="font-size: 16px">Thông tin Admin</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-bar navbar-kebab"></span> <span
@@ -114,7 +114,7 @@
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="#pablo">
                                     <i class="fas fa-gifts"></i>
                                     <p>
                                         <span class="d-lg-none d-md-block">Stats</span>
@@ -132,7 +132,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="#pablo">
                                     <i class="fas fa-user-tie"></i>
                                     <p>
                                         <span>Đinh Quốc Hải</span>
@@ -148,61 +148,76 @@
             <!--  CHI TIẾT HIỂN THỊ -->
             <div class="content">
                 <div class="row">
-                    <div class="col-lg-4">
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card card-chart">
-                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
-                                <h5 class="card-category">[[#{lo.index.qldmh}]]</h5>
-                                <a th:href="@{/admin/quanlydanhmuchang/hangdt/insert}"><i
-                                    class="fas fa-plus-circle"
-                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                    <div class="col-md-8" style="width: 500px">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="title">Thông tin</h5>
                             </div>
-                            <div class="bang-danhmuc">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 70px; text-align: center;">ID</th>
-                                            <th style="width: 300px; text-align: center;">[[#{lo.index.hangdtss}]]</th>
-                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody th:each="hang:${hangdts}">
-                                        <tr>
-                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_id()}]]</td>
-                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_name()}]]</td>
-                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
-                                                <a th:href="@{'/admin/quanlydanhmuchang/hangdt/edit?hang_id='+${hang.getHang_id()}}">
-                                                    <i class="far fa-edit" style="color: green;"></i>
-                                                </a>
-                                                <a onclick="return confirm('Xác nhận xóa Danh mục Hãng Điện thoại')" th:href="@{'/admin/quanlydanhmuchang/hangdt/delete?hang_id='+${hang.getHang_id()}}">
-                                                    <i class="fas fa-trash" style="color: red;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Tên đăng nhập</label> <input type="text" class="form-control" placeholder="Username" value="haiplc">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Mật khẩu</label> <input type="password" class="form-control" placeholder="password" value="123456">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <div class="form-group">
+                                                <label>Họ và tên</label> <input type="text" class="form-control" placeholder="Company" value="Đinh Quốc Hải">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1">
+                                            <div class="form-group">
+                                                <label>Số điện thoại</label> <input type="text" class="form-control" placeholder="Last Name" value="0935828911">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Giới thiệu về bản thân</label>
+                                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Sinh viên chuyên ngành Ứng dụng phần mềm - kỳ 6, Trường Cao đẳng thực hành FPT Polytechnic Tây Nguyên.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6"> </div>
-                </div>
-                <div class="menu-danhmuc-duoi-hang">
-                    <ul class="pagination">
-                        <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 190px; margin-top: 50px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
-                            <li class="page-item">
-                                <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlydanhmuchang?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
-                            </li>
-                            <li th:each="i : ${#numbers.sequence(0, maxPage - 1)}">
-                                <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlydanhmuchang?page='+${i}+'&search='+${search}}" th:utext="${i+1}">
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlydanhmuchang?page='+${page+1}+'&search='+${search}}">[[#{lo.index.next}]]</a>
-                            </li>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="card-body" style="margin-top: 100px">
+                                <div class="author">
+                                    <a href="#"> <img class="avatar1" th:src="@{/images/Untitled.png}" alt="..." style="padding-bottom: 20px">
+                                        <h5 class="title">Đinh Quốc Hải</h5>
+                                    </a>
+                                    <p class="description">haiplc</p>
+                                </div>
+                                <p class="description text-center">
+                                    "Sinh viên <br> chuyên ngành Ứng dụng phần mềm - kỳ 6 <br> Trường Cao đẳng thực hành FPT Polytechnic Tây Nguyên""
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="button-container">
+                                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+									<i class="fab fa-facebook-f"></i>
+								</button>
+                                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+									<i class="fab fa-twitter"></i>
+								</button>
+                                <button href="#" class="btn btn-neutral btn-icon btn-round btn-lg">
+									<i class="fab fa-google-plus-g"></i>
+								</button>
+                            </div>
                         </div>
-
-                    </ul>
+                    </div>
                 </div>
             </div>
             <footer class="footer">
@@ -222,20 +237,19 @@
     </div>
 </body>
 <!-- THƯ VIỆN PHÂN TRANG -->
-<script th:src="@{/js/vendor/datatables.net/js/jquery.dataTables.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js]"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.html5.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.flash.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.print.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-select/js/dataTables.select.min.js}"></script>
+<script src="/js/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/js/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="/js/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="/js/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+<script src="/js/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="/js/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="/js/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="/js/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 <!--   Core JS Files   -->
-<script th:src="@{/js/now-ui-dashboard.js}"></script>
-<script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{/js/popper.min.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
-
+<script src="/js/now-ui-dashboard.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/perfect-scrollbar.jquery.min.js"></script>
 
 </html>
