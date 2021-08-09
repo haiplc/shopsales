@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[[#{lo.index.dky}]] | ShopSale</title>
+    <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
+    <!-- <link rel="stylesheet" th:href="@{/fonts/fontawesome-free-5.13.0-web/css/all.min.css}" /> -->
+    <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/dangKy.css}">
+
+</head>
+
+<body>
+    <div class="formDangKy">
+        <form class="dangKy" action="/shopsale/dangky" method="post" th:object="${dangky}">
+            <div class="khung_inner_tren">
+                <h3 class="heading_inner">[[#{lo.index.dky}]]</h3>
+                <a id="dangNhap" class="dangNhap" href="/shopsale/dangnhap">[[#{lo.index.dnhap}]]</a>
+            </div>
+            <div class="khunginner_phan2">
+                <div class="nhominput">
+                    <label th:field="*{user_name}" class="the-ten-tm">[[#{lo.index.hoten}]]</label>
+                    <input type="text" name="user_name" th:field="*{user_name}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{user_name}"></i>
+                </div>
+                <br/>
+                <br/>
+                <div class="nhominput">
+                    <label th:field="*{user_sdt}" class="the-ten-tm">[[#{lo.index.sdt}]]</label>
+                    <input type="text" name="user_sdt" th:field="*{user_sdt}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{user_sdt}"></i>
+                </div>
+                <br/>
+                <br/>
+                <div class="nhominput">
+                    <label th:field="*{user_email}" class="the-ten-tm">[[#{lo.index.email}]]</label>
+                    <input type="text" name="user_email" th:field="*{user_email}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{user_email}"></i>
+                </div>
+                <br/>
+                <br/>
+                <div class="nhominput">
+                    <label th:field="*{user_tendangnhap}" class="the-ten-tm">[[#{lo.index.tendn}]]</label>
+                    <input type="text" name="user_tendangnhap" th:field="*{user_tendangnhap}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{user_tendangnhap}"></i>
+                </div>
+                <br/>
+                <br/>
+                <div class="nhominput">
+                    <label th:field="*{user_matkhau}" class="the-ten-tm">[[#{lo.index.mk}]]</label>
+                    <input type="password" name="user_matkhau" th:field="*{user_matkhau}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{user_matkhau}"></i>
+                </div>
+                <br/>
+                <br/>
+                <div class="nhominput">
+                    <label th:field="*{address}" class="the-ten-tm">[[#{lo.index.diachi}]]</label>
+                    <input type="text" name="address" th:field="*{address}" class="khunginner__input">
+                    <!--thông báo lỗi-->
+                    <br/>
+                    <i th:errors="*{address}"></i>
+                </div>
+                <br/>
+            </div>
+            <div class="khunginner_phan3">
+                <p class="chuChinhSachText">
+                    [[#{lo.index.chinhsachdk}]] <a href="/" style="color: red;">ShopSale</a> [[#{lo.index.ve}]]
+                    <a href="#" class="LinkDieuKhoan">[[#{lo.index.chinhsach2}]]</a> &
+                    <a href="#" class="LinkDieuKhoan">[[#{lo.index.chinhsach3}]]</a>
+                </p>
+            </div>
+            <div class="nutDieuKhien">
+                <input class="dangnh" type="submit" th:value="#{lo.index.dky}">
+            </div>
+
+            <div class="khungMxh">
+                <img class="mxhKhung" th:src="@{/images/facebook.png}" alt="">
+                <img class="mxhKhung" th:src="@{/images/google.png}" alt="">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

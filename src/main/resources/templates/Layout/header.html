@@ -1,0 +1,201 @@
+<div id="header">
+    <div id="noidung-header">
+        <nav class="navbartren">
+            <ul class="noidung-navbar-tren-trai">
+                <li class="nd1 hiennd phancachchedoc">
+                    <a href="#">[[#{lo.index.taiud}]]</a>
+                    <div class="qrcode">
+                        <img th:src="@{/images/f184c0b68a2d385feb5d70a76396230b.png}" alt="QR Code" class="qrcode_qr">
+                        <div class="qrcode_ap">
+                            <a href="#" class="qrcode_ap_link"><img th:src="@{/images/2679f513b5f9e235adf2c6c288617e7b.png}" alt="Google Play"></a>
+                            <a href="#" class="qrcode_ap_link"><img th:src="@{/images/759416b55e2bd69ecc360ee2faab7ad0.png}" alt="App Store"></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nd1">
+                    <a href="#">[[#{lo.index.ketnoi}]]</a>
+                    <a href="https://www.instagram.com/" target="blank">
+                        <i class="fa fa-instagram" aria-hidden="true" style="margin-left: 5px"></i>
+                    </a>
+                    <a href="https://www.facebook.com/" target="blank">
+                        <i class="fa fa-facebook" aria-hidden="true" style="margin-left: 5px"></i>
+                    </a>
+                    <a th:href="@{?lang=en}"> [[#{lo.index.en}]] </a>
+                    <a th:href="@{?lang=vi}"> [[#{lo.index.vi}]] </a>
+                </li>
+
+            </ul>
+            <ul class="noidung-navbar-tren-phai">
+                <li class="nd1 hiennd"><i class="fa fa-bell-o" aria-hidden="true"></i>
+                    <a href="#">[[#{lo.index.thongbao}]]</a>
+                    <div class="thongbao">
+                        <img class="thongbao-hinhanh" th:src="@{/images/5a83ec8ec1bc1ea687fdf9c6e68eee0b.png}" alt="">
+
+                        <c:if test="${empty currentUser}">
+                            <div class="nhacnho">[[#{lo.index.dnhaptb}]]</div>
+                            <div class="dangki">
+                                <a th:href="@{/shopsale/dangky}">[[#{lo.index.dky}]]</a>
+                            </div>
+                            <div class="dangnhap">
+                                <a th:href="@{/shopsale/dangnhap}">[[#{lo.index.dnhap}]]</a>
+                            </div>
+                        </c:if>
+                        <c:choose>
+                            <c:when test="${currentUser != null}">
+                                <div class="nhacnho" style="color: red; margin-top: 10px">[[#{lo.index.newtbm}]]</div>
+                            </c:when>
+                        </c:choose>
+                    </div>
+                </li>
+                <li class="nd1">
+                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                    <a th:href="@{/home/lienhe}">[[#{lo.index.trogiup}]]</a>
+                </li>
+
+                <div th:if="${currentUser == null}">
+                    <li class="nd1 phancachchedoc">
+                        <a th:href="@{/shopsale/dangky}">[[#{lo.index.dky}]]</a>
+                    </li>
+                    <li class="nd1">
+                        <a th:href="@{/shopsale/dangnhap}">[[#{lo.index.dnhap}]]</a>
+                    </li>
+                </div>
+
+
+                <div th:if="${currentUser != null}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="media align-items-center">
+                                <i class="fa fa-user-circle-o" aria-hidden="true" style="margin-top: -10px;"></i>
+                                <div class="media-body ml-2 d-none d-lg-block" style="float: left; margin-top: -7px">
+                                    <span class="mb-0 text-sm  font-weight-bold" style="color: white" th:text="${currentUser.getUser_name()}"> </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">[[#{lo.index.xinchao}]]</h6>
+                            </div>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-single-02"></i>
+                                <span>[[#{lo.index.mythongtin}]]</span>
+                            </a>
+                            <div th:if="${currentUser.getUser_chucvu() eq 'Admin' }">
+                                <div class="dropdown-divider"></div>
+                                <a th:href="@{/admin/dashboard}" class="dropdown-item lichsu_giaodich">
+                                    <i class="ni ni-single-02"></i>
+                                    <span style="color: rgb(248,74,47);">[[#{lo.index.trangadmin}]]</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                            <a href="#!" class="dropdown-item lichsu_giaodich">
+                                <i class="ni ni-single-02"></i>
+                                <span>[[#{lo.index.lichsugd}]]</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-settings-gear-65"></i>
+                                <span>[[#{lo.index.caidat}]]</span>
+                            </a>
+                            <a href="#!" class="dropdown-item">
+                                <i class="ni ni-calendar-grid-58"></i>
+                                <span>[[#{lo.index.hoatdong}]]</span>
+                            </a>
+                            <a th:href="@{/home/lienhe}" class="dropdown-item">
+                                <i class="ni ni-support-16"></i>
+                                <span>[[#{lo.index.hotro}]]</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a th:href="@{/logout}" class="dropdown-item">
+                                <i class="ni ni-user-run"></i>
+                                <span>[[#{lo.index.dangxuat}]]</span>
+                            </a>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+        <div class="header-logo">
+            <a th:href="@{/home}"><img th:src="@{/images/image.png}" alt=""></a>
+        </div>
+        <div class="header-giua">
+            <div class="menu">
+                <nav id="nav-bar">
+                    <ul class="menu-lv1">
+                        <li class="item-lv1 action">
+                            <a th:href="@{/home}" class="item-lv1-title">[[#{lo.index.home}]]</a>
+                        </li>
+                        <li class="item-lv1">
+                            <a href="#" class="item-lv1-title">LAPTOP</a>
+                            <ul class="menu-lv2">
+                                <li class="item-lv2"><a href="#" class="item-lv2-title">ACER</a>
+                                </li>
+                                <li class="item-lv2"><a href="#" class="item-lv2-title">ASUS</a>
+                                </li>
+                                <li class="item-lv2"><a href="#" class="item-lv2-title">LENOVO</a>
+                                </li>
+                                <li class="item-lv2"><a href="#" class="item-lv2-title">MSI</a>
+                                </li>
+                                <li class="item-lv2"><a href="#" class="item-lv2-title">DELL</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="item-lv1">
+                            <a href="#" class="item-lv1-title">[[#{lo.index.phukien}]]</a>
+                            <ul class="menu-lv2">
+                                <li class="item-lv2">
+                                    <a href="#" class="item-lv2-title">[[#{lo.index.dthoai}]]</a>
+                                </li>
+                                <li class="item-lv2">
+                                    <a href="#" class="item-lv2-title">[[#{lo.index.dogiadung}]]</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="item-lv1">
+                            <a th:href="@{/home/tuyendung}" class="item-lv1-title">[[#{lo.index.tuyendung}]]</a>
+                        </li>
+                        <li class="item-lv1">
+                            <a th:href="@{/home/khuyenmai}" class="item-lv1-title">[[#{lo.index.khuyenmai}]]</a>
+                        </li>
+                    </ul>
+                </nav>
+                <form action="/home/search">
+                    <div class="timkiem">
+                        <input type="text" name="sanpham_name" id="noidung-timkiem" class="noidung-timkiem" th:placeholder="#{lo.index.searchSh}" />">
+                        <!--thông báo lỗi-->
+                        <label id="thongbaoLoi" for="noidung-timkiem" class="error2"></label>
+                        <div class="timkiem_lichsu">
+                            <h3 class="timkiem_lichsu_head">[[#{lo.index.searchSh}]]</h3>
+                            <ul class="timkiem_lichsu_list">
+                                <li class="timkiem_lichsu__danhsach"><a href="#">Điện
+                                    thoại SamSung giá rẻ</a></li>
+                                <li class="timkiem_lichsu__danhsach"><a href="#">Điện
+                                    thoại giá rẻ</a></li>
+                                <li class="timkiem_lichsu__danhsach"><a href="#">Điện
+                                    thoại Iphone</a></li>
+                                <li class="timkiem_lichsu__danhsach"><a href="#">Thầy
+                                    Bình đẹp trai nhất FPT Tây Nguyên</a></li>
+                            </ul>
+                        </div>
+                        <select id="timkiemchon" class="btntimkiemchon">
+                        <option class="in1" value="trong">[[#{lo.index.trSh}]]</option>
+                        <option class="in1" value="ngoai">Ngoài Shop</option>
+                    </select>
+                        <button onclick="onclickTimKiem()" class="btn-timkiem">
+                        <div class="timkiemkkk">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </button>
+                    </div>
+                </form>
+            </div>
+            <div class="header-muahang">
+                <a th:href="@{/home/chitietgiohang}"><i class="fas fa-cart-arrow-down"></i></a>
+            </div>
+            <div class="lichsugiaodich">
+                <div class="noidung">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

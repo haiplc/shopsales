@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layout::dynamic(~{::title},~{::body})}">
+
+<head>
+    <title>[[#{lo.index.lhh}]] | ShopSale</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sanPham">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="well well-sm" id="khunglienhe" style="margin-top: 50px; width: 600px">
+                            <form class="form-horizontal" action="" method="post">
+                                <fieldset>
+                                    <legend class="text-center" style="margin-left: 30px">[[#{lo.index.lienhe}]]</legend>
+                                    <!-- Name input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">[[#{lo.index.tencb}]]</label>
+                                        <div class="col-md-9">
+                                            <input id="name" name="name" type="text" th:placeholder="#{lo.index.vdten}" class="form-control" style="width: 600px;">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="email">[[#{lo.index.e-m}]]</label>
+                                        <div class="col-md-9">
+                                            <input id="email" name="email" type="text" th:placeholder="#{lo.index.vdem}" class="form-control" style="width: 600px;">
+                                        </div>
+                                    </div>
+
+                                    <!-- Message body -->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="message">[[#{lo.index.nd}]]</label>
+                                        <div class="col-md-9">
+                                            <textarea class="form-control" id="message" name="message" th:placeholder="#{lo.index.nnd}" rows="5" style="width: 600px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- Form actions -->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary btn-lg" style="margin-left: 220px">[[#{lo.index.guitt}]]</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="khungbando">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14627.320951272748!2d108.0679733345859!3d12.698999202589574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171f7d129f29e75%3A0x4a950c104f61c8bb!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIHRo4buxYyBow6BuaCBGUFQgUG95dGVjaG5pYyBUw6J5IE5ndXnDqm4!5e0!3m2!1svi!2s!4v1614275446000!5m2!1svi!2s"
+                    width="500px" height="600px" style="border:0; margin-top: -50px" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

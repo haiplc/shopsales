@@ -1,0 +1,373 @@
+.themmoiSP button:hover {
+	background-color: orange;
+}
+
+.themmoiSP:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.table {
+	height: 50px;
+	margin-left: 20px;
+}
+
+.form-thongtin-sp {
+	width: 1200px;
+	height: 950px;
+	display: none;
+	position: absolute;
+	animation: fadeIn linear 1s;
+	margin-left: 150px;
+	margin-top: -95px;
+	z-index: 999999;
+}
+
+.themmoiSP .form-thongtin-sp {
+	display: block;
+}
+
+.khungchua1 {
+	width: 1200px;
+	height: 460px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.khung1 {
+	width: 650px;
+	height: 460px;
+	text-align: center;
+}
+
+.khung2 {
+	width: 450px;
+	height: 460px;
+}
+
+.khungchua2 {
+	width: 1200px;
+	height: 250px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.khungchua3 {
+	width: 1200px;
+	height: 50px;
+	text-align: center;
+}
+
+.khungnhaplieusp {
+	width: 600px;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 10px;
+	margin-top: 20px;
+}
+
+.khungnhaplieusp1 {
+	width: 650px;
+	margin: 0 auto;
+	display: block;
+	margin-top: 23px;
+}
+
+.khungnhaplieusp11 {
+	width: 650px;
+	margin: 0 auto;
+	display: block;
+	margin-top: 10px;
+}
+
+.khungnhaplieusp9 {
+	width: 300px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+	margin-top: 20px;
+}
+
+.chitietsanpham1 {
+	width: 650px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-bottom: 10px;
+}
+
+.chitietsanpham2 {
+	width: 650px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.khunglink-soluong1 {
+	display: block;
+}
+
+.khunglink-soluong1 input {
+	width: 400px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.chitietsanpham3 {
+	width: 650px;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+
+.khungnhaplieusp1 input {
+	width: 600px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieusp11 {
+	width: 600px;
+	display: flex;
+	flex-direction: row;
+}
+
+.khungnhaplieusp11 input {
+	width: 600px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieusp91 input {
+	width: 150px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieusp9 input {
+	width: 300px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieusp input {
+	width: 350px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieusp textarea {
+	width: 350px;
+	height: 150px;
+	font-size: 18px;
+}
+
+.khungnhaplieuspt {
+	width: 550px;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 30px;
+	margin-top: 20px;
+}
+
+.tieude-thoat1 {
+	width: 1200px;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	line-height: 40px;
+}
+
+.tieude-thoat1 a:hover {
+	transform: scale(1.1);
+}
+
+.noidung-thongtin1 {
+	width: 400px;
+}
+
+.form-thongtin {
+	width: 400px;
+	height: 300px;
+	display: none;
+	position: fixed;
+	animation: fadeIn linear 1s;
+	margin-left: 550px;
+	margin-top: 150px;
+}
+
+.themmoiSP .form-thongtin {
+	display: block;
+}
+
+.hienThiDkDn__body { 
+	--growth-from: 0.7;
+	 --growth-to: 1;
+	background-color: white;
+	margin: auto;
+	position: relative;
+	border-radius: 5px;
+	z-index: 1;
+	overflow: hidden;
+	animation: growth linear 0.5s;
+	box-shadow: 5px 10px 18px #888888;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+
+.tieude-thoat {
+	width: 400px;
+	height: 40px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	line-height: 40px;
+}
+
+.thoat-thongtin {
+	color: red;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.tieude-thoat a:hover {
+	transform: scale(1.1);
+}
+
+.noidung-thongtin {
+	width: 400px;
+}
+
+.khungnhaplieu {
+	width: 350px;
+	margin: 0 auto;
+	display: block;
+	padding-bottom: 10px;
+	margin-top: 20px;
+}
+
+.khungnhaplieu input {
+	width: 350px;
+	height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid blue;
+}
+
+.khungnhaplieu input:focus {
+	border: none;
+	background-color: #ccc;
+}
+
+.btnthemdanhmuc {
+	width: 400px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.btThem button:hover {
+	transform: scale(1.1);
+	background-color: green;
+}
+
+.thelink1 input {
+	width: 450px;
+}
+
+.thelink2 input {
+	width: 150px;
+	margin-left: 15px;
+}
+
+.the-them-dt{
+	width: 100px;
+	height: 40px;
+	background-color: white;
+	border: 2px solid #008CBA;
+	margin-right: 20px;
+	color: black;
+	font-family: serif;
+	font-size: 16px;
+	border-radius: 10px;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.the-them-dt:hover{
+	background-color: #008CBA;
+}
+
+.the-them-dt a:hover{
+	text-decoration: none;
+	color: white;
+}
+
+.the-sort-id{
+	display: block;
+	width: 20px;
+	margin-left: 35px;
+	position: absolute;
+	margin-top: -22px;
+}
+
+.the-sort-name{
+	display: block;
+	width: 20px;
+	margin-left: 160px;
+	position: absolute;
+	margin-top: -22px;
+}
+.the-sort-soluong{
+	display: block;
+	width: 20px;
+	margin-left: 85px;
+	position: absolute;
+	margin-top: -22px;
+}
+
+.the-sort-giaban{
+	display: block;
+	width: 20px;
+	margin-left: 115px;
+	position: absolute;
+	margin-top: -22px;
+}
+.the-sort a:hover{
+	color: #008CBA;
+}
+
+.modal-footer a{
+	width: 120px; 
+	height: 40px; 
+	border: none; 
+	background-color: red; 
+	color: white;
+	border-radius: 5px;
+	line-height: 40px;
+	opacity: 0.7;
+	font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+.activePage{
+	background: #008CBA;
+	color: white;
+}
+.modal-footer a:hover{
+	opacity: 1;
+}

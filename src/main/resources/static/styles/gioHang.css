@@ -1,0 +1,402 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+img{
+    width: 100%;
+}
+ .error{
+            font-size: 12px;
+            color: #f7452e;
+            line-height: 14px;
+            height: 14px;
+            margin-left: 10px;
+            font-style:  italic; 
+        }
+        .thanhtoanbtn{
+            width: 450px;
+            height: 60px;
+            margin: auto;
+            margin-left: 635px;
+            line-height: 18px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 4px 2px 2px #ddd;
+            background-color: #f7452e;
+            opacity: 0.8;
+            margin-top: -80px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .thanhtoanbtn:hover{
+            opacity: 1;
+        }
+.gioHang{
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 4px #ddd;
+    padding: 20px;
+    margin: auto;
+    max-width: 1100px;
+    background-color: #fff;
+}
+input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+img{
+    width: 100%;
+}
+.item-giohang{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.item-giohang .hinhanh img{
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+.item-giohang .hinhanh, .soLuong, .tongTien, .hanhDong{
+    flex: 1;
+    margin-left: 60px;
+}
+.item-giohang .gia{
+    width: 200px;
+    margin-left: 20px;
+}
+.item-giohang .soLuong{
+    width: 30px;
+    margin-left: 40px;
+}
+.item-giohang .tensp{
+    width: 200px;
+    text-align: center;
+    margin-left: 40px;
+    padding-right: 20px;
+    font-size: 16px;
+}
+.item-giohang .gia .giaGoc{
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #ccc;
+}
+.item-giohang .gia .giaBan{
+    color: #e7452c;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.item-giohang .hanhDong i{
+    color: black;
+}
+.item-giohang .hanhDong i:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.menugiohang{
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(247, 81, 81);
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: bold;
+}
+.cart-title{
+    color: rgb(246, 65, 46);
+    line-height: 80px;
+}
+.menugiohang .hinh{
+    width: 250px;
+    text-align: center;
+}
+.menugiohang .tenspp{
+    width: 350px;
+    text-align: center;
+}
+
+.menugiohang .giaspp{
+    width: 180px;
+    text-align: center;
+}
+.menugiohang .soluongspp{
+    width: 150px;
+    text-align: center;
+}
+.menugiohang .thanhtien{
+    width: 200px;
+    text-align: center;
+}
+
+.menugiohang .thaotacxoa{
+	width: 80px;
+	text-align: center;
+}
+
+.thanhToan{
+    width: 250px;
+    min-height: 130px;
+    margin-left: 900px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px #ddd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.tamTinh{
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.tamthanhtoan{
+    font-size: 16px;
+    margin-right: 15px;
+}
+.tienPhaiTra{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.thanhtoanEnd{
+    color: #f53;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.nut-mua-tiep{
+    height: 30px;
+    cursor: pointer;
+    color: #f53;
+    z-index: 10;
+    font-size: 18px;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+.nut-mua-tiep:hover{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nd1_tt{
+    line-height: 50px;
+    margin-left: 5px;  
+    color: rgb(146, 145, 145);  
+}
+.vat_tt{
+    margin-left: 110px;
+    height: 30px;
+    color: rgb(146, 145, 145);
+}
+.thanhngang{
+    width: 600px;
+    margin: auto;
+    height: 5px; 
+    margin-top: 30px;   
+    border-top: 1px dashed #f64147;
+}
+/*Phần thanh toán*/
+
+.thanhtoanbtn{
+    color: #fff;
+}
+.phanbenphai{
+    width: 480px;
+    height: 550px;
+    margin-top: 20px;
+    background-color: #fff;
+    margin-right: 50px;    
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px #ddd;
+}
+.phantrentt{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.hinhthuctt{
+    width: 200px;
+    margin-left: 33px;
+    font-weight: 400;
+    font-size: 15px;   
+    line-height: 26px;
+    list-style: none;
+}
+.dvivanchuyen{
+    width: 200px;
+    font-weight: 400;
+    font-size: 15px;
+    list-style: none;
+    line-height: 26px;
+}
+.ngangiuan{
+    width: 2px;
+    height: 140px;
+    margin-top: 30px;
+    margin-left: -12px;
+    border-right: 1px dashed #f53;
+}
+.noidungnay .item-tenhthuc{
+    line-height: 30px;
+    color: #f53;
+}
+.noidung2nay .item-tenhthuc{
+    line-height: 30px;
+    color: #f53;
+}
+.tenhthuc{
+    color: #f53;
+}
+.item-tenhthuc:hover{
+    color: #f53;
+}
+.item-tenhthuc2{
+    line-height: 30px;
+    margin-left: 10px;
+}
+.item-tenhthuc2:hover{
+    color: #f53;
+}
+.phantrentt .fa-caret-right{
+    color: #f53;
+}
+.phantrentt .fa-sort-down{
+    color: #ccc;
+}
+.luuy{
+    margin-left: 40px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+.noidungluuy{
+    height: 50px;
+}
+.chinhsachvc{
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 30px;
+    color: #f53;
+}
+.ngancuoi{
+    width: 150px;
+    height: 30px;
+    margin: auto;
+    margin-top: 15px;
+    border-bottom: 1px dashed #f53;
+}
+.khunghinhtrong{
+    width: 500px;
+    height: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: auto;
+    text-align: center;
+}
+.hinhtrong{
+    width: 100%;
+}
+.noidungtrong1{
+    color: #f53;
+    line-height: 20px;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -360px;
+    margin-left: 170px;
+}
+.noidungtrong{
+    color: #f53;
+    line-height: 16px;
+    position: absolute;
+    margin-top: -20px;
+    margin-left: 140px;
+}
+
+#main-giohang{
+    width: 1200px;
+    margin: auto;
+    margin-top: 40px;
+}
+.cart{
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 20px 20px;
+    background-color: #fff;
+}
+
+.khungchuamua{
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+.customer-info{
+    width: 480px;
+    height: fit-content;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 1px 3px 1px #ccc ;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.cart-title{
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -20px;
+}
+.customer-info .customer-info-ten{
+    font-size: 16px;
+    color: #F7452E;
+}
+
+.customer-info input{
+    display: block;
+    width: 90%;
+    margin: auto;
+    font-size: 14px;
+}
+.customer-info label{
+    display: block;
+    width: 90%;
+    margin: auto;
+    font-size: 16px;
+    margin-left: 35px;
+}
+.customer-info input{
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-top: 5px;
+    border-radius: 2px;
+    outline: none;
+}
+
+.customer-info input:focus{
+    border: 1px solid cornflowerblue;
+}
+
+.customer-info input:invalid{
+    border: 1px solid red;
+}
+
+.customer-info label{
+    margin-top: 20px;
+}
+
+#thongbaoLoi{
+	position: absolute;
+	
+}

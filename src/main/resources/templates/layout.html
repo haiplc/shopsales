@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:fragment="dynamic(title,body)">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${title}"></title>
+    <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
+    <!-- <link rel="stylesheet" th:href="@{/fonts/fontawesome-free-5.13.0-web/css/all.min.css}" /> -->
+    <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" th:href="@{/fonts/fontawesome-free-5.13.0-web/css/all.min.css}"> -->
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/animation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/slider.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
+    <script src="https://kit.fontawesome.com/a6063db324.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" th:href="fonts/fontawesome-free-5.13.0-web/css/all.min.css"> -->
+    <style type="text/css">
+        div.hienThi-giohangmini {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            animation: fadeIn linear 0.4s;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            background-color: rgb(0, 0, 0, 0.4);
+        }
+        
+        div.gio-hang {
+            --growth-from: 0.7;
+            --growth-to: 1;
+            background-color: white;
+            margin: auto;
+            position: relative;
+            border-radius: 5px;
+            z-index: 1;
+            overflow: hidden;
+            animation: growth linear 0.2s;
+            width: 700px;
+            min-height: 100px;
+            position: relative;
+            top: 100px;
+            margin-left: 600px;
+            z-index: 400;
+            border: 1px solid #000;
+            background: white;
+        }
+        
+        button.close {
+            float: right;
+        }
+        
+        div.noidung-chua-content {
+            width: 680px;
+            margin: 0 auto;
+            margin-top: 15px;
+        }
+        
+        div.the-tieude-content {
+            width: 680px;
+            margin: 0 auto;
+            color: #ccc;
+            font-size: 18px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            display: flex;
+        }
+        
+        .icon-search {
+            position: absolute;
+            pointer-events: none;
+            z-index: 2;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            color: red;
+        }
+        
+        .hangdtss {
+            position: relative !important;
+            padding-right: 25px !important;
+        }
+        
+        #danh-mucdt h6 {
+            width: 300px;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            margin-left: -5px;
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+        
+        #danh-mucdt a {
+            display: block !important;
+            font-size: 17px;
+            color: black;
+        }
+        
+        #danh-mucdt a:hover {
+            color: var(--primary-color);
+        }
+        
+        .top-ltt {
+            margin-top: -1px;
+        }
+        
+        .activePage {
+            background: red;
+            color: white;
+        }
+        
+        .activePage1 {
+            background: red;
+            color: blue;
+        }
+        
+        .styleFree {
+            color: black;
+        }
+        
+        .activeDanhMuc {
+            width: 150px;
+            height: 40px;
+            background: #58ACFA;
+            color: white !important;
+            border-radius: 10px;
+        }
+        
+        .NoActiveDanhMuc {
+            width: 150px;
+            height: 40px;
+        }
+        
+        .item-phanTramGiamGia {
+            position: absolute;
+            margin-top: -265px;
+            margin-left: 167px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 216, 64, 0.9);
+            text-align: center;
+            cursor: pointer;
+            border-top-right-radius: 4px;
+        }
+        
+        .item-phanTramGiamGia::after {
+            content: '';
+            position: absolute;
+            margin-top: -28px;
+            margin-left: -20px;
+            border-width: 0 20px 6px;
+            border-style: solid;
+            border-color: transparent rgba(255, 216, 64, .5) transparent rgba(255, 216, 64, .7);
+        }
+        
+        .giamGiaPhanTram {
+            color: red;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 17px;
+            margin-top: 3px;
+        }
+        
+        .giamGiaPhanTram_Sale {
+            color: #222;
+            font-size: 12px;
+            line-height: 15px;
+            font-weight: bold;
+            letter-spacing: -1px;
+            margin-top: 2px;
+        }
+        
+        .item-phanTramGiamGia:hover {
+            transform: scale(1.1);
+        }
+        
+        .item-tenShopSale {
+            position: absolute;
+            margin-top: -265px;
+            margin-left: -35px;
+            background-color: var(--primary-color);
+            width: 87px;
+            height: 20px;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .item-tenShopSale::after {
+            content: "";
+            border-width: 0 5px 10px;
+            margin-left: -87px;
+            margin-top: 27px;
+            border-style: solid;
+            border-color: transparent var(--primary-color) transparent transparent;
+        }
+        
+        .logoNen {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+        
+        .tenShop_Sale {
+            margin-left: 5px;
+            margin-top: 2px;
+        }
+        
+        .tooltiptext {
+            display: none;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div th:replace="~{Layout/header}" th:remove="tag"></div>
+
+    <div th:replace="${body}" th:remove="tag"></div>
+
+    <div th:replace="~{Layout/footer}" th:remove="tag"></div>
+
+    <div class="hienThi-giohangmini">
+        <div class="hien-body-giohang">
+            <div class="gio-hang">
+                <div class="the-tieude-content">[[#{lo.index.sanphamtronggio}]]</div>
+                <button class="close">
+					<i class="fas fa-times" style="color: red; font-size: 18px; position: absolute; margin-left: -20px; margin-top: -20px;"></i>
+				</button>
+
+                <div class="noidung-chua-content">
+                    <div id="table-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" th:src="@{/js/gioHangShopsale.js}"></script>
+<script type="text/javascript" th:src="@{/js/loadSlider.js}"></script>
+
+
+</html>

@@ -1,0 +1,102 @@
+.bang-danhmuc{
+	width: 450px;
+	min-height: 200px;
+	margin: 0 auto;
+	font-family: serif;
+	font-size: 16px;
+}
+:root { 
+	--primary-color: #f7452e; 
+	--primary-dark-color: #c53724; 
+	--primary-light-color: #f86a57; 
+	--dark-color: #222; 
+	--light-color: #fff;
+}
+
+.dropbtn:hover .menu-lv2ad{
+	display: block;
+}
+/*MENULV2*/
+.menu-lv2ad li{
+	list-style: none;
+}
+.menu-lv2ad {
+	width: 240px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	box-shadow: 1px 1px 2px #ddd;
+	position: absolute;
+	background-color: rgb(44,168,255);
+	top: 70px;
+	margin-top: 120px;
+	margin-left: 20px;
+	display: none;
+	z-index: 55;
+	animation: fadeIn ease-in 0.4s;
+}
+
+.menu-lv2ad a {
+	color: var(--dark-color);
+}
+
+.menu-lv2ad .item-lv2ad {
+	padding: 10px 20px;
+}
+
+.menu-lv2ad .item-lv2ad:hover {
+	background-color: var(--primary-color);
+}
+
+.menu-lv2ad .item-lv2ad:first-child:hover {
+	background-color: var(--primary-color);
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.menu-lv2ad .item-lv2ad:last-child:hover {
+	background-color: var(--primary-color);
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.activead{
+    background-color: #a8c6d7;
+}
+
+.the-sort-ram{
+	display: block;
+	width: 20px;
+	margin-left: 115px;
+	position: absolute;
+	margin-top: -22px;
+}
+
+
+
+
+.the-sort-id-hang{
+	margin-left: 60px;
+	margin-top: -21px;
+	position: absolute;
+}
+
+.the-sort-name-hang{
+	margin-left: 255px;
+	margin-top: -21px;
+	position: absolute;
+}
+.bang-danhmuc-qlhag{
+	width: 550px;
+	min-height: 200px;
+	margin: 0 auto;
+	font-family: serif;
+	font-size: 16px;
+}
+
+.the-sort-id-hang i:hover{
+	transform: scale(1.1);
+}
+
+.activePage{
+	background: #008CBA;
+	color: white;
+}

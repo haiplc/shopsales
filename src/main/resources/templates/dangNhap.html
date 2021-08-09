@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[[#{lo.index.dnhap}]] | ShopSale</title>
+    <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
+    <!-- <link rel="stylesheet" th:href="@{/fonts/fontawesome-free-5.13.0-web/css/all.min.css}" /> -->
+    <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/dangNhap.css}">
+
+</head>
+
+<body>
+    <div class="formDangNhap">
+        <form class="dangNhap" action="/shopsale/dangnhap" method="post" th:object="${dangnhap}">
+            <div class="khung_inner_tren">
+                <h3 class="heading_inner">[[#{lo.index.dnhap}]]</h3>
+                <a id="dangKy" class="dangKy" href="/shopsale/dangky">[[#{lo.index.dky}]]</a>
+            </div>
+            <!-- hiện thông báo thành công - lỗi -->
+            <label id="thongbaoLoi" for="khunginner__input" style="float:left; margin-right: 150px; position: absolute; margin-top: -30px;" class="error2" th:text="${message}"></label>
+            <div class="khunginner_phan2">
+                <div class="nhominput">
+                    <label>[[#{lo.index.tendn}]]</label>
+                    <input class="khunginner__input" th:field="*{tenDangNhap}" type="text" name="tenDangNhap">
+                    <br/>
+                </div>
+                <br/>
+                <div class="nhominput">
+                    <label>[[#{lo.index.mk}]]</label>
+                    <input class="khunginner__input" th:field="*{matKhau}" type="password" name="matKhau">
+                    <br/>
+                </div>
+            </div>
+            <div class="quenMk">
+                <a href="" class="quenMkLink">[[#{lo.index.quenmk}]]</a>
+                <a href="" class="quenMkLink2">[[#{lo.index.cantg}]]</a>
+            </div>
+            <div class="nutDieuKhien">
+                <input class="dangnh" type="submit" th:value="#{lo.index.dnhap}" />
+            </div>
+            <div class="khungMxh">
+                <a href=""><img class="mxhKhung" th:src="@{/images/facebook.png}" alt=""></a>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/ASM_PK01675_Java4/dangNhap.jsp&response_type=code&client_id=651993939908-3bl8gq306342j0asaq5m9ohisldadun8.apps.googleusercontent.com&approval_prompt=force"></a>
+                <img class="mxhKhung" th:src="@{/images/google.png}" alt=""></a>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

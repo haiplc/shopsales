@@ -1,0 +1,109 @@
+<div id="footer">
+    <div class="footer_noiDung">
+        <div class="footer_noiDung_nd1">
+            <div class="footer_noiDung_header">
+                <h3>[[#{lo.index.chamsoc}]]</h3>
+            </div>
+            <div class="chamsoc_noidung">
+                <li class="ndcskh">[[#{lo.index.tttg}]]</li>
+                <li class="ndcskh">[[#{lo.index.shopmail}]]</li>
+                <li class="ndcskh">[[#{lo.index.shopblog}]]</li>
+                <li class="ndcskh">[[#{lo.index.hdmua}]]</li>
+                <li class="ndcskh">[[#{lo.index.vanchuyen}]]</li>
+                <li class="ndcskh">[[#{lo.index.trahang}]]</li>
+                <li class="ndcskh">[[#{lo.index.shopxu}]]</li>
+                <li class="ndcskh">[[#{lo.index.chinhsachbh}]]</li>
+                <li class="ndcskh">[[#{lo.index.chamsockh}]]</li>
+            </div>
+        </div>
+        <div class="footer_noiDung_nd2">
+            <div class="footer_noiDung_header">
+                <h3>[[#{lo.index.veshop}]]</h3>
+            </div>
+            <div class="shopsale_noidung">
+                <li class="ndcskh">[[#{lo.index.gtshop}]]</li>
+                <li class="ndcskh">[[#{lo.index.tuyendungf}]]</li>
+                <li class="ndcskh">[[#{lo.index.dieukhoan}]]</li>
+                <li class="ndcskh">[[#{lo.index.chinhsachbaomat}]]</li>
+                <li class="ndcskh">[[#{lo.index.flashsale}]]</li>
+                <li class="ndcskh">[[#{lo.index.ctrtiepthi}]]</li>
+            </div>
+        </div>
+        <div class="footer_noiDung_nd3">
+            <div class="footer_noiDung_nd3a">
+                <div class="footer_noiDung_header">
+                    <h3>[[#{lo.index.nganhanglk}]]</h3>
+                </div>
+                <div class="cacnganhang">
+                    <div class="cacnganhg">
+                        <img th:src="@{/images/bidvtt.png}" alt="">
+                    </div>
+                    <div class="cacnganhg">
+                        <img th:src="@{/images/tpank.png}" alt="">
+                    </div>
+                    <div class="cacnganhg">
+                        <img th:src="@{/images/sacombank.png}" alt="">
+                    </div>
+                    <div class="cacnganhg">
+                        <img th:src="@{/images/vietcombanktt.png}" alt="">
+                    </div>
+                    <div class="cacnganhg">
+                        <img th:src="@{/images/sacombank.png}" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer_noiDung_nd3b">
+                <div class="footer_noiDung_header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQJcQh7g-xkXE8lZ699qf2EykoZ_xPTAkwZmu-0dWtlM8hhfhgi&usqp=CAU" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer_noiDung_nd4">
+            <div class="footer_noiDung_header">
+                <h3>[[#{lo.index.folowin}]]</h3>
+            </div>
+            <div class="theodoi_noidung">
+                <li class="ndcskh">
+                    <i class="fa fa-instagram" aria-hidden="true" style="margin-left: 5px; padding-right: 5px"></i> Instagram
+                </li>
+                <li class="ndcskh">
+                    <i class="fa fa-facebook" aria-hidden="true" style="margin-left: 5px; padding-right: 5px"></i> Facebook
+                </li>
+            </div>
+        </div>
+        <div class="footer_noiDung_nd5">
+            <div class="footer_noiDung_header">
+                <h3>[[#{lo.index.downnow}]]</h3>
+            </div>
+            <div class="qrtai">
+                <img th:src="@{/images/f184c0b68a2d385feb5d70a76396230b.png}" alt="">
+            </div>
+            <div class="lienketcungqr">
+                <a href="#" class="qr_ap_link">
+                    <img th:src="@{/images/2679f513b5f9e235adf2c6c288617e7b.png}" alt="Google Play">
+                </a>
+                <a href="#" class="qr_ap_link">
+                    <img th:src="@{/images/759416b55e2bd69ecc360ee2faab7ad0.png}" alt="App Store">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="noidung2">
+        [[#{lo.index.quocgia}]]<span class="nuoc"> [[#{lo.index.vietnam}]] </span> | <span class="nuoc">[[#{lo.index.lao}]] </span> | <span class="nuoc">[[#{lo.index.thailan}]]</span> | <span class="nuoc"> [[#{lo.index.trungquoc}]] </span> | <span class="nuoc">
+                [[#{lo.index.indonexia}]] </span>|<span class="nuoc"> ...</span>
+    </div>
+    <div class="diachishop">
+        <p>[[#{lo.index.congtyname}]]
+            <span th:text="${footerInfo.tenCongTy}"></span>
+        </p>
+        <p>[[#{lo.index.diachicongty}]]
+            <span th:text="${footerInfo.diaChi}"></span>
+        </p>
+        <p th:text="${footerInfo.banQuyen}"></p>
+        <p>
+            <span th:text="${footerInfo.soDienThoai}"></span> -
+            <span th:text="${footerInfo.email}"></span>
+        </p>
+    </div>
+</div>

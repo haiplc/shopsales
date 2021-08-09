@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thêm mới Hãng Điện thoại</title>
+    <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/insertDanhMuc.css}">
+    <link rel="stylesheet" href="fonts/fontawesome-free-5.13.0-web/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a6063db324.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-insert">
+        <div class="the-tieu-de-danhmuc">
+            <label>Hãng điện thoại</label>
+            <a t:href="@{/admin/quanlydanhmuc}"><i class="fas fa-times " style="color: red; font-size: 16px"></i></a>
+        </div>
+        <form class="the-form-danhmuc" action="/admin/quanlydanhmuc/hangdt/insert" method="post" th:object="${hangdt}">
+            <input th:field="*{hang_id}" type="hidden">
+            <br/>
+            <label th:field="*{hang_name}" class="tieu-de-danhmuc">Hãng điện thoại</label>
+            <br/>
+            <input th:field="*{hang_name}" class="input-danhmuc" />
+            <br/>
+            <i th:errors="*{hang_name}" style="color:red; font-style: italic; margin-left: 60px; position: absolute; margin-top: 5px;"></i>
+            <br/>
+            <div class="thao-tac" style="margin-top: 10px">
+                <input type="submit" value="Thêm mới">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

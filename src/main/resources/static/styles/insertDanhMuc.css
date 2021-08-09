@@ -1,0 +1,86 @@
+body {
+	background-image: url("https://thietbiketnoi.com/wp-content/uploads/2020/01/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-4.jpg");
+	background-color: #cccccc;
+	height: 900px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+.main-insert{
+	width: 450px;
+	min-height: 220px;
+	background-color: white;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 200px;
+    box-shadow: 1px 1px 1px 3px blue;
+}
+.the-tieu-de-danhmuc{
+	width: 430px;
+	height: 40px;
+	font-size: 18px;
+	margin-top: 10px;
+	align-items: center;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.the-tieu-de-danhmuc i:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+.the-tieu-de-danhmuc label{
+	width: 430px;
+	color: #ccc;
+	float: left;
+}
+.the-form-danhmuc{
+	width: 430px;
+	min-height: 100px;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
+}
+
+.tieu-de-danhmuc{
+	color: #ccc;
+	font-size: 18px;
+	width: 480px;
+	margin-left: 60px;
+}
+
+.input-danhmuc{
+	width: 330px;
+	height: 40px;
+	margin-left: 50px;
+	font-size: 18px;
+	font-family: serif;
+	padding-left: 5px;
+	border: none;
+	border-bottom: 1px solid dodgerBlue;
+}
+
+.input-danhmuc:focus {
+	border: none;
+}
+
+.thao-tac input {
+	width: 120px;
+	height: 40px;
+	border: 1px solid green;
+	background-color: white;
+	font-family: serif;
+	font-size: 18px;
+	margin-left: 160px;	
+	border-radius: 5px;
+}
+
+.thao-tac input:hover{
+	background-color: green;
+	cursor: pointer;
+	color: #fff;
+}

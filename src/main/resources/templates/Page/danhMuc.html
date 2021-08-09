@@ -1,0 +1,30 @@
+<div class="col col-sm-12 hangdtss" th:fragment="hangdts">
+    <h6>[[#{lo.index.hangdtss}]]</h6>
+    <a th:classappend="${hang == 0 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+0+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}">[[#{lo.index.allhang}]]</a>
+    <div th:each="category:${hangdts}">
+        <a th:classappend="${hang == category.getHang_id() ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${category.getHang_id()}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}">[[${category.getHang_name()}]]</a>
+    </div>
+</div>
+
+<div class="col col-sm-12" style="background: #ccc" th:fragment="giaban">
+    <h6>[[#{lo.index.mucgia}]]</h6>
+    <a th:classappend="${min == 0 && max == 2000000 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+0+'&max='+2000000+'&minman='+${minman}+'&maxman='+${maxman}}">[[#{lo.index.duoi2tr}]]</a>
+    <a th:classappend="${min == 2000000 && max == 4000000 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+2000000+'&max='+4000000+'&minman='+${minman}+'&maxman='+${maxman}}">[[#{lo.index.2den4tr}]]</a>
+    <a th:classappend="${min == 4000000 && max == 7000000 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+4000000+'&max='+7000000+'&minman='+${minman}+'&maxman='+${maxman}}">[[#{lo.index.4den7tr}]]</a>
+    <a th:classappend="${min == 7000000 && max == 13000000 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+7000000+'&max='+13000000+'&minman='+${minman}+'&maxman='+${maxman}}">[[#{lo.index.7den13tr}]]</a>
+    <a th:classappend="${min ==  13000000 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+13000000+'&minman='+${minman}+'&maxman='+${maxman}}">[[#{lo.index.tren13tr}]]</a>
+</div>
+<div class="col col-sm-12" th:fragment="manhinhdts">
+    <h6>[[#{lo.index.manhinhdtss}]]</h6>
+    <a th:classappend="${minman == 0 && maxman == 10 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}+'&minman='+0+'&maxman='+10}">[[#{lo.index.tatca}]]</a>
+    <a th:classappend="${minman == 0 && maxman == 5 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}+'&minman='+0+'&maxman='+5}">[[#{lo.index.duoi5}]]</a>
+    <a th:classappend="${minman == 5 && maxman == 6 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}+'&minman='+5+'&maxman='+6}">[[#{lo.index.5den6}]]</a>
+    <a th:classappend="${minman == 6 && maxman == 10 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}+'&minman='+6+'&maxman='+10}">[[#{lo.index.tren6}]]</a>
+</div>
+<div class="col col-sm-12" style="background: #ccc" th:fragment="tragop">
+    <h6>[[#{lo.index.tragop}]]</h6>
+    <a class="activeDanhMuc" href="#">[[#{lo.index.tatca}]]</a>
+    <a href="#">[[#{lo.index.0%}]]</a>
+    <a href="#">[[#{lo.index.0d}]]</a>
+    <a href="#">[[#{lo.index.0%/0d}]]</a>
+</div>

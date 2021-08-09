@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>[[#{lo.index.qldm}]] | ShopSale</title>
+    <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{fonts/fontawesome-free-5.13.0-web/css/all.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- CSS Files -->
+    <link th:href="@{/styles/bootrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/dashboard.css}" rel="stylesheet" />
+    <link th:href="@{/styles/demo.css}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/animation.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/quanLyDanhMuc.css}">
+</head>
+
+<body>
+    <div class="wrapper ">
+        <div class="sidebar" data-color=blue>
+            <!--  Tip 1: Màu nền chọn: data-color="blue | green | orange | red | yellow" -->
+            <div class="logo">
+                <div class="logonho">
+                    <a th:href="@{/home}"><img th:src="@{/images/image.png}" alt="" width="30px"></a>
+                </div>
+                <a th:href="@{/home}" class="simple-text logo-normal" style="color: black;">
+					SHOPSALE.COM </a>
+            </div>
+            <!--  MENU DANH MỤC -->
+            <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <ul class="nav">
+                    <li>
+                        <a th:href="@{/admin/dashboard}"> <i class="fas fa-chart-line"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/quanlysanpham}"> <i class="fas fa-database"></i>
+                            <p>[[#{lo.index.qlsp}]]</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fas fa-database"></i>
+                            <p>[[#{lo.index.qlpk}]]</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a th:href="@{/admin/quanlydanhmuc}"> <i class="fas fa-list-ul"></i>
+                            <p>[[#{lo.index.qldm}]]</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/quanlydanhmuchang}"> <i class="far fa-building"></i>
+                            <p>[[#{lo.index.qldmh}]]</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/quanlydonhang}"> <i class="fas fa-file-medical-alt"></i>
+                            <p>[[#{lo.index.qldh}]]</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/quanlyusers}"> <i class="fas fa-user-tie"></i>
+                            <p>[[#{lo.index.qluser}]]</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/admin/thongtinadmin}"> <i class="fas fa-user-shield"></i>
+                            <p>[[#{lo.index.ttadmin}]]</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel" id="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-wrapper">
+                        <div class="navbar-toggle">
+                            <button type="button" class="navbar-toggler">
+								<span class="navbar-toggler-bar bar1"></span> <span
+									class="navbar-toggler-bar bar2"></span> <span
+									class="navbar-toggler-bar bar3"></span>
+							</button>
+                        </div>
+                        <a class="navbar-brand" th:href="@{admin/quanlydanhmuc}" style="font-size: 16px">[[#{lo.index.qldm}]]</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-bar navbar-kebab"></span> <span
+							class="navbar-toggler-bar navbar-kebab"></span> <span
+							class="navbar-toggler-bar navbar-kebab"></span>
+					</button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <form>
+                            <div class="input-group no-border">
+                                <input type="text" value="" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-search" style="margin-left: 10px; cursor: pointer;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-gifts"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Stats</span>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-cogs"></i>
+                                    <p>
+                                        <span class="d-lg-none d-md-block">Lựa chọn</span>
+                                    </p>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Cài đặt chung</a> <a class="dropdown-item" href="#">Hỗ trợ</a> <a class="dropdown-item" href="#">Hoạt động</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="fas fa-user-tie"></i>
+                                    <p>
+                                        <span>Đinh Quốc Hải</span>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <div class="panel-header panel-header-sm"></div>
+            <!--  CHI TIẾT HIỂN THỊ -->
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmram}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/ramdt/insert}"><i
+                                    class="fas fa-plus-circle"
+                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.dlram}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="ram:${ramdts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${ram.getRam_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${ram.getRam_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/ramdt/edit?ram_id='+${ram.getRam_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a onclick="return confirm('Xác nhận xóa Danh mục RAM Điện thoại')" th:href="@{'/admin/quanlydanhmuc/ramdt/delete?ram_id='+${ram.getRam_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmmau}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/mausacdt/insert}"><i
+                                    class="fas fa-plus-circle"
+                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.mau}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="mau : ${mausacdt}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_id()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/mausacdt/edit?mausac_id='+${mau.getMausac_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a onclick="return confirm('Xác nhận xóa Danh mục Màu sắc Điện thoại - Phụ kiện')" th:href="@{'/admin/quanlydanhmuc/mausacdt/delete?mausac_id='+${mau.getMausac_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.qldmh}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/hangdt/insert}"><i
+                                    class="fas fa-plus-circle"
+                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.hangdtss}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="hang:${hangdts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/hangdt/edit?hang_id='+${hang.getHang_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a onclick="return confirm('Xác nhận xóa Danh mục Hãng Điện thoại')" th:href="@{'/admin/quanlydanhmuc/hangdt/delete?hang_id='+${hang.getHang_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmchip}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/chipdt/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.dlchip}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="chip : ${chipdts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${chip.getChip_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${chip.getChip_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/chipdt/edit?chip_id='+${chip.getChip_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/chipdt/delete?chip_id='+${chip.getChip_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmbonho}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/bonhodt/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.dlbonho}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="bonho : ${bonhodts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${bonho.getBonho_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${bonho.getBonho_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/bonhodt/edit?bonho_id='+${bonho.getBonho_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/bonhodt/delete?bonho_id='+${bonho.getBonho_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmmanhinh}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/manhinhdt/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.ktmanhinh}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="manhinh : ${manhinhdts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${manhinh.getManhinh_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${manhinh.getManhinh_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/manhinhdt/edit?manhinh_id='+${manhinh.getManhinh_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/manhinhdt/delete?manhinh_id='+${manhinh.getManhinh_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"> </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.dmloaidt}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/loaidt/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.phanloai}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="loai:${loaidts}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoai_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoai_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaidt/edit?loai_id='+${loai.getLoai_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaidt/delete?loai_id='+${loai.getLoai_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6"> </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class=" container-fluid ">
+                    <div class="copyright" id="copyright">
+                        &copy;
+                        <script>
+                            document.getElementById('copyright').appendChild(
+                                document.createTextNode(new Date()
+                                    .getFullYear()))
+                        </script>
+                        , Designed by <a href="#" style="margin-right: 700px">Haiplc47</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+<!-- THƯ VIỆN PHÂN TRANG -->
+<script th:src="@{/js/vendor/datatables.net/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js]"></script>
+<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.html5.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.flash.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.print.min.js}"></script>
+<script th:src="@{/js/vendor/datatables.net-select/js/dataTables.select.min.js}"></script>
+<!--   Core JS Files   -->
+<script th:src="@{/js/now-ui-dashboard.js}"></script>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/perfect-scrollbar.jquery.min.js}"></script>
+
+
+</html>

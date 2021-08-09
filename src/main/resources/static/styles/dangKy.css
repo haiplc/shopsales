@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+:root {
+    --primary-color: #f7452e;
+    --primary-dark-color: #c53724;
+    --primary-light-color: #f86a57;
+    --dark-color: #222;
+    --light-color: #fff;
+}
+
+.formDangKy,
+.dangKy {
+    width: 500px;
+    min-height: 300px;
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 5px;
+    margin-top: 50px;
+    box-shadow: 1px 1px 1px 3px blue;
+}
+
+.khung_inner_tren {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin: 20px;
+    line-height: 40px;
+}
+
+.dangNhap {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.khunginner__input {
+    width: 80%;
+    height: 40px;
+    margin-top: 10px;
+    padding: 0 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    outline: none;
+    margin-left: 50px;
+}
+
+.khunginner__input:focus {
+    border-color: #888;
+}
+
+.khunginner_phan2 {
+    margin: 0 auto;
+}
+
+.khunginner_phan3 {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    width: 400px;
+    margin-left: 50px;
+}
+
+.chuChinhSachText {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.LinkDieuKhoan {
+    color: var(--primary-color);
+}
+
+.nhominput {
+    margin: 0 auto;
+}
+
+.nhominput i {
+    color: red;
+    margin-left: 60px;
+    position: absolute;
+    margin-top: 2px;
+}
+
+.dangnh {
+    min-width: 140px;
+    height: 36px;
+    background-color: var(--primary-light-color);
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--primary-light-color);
+    outline: none;
+    text-align: center;
+    color: #fff;
+}
+
+.dangnh:hover {
+    background-color: var(--primary-dark-color);
+}
+
+.nutDieuKhien {
+    margin-left: 180px;
+    margin-top: 10px;
+    padding-bottom: 30px;
+}
+
+.mxhKhung {
+    width: 230px;
+    height: 35px;
+    margin-left: 12px;
+    cursor: pointer;
+    margin-top: 3px;
+    box-shadow: 5px;
+    opacity: 0.7;
+}
+
+.mxhKhung:hover {
+    opacity: 1;
+}
+
+.khunggioitinh_ngaysinh {
+    width: 400px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+
+label {
+    color: red;
+    margin-left: 120px;
+}
+
+.gioitinh {
+    font-size: 17px;
+    line-height: 40px;
+}
+
+body {
+    background-image: url("https://thietbiketnoi.com/wp-content/uploads/2020/01/tong-hop-hinh-nen-background-vector-designer-dep-do-phan-giai-fhd-2k-4k-moi-nhat-4.jpg");
+    background-color: #cccccc;
+    height: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.nhominput label {
+    color: #ccc;
+    font-family: serif;
+    font-size: 18px;
+    margin-left: 60px;
+    margin-top: 10px;
+    line-height: 18px;
+}

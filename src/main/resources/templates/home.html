@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout::dynamic(~{::title},~{::body})}">
+
+<head>
+    <title>[[#{lo.index.home1}]] | ShopSale</title>
+</head>
+
+<body>
+    <div class="main">
+        <div th:replace="~{Layout/slider}" th:remove="tag"></div>
+
+        <div class="sanPham">
+            <div id="danh-mucdt">
+                <div th:replace="~{Page/danhMuc :: hangdts}"></div>
+                <div th:replace="~{Page/danhMuc :: giaban}"></div>
+                <div th:replace="~{Page/danhMuc :: manhinhdts}"></div>
+                <div th:replace="~{Page/danhMuc :: tragop}"></div>
+            </div>
+            <div class="khungphan-sanpham">
+                <div class="menu-danhmuc-tren">
+                    <div class="khungloc-sanpham">
+                        <span class="label">[[#{lo.index.sapxeptheo}]]</span>
+                        <a th:classappend="${order == 1 && sort == 1 ? 'nbtnn htbl top-ltt active' : 'nbtnn htbl top-ltt'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+1+'&sort='+1+'&min='+${min}+'&max='+${max}}">[[#{lo.index.new}]]</a>
+                        <a th:classappend="${order == 1 && sort == 0 ? 'nbtnn htbl top-ltt active' : 'nbtnn htbl top-ltt'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+1+'&sort='+0+'&min='+${min}+'&max='+${max}}">[[#{lo.index.old}]]</a>
+                        <a th:classappend="${order == 0 && sort == 0 ? 'nbtnn htbl top-ltt active' : 'nbtnn htbl top-ltt'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+0+'&sort='+0+'&min='+${min}+'&max='+${max}}">[[#{lo.index.pricet}]]</a>
+                        <a th:classappend="${order == 0 && sort == 1 ? 'nbtnn htbl top-ltt active' : 'nbtnn htbl top-ltt'}" th:href="@{'/home/search?key='+${key}+'&hang='+${hang}+'&order='+0+'&sort='+1+'&min='+${min}+'&max='+${max}}">[[#{lo.index.priceg}]]</a>
+                        <div class="the-tim-kiem-home">
+                            <form action="/home/search">
+                                <div class="input-group no-border">
+                                    <input type="text" name="key" t:value="${key}" class="form-control" th:placeholder="#{lo.index.timkiemnc}" style="border-top-left-radius: 20px; border-bottom-left-radius: 20px;" />
+                                    <input name="order" th:value="${order}" type="number" disabled="disabled" style="display: none;" />
+                                    <input name="sort" th:value="${sort}" type="number" disabled="disabled" style="display: none;" />
+                                    <input name="hang" th:value="${hang}" type="number" disabled="disabled" style="display: none;" />
+
+                                    <div class="input-group-append button-search" style="position: relative; ">
+                                        <i class="fas fa-search icon-search"></i>
+                                        <input class="input-group-text" type="submit" value="" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 50px" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="products">
+                    <!--Hiển thị danh sách sản phẩm-->
+                    <div th:replace="~{Page/product :: sanpham}" th:remove="tag"></div>
+                </div>
+                <div class="menu-danhmuc-duoi-home">
+                    <ul class="pagination">
+                        <div th:if="${maxPage > 1 }" style="width: 200px; margin-left: 400px; margin-top: -20px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
+                            <li class="page-item">
+                                <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/home/search?page='+${page-1}+'&key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}">[[#{lo.index.pre}]]</a>
+                            </li>
+                            <li th:each="i : ${#numbers.sequence(0, maxPage - 1)}">
+                                <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/home/search?page='+${i}+'&key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}" th:utext="${i+1}">
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/home/search?page='+${page+1}+'&key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}">[[#{lo.index.next}]]</a>
+                            </li>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
