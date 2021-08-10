@@ -57,6 +57,7 @@
                             </select>
                         </div>
                         <div class="select-group">
+                            <br>
                             <label th:field="*{tuongthich}">[[#{lo.index.sptth}]]</label>
                             <select th:field="*{tuongthich}">
                                 <option value=""> [[#{lo.index.chon}]] </option>
@@ -66,6 +67,7 @@
                             </select>
                         </div>
                         <div class="select-group">
+                            <br>
                             <label th:field="*{thoigianbaohanh}">[[#{lo.index.thoigianbaohanh}]]</label>
                             <select th:field="*{thoigianbaohanh}">
                                 <option value=""> [[#{lo.index.chon}]] </option>
@@ -75,6 +77,7 @@
                             </select>
                         </div>
                         <div class="select-group">
+                            <br>
                             <label th:field="*{thuonghieu}">[[#{lo.index.tenthuonghieu}]]</label>
                             <select th:field="*{thuonghieu}">
                                 <option value=""> [[#{lo.index.chon}]] </option>
@@ -84,6 +87,7 @@
                             </select>
                         </div>
                         <div class="select-group">
+                            <br>
                             <label th:field="*{xuatxu}">[[#{lo.index.noixuatxu}]]</label>
                             <select th:field="*{xuatxu}">
                                 <option value=""> [[#{lo.index.chon}]] </option>
@@ -98,18 +102,14 @@
                             <label th:field="*{phukien_giaban}" class="the-ten-tm-3">[[#{lo.index.giaban}]]</label>
                             <br/>
                             <input type="number" th:field="*{phukien_giaban}" class="the-input-tm-3-1">
-                            <br/>
                             <i th:errors="*{phukien_giaban}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
-                            <br/>
                         </div>
                         <input type="hidden" th:field="*{phukien_id}" class="the-input-tm-3-1">
                         <div class="tm-tt1">
                             <label th:field="*{phukien_namsx}" class="the-ten-tm-3">[[#{lo.index.namsx}]]</label>
                             <br/>
                             <input type="number" th:field="*{phukien_namsx}" class="the-input-tm-3-11">
-                            <br/>
                             <i th:errors="*{phukien_namsx}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
-                            <br/>
                         </div>
                     </div>
                     <br/>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layout::dynamic(~{::title},~{::body})}">
+
+<head>
+    <title>[[#{lo.index.chitietpk}]] | ShopSale</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sanPham1" style="width: 1180px; min-height: 700px; margin: 0 auto;">
+            <div class="khungphan-sanpham1" style="width: 1180px; min-height: 700px; margin-top: 20px">
+                <div class="card">
+                    <div class="row">
+                        <aside class="col-sm-5">
+                            <article class="gallery-wrap">
+                                <div class="img-big-wrap">
+                                    <div style="margin-top: 100px">
+                                        <div class="slider" id="slider1" style="width: 450px; height: 800px; border: none;">
+                                            <div class="slider-item" name="slider-item">
+                                                <img th:src="${phukien.getPhukien_anh1()}" width="400px" />
+                                            </div>
+                                            <div class="slider-item" name="slider-item">
+                                                <img t:src="${phukien.getPhukien_anh2()}" width="400px" />
+                                            </div>
+                                            <div class="nut-slider">
+                                                <span onclick="onClickXemAnhTruoc()" id="btn-prev"> 
+                                                    <img alt="" th:src="@{/images/icons8_back_to_40px.png}">
+												</span>
+                                                <span onclick="onClickXemAnhSau()" id="btn-next">
+                                                    <img alt="" th:src="@{/images/icons8_next_page_40px.png}"></span>
+                                            </div>
+                                            <div id="khungChamTron"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </aside>
+                        <aside class="col-sm-7">
+                            <article class="card-body p-5">
+                                <h3 class="title mb-3" style="text-align: center;">[[${phukien.getPhukien_name()}]]</h3>
+
+                                <p class="price-detail-wrap" style="text-align: center; color: blue;">
+                                    <span class="price h3"> 
+                                        <span class="num">[[${#numbers.formatDecimal(phukien.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</span>
+                                    </span>
+                                </p>
+                                <!--  HIỂN THỊ NỘI DUNG SẢN PHẨM -->
+                                <dl class="item-property">
+                                    <dt>[[#{lo.index.chitietpk}]]:</dt>
+                                    <div class="thechitietdt">
+                                        <div class="noidungchitietdt">
+                                            <p>[[#{lo.index.mau}]]</p>
+                                            <p>[[#{lo.index.chatlieu}]]</p>
+                                            <p>[[#{lo.index.loaiphukien}]]</p>
+                                            <p>[[#{lo.index.thoigianbaohanh}]]</p>
+                                            <p>[[#{lo.index.thpk}]]</p>
+                                            <p>[[#{lo.index.xuatxu}]]</p>
+                                            <p>[[#{lo.index.namsx}]]</p>
+                                            <p>[[#{lo.index.sptuongthich}]]</p>
+                                        </div>
+                                        <div class="ketquanoidungchitietdt">
+                                            <p>[[${phukien.getMausac().getMausac_name()}]]</p>
+                                            <p>[[${phukien.getChatlieu().getChatlieu_name()}]]</p>
+                                            <p>[[${phukien.getLoaip().getLoaip_name()}]]</p>
+                                            <p>[[${phukien.getThoigianbaohanh().getThoigianbaohanh_name()}]]</p>
+                                            <p>[[${phukien.getThuonghieu().getThuonghieu_name()}]]</p>
+                                            <p>[[${phukien.getXuatxu().getXuatxu_name()}]]</p>
+                                            <p>[[${phukien.getPhukien_namsx()}]]</p>
+                                            <p>[[${phukien.getTuongthich().getTuongthich_name()}]]</p>
+                                        </div>
+                                    </div>
+
+                                </dl>
+                                <!-- price-detail-wrap .// -->
+                                <hr>
+                                <a onclick="thongBaoThanhCong(event)" th:href="@{'/home/giohang/themsanpham/'+${phukien.getPhukien_id()}}" class="btn btn-lg btn-primary text-uppercase" style="margin-left: 150px; background-color: var(--primary-color)">[[#{lo.index.thegio}]]</a>
+                                <hr>
+                                <a style="margin-left: 225px; font-size: 16px; color: blue;">[[#{lo.index.chiase}]]</a>
+                                <div class="chiase" style="width: 500px; height: 60px; margin-top: 20px;">
+                                    <button id="twitter" class="btn btn-info btn-social btn-twitter btn-round btn-fill btn-wd" style="margin-left: 220px">
+										<i class="fa fa-twitter" aria-hidden="true"></i>
+									</button>
+                                    <button id="facebook" class="btn btn-info btn-social btn-facebook btn-round btn-fill btn-wd" style="margin-left: 10px">
+										<i class="fa fa-facebook-square" aria-hidden="true"></i>
+									</button>
+                                </div>
+                            </article>
+                        </aside>
+                        <h3>[[#{lo.index.ttct}]]</h3>
+                        <div>
+                            <img th:src="${phukien.getPhukien_anh1()}" alt="">
+                            <br>
+                            <p>[[${phukien.getPhukien_tinhnang1()}]]</p>
+                        </div>
+                        <br>
+                        <div>
+                            <img th:src="${phukien.getPhukien_anh2()}" alt="">
+                            <br>
+                            <p>[[${phukien.getPhukien_tinhnang2()}]]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

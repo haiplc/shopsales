@@ -25,58 +25,76 @@
                     <br/>
                     <input th:field="*{sanpham_name}" class="the-input-tm">
                     <br/>
-                    <i th:errors th:field="*{sanpham_name}" style="color:red; margin-left: 30px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                    <i th:errors="*{sanpham_name}" style="color:red; margin-left: 30px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                     <br/>
                     <div class="selects-group-product">
-                        <!-- <div class="select-group">
-                            <label th:field="*{hang.hang_id">[[#{lo.index.hangdtss}]]</label>
-                            <br/>
-                            <form:select th:field="*{hang.hang_id}" itemValue="hang_id" itemLabel="hang_name" items="${hangdts}" />
-                            <br/>
-                            <i th:errors th:field="*{hang" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                        <div class="select-group">
+                            <label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>
+                            <select th:field="*{hang}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${hangdts}"
+                                   th:value="${item.getHang_id()}"
+                                   th:utext="${item.getHang_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{loai.loai_id">Loại điện thoại</label>
-                            <br/>
-                            <form:select th:field="*{loai.loai_id" itemValue="loai_id" itemLabel="loai_name" items="${loaidts}" />
-                            <br/>
-                            <i th:errors th:field="*{loai" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                            <label th:field="*{loai}">[[#{lo.index.loaidddt}]]</label>
+                            <select th:field="*{loai}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${loaidts}"
+                                   th:value="${item.getLoai_id()}"
+                                   th:utext="${item.getLoai_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{mausac.mausac_id">Màu sắc</label>
-                            <br/>
-                            <form:select th:field="*{mausac.mausac_id" itemValue="mausac_id" itemLabel="mausac_name" items="${mausacdts}" />
-                            <br/>
-                            <i th:errors th:field="*{mausac" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                            <label th:field="*{mausac}">[[#{lo.index.mau}]]</label>
+                            <select th:field="*{mausac}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${mausacdts}"
+                                   th:value="${item.getMausac_id()}"
+                                   th:utext="${item.getMausac_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{manhinh.manhinh_id">Màn hình</label>
-                            <br/>
-                            <form:select th:field="*{manhinh.manhinh_id" itemValue="manhinh_id" itemLabel="manhinh_name" items="${manhinhdts}" />
-                            <br/>
-                            <i th:errors th:field="*{manhinh" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                            <br>
+                            <label th:field="*{manhinh}">[[#{lo.index.manhinh}]]</label>
+                            <select th:field="*{manhinh}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${manhinhdts}"
+                                   th:value="${item.getManhinh_id()}"
+                                   th:utext="${item.getManhinh_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{chip.chip_id">Chíp</label>
-                            <br/>
-                            <form:select th:field="*{chip.chip_id" itemValue="chip_id" itemLabel="chip_name" items="${chipdts}" />
-                            <br/>
-                            <i th:errors th:field="*{chip" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                            <br>
+                            <label th:field="*{chip}">[[#{lo.index.chip}]]</label>
+                            <select th:field="*{chip}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${chipdts}"
+                                   th:value="${item.getChip_id()}"
+                                   th:utext="${item.getChip_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{ram.ram_id">RAM điện thoại</label>
-                            <br/>
-                            <form:select th:field="*{ram.ram_id" itemValue="ram_id" itemLabel="ram_name" items="${ramdts}" />
-                            <br/>
-                            <i th:errors th:field="*{ram" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
+                            <br>
+                            <label th:field="*{ram}">[[#{lo.index.ram}]]</label>
+                            <select th:field="*{ram}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${ramdts}"
+                                   th:value="${item.getRam_id()}"
+                                   th:utext="${item.getRam_name()}"></option>
+                            </select>
                         </div>
                         <div class="select-group">
-                            <label th:field="*{bonho.bonho_id">Bộ nhớ</label>
-                            <br/>
-                            <form:select th:field="*{bonho.bonho_id" itemValue="bonho_id" itemLabel="bonho_name" items="${bonhodts}" />
-                            <br/>
-                            <i th:errors th:field="*{bonho" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 75px;" />
-                        </div> -->
+                            <br>
+                            <label th:field="*{bonho}">[[#{lo.index.bonho}]]</label>
+                            <select th:field="*{bonho}">
+                                <option value=""> [[#{lo.index.chon}]] </option>
+                                <option th:each="item : ${bonhodts}"
+                                   th:value="${item.getBonho_id()}"
+                                   th:utext="${item.getBonho_name()}"></option>
+                            </select>
+                        </div>
                     </div>
                     <div class="thong-tin-tm-3">
                         <div class="tm-tt1">
@@ -84,7 +102,7 @@
                             <br/>
                             <input type="number" th:field="*{sanpham_giaban}" class="the-input-tm-3-1">
                             <br/>
-                            <i th:errors th:field="*{sanpham_giaban}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                            <i th:errors="*{sanpham_giaban}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                             <br/>
                         </div>
                         <input th:field="*{sanpham_id}" class="the-inputid" />
@@ -93,7 +111,7 @@
                             <br/>
                             <input type="number" th:field="*{sanpham_soluong}" class="the-input-tm-3" />
                             <br/>
-                            <i th:errors th:field="*{sanpham_soluong}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                            <i th:errors="*{sanpham_soluong}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                             <br/>
                         </div>
                     </div>
@@ -116,14 +134,14 @@
                         <br/>
                         <input th:field="*{sanpham_anh1}" class="the-input-tm-anh">
                         <br/>
-                        <i th:errors th:field="*{sanpham_anh1}" style="color:red; margin-left: 10px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                        <i th:errors="*{sanpham_anh1}" style="color:red; margin-left: 10px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                         <br/>
                         <br/>
                         <label th:field="*{sanpham_anh2}" class="the-ten-tm-anh">Link ảnh 2</label>
                         <br/>
                         <input th:field="*{sanpham_anh2}" class="the-input-tm-anh">
                         <br/>
-                        <i th:errors th:field="*{sanpham_anh2}" style="color:red; margin-left: 10px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                        <i th:errors="*{sanpham_anh2}" style="color:red; margin-left: 10px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                         <br/>
                     </div>
                 </div>
@@ -134,14 +152,14 @@
                     <br/>
                     <textarea th:field="*{sanpham_mota}" class="noidung-mota" cols="30" rows="10"></textarea>
                     <br/>
-                    <i th:errors th:field="*{sanpham_mota}" style="color:red; margin-left: 35px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                    <i th:errors="*{sanpham_mota}" style="color:red; margin-left: 35px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                 </div>
                 <div class="lienhe-1">
                     <label th:field="*{sanpham_lienhe}" class="the-ten-tm">Liên hệ mua hàng</label>
                     <br/>
                     <textarea th:field="*{sanpham_lienhe}" class="noidung-lienhe" cols="30" rows="10"></textarea>
                     <br/>
-                    <i th:errors th:field="*{sanpham_lienhe}" style="color:red; margin-left: 75px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                    <i th:errors="*{sanpham_lienhe}" style="color:red; margin-left: 75px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                     <br/>
                 </div>
             </div>
