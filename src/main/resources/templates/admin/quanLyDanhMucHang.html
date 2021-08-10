@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fas fa-database"></i>
+                        <a th:href="@{/admin/quanlyphukien}"> <i class="fas fa-database"></i>
                             <p>[[#{lo.index.qlpk}]]</p>
                         </a>
                     </li>
@@ -102,9 +102,9 @@
 							class="navbar-toggler-bar navbar-kebab"></span>
 					</button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="/admin/quanlydanhmuchang/search">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
+                                <input type="text" th:value="${key}" name="key" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="fas fa-search" style="margin-left: 10px; cursor: pointer;"></i>
@@ -189,7 +189,7 @@
                 </div>
                 <div class="menu-danhmuc-duoi-hang">
                     <ul class="pagination">
-                        <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 190px; margin-top: 50px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
+                        <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 660px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
                             <li class="page-item">
                                 <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlydanhmuchang?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
                             </li>

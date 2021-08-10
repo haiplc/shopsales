@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Thông tin Admin | ShopSale</title>
+    <title>[[#{lo.index.ttadmin}]] | ShopSale</title>
     <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fas fa-database"></i>
+                        <a th:href="@{/admin/quanlyphukien}"> <i class="fas fa-database"></i>
                             <p>[[#{lo.index.qlpk}]]</p>
                         </a>
                     </li>
@@ -94,7 +94,7 @@
 									class="navbar-toggler-bar bar3"></span>
 							</button>
                         </div>
-                        <a class="navbar-brand" th:href="@{/admin/thongtinadmin}" style="font-size: 16px">Thông tin Admin</a>
+                        <a class="navbar-brand" th:href="@{/admin/thongtinadmin}" style="font-size: 16px">[[#{lo.index.ttadmin}]]</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-bar navbar-kebab"></span> <span
@@ -151,39 +151,39 @@
                     <div class="col-md-8" style="width: 500px">
                         <div class="card">
                             <div class="card-header">
-                                <h5 class="title">Thông tin</h5>
+                                <h5 class="title">[[#{lo.index.mythongtin}]]</h5>
                             </div>
                             <div class="card-body">
                                 <form>
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
-                                                <label>Tên đăng nhập</label> <input type="text" class="form-control" placeholder="Username" value="haiplc">
+                                                <label>[[#{lo.index.tendn}]]</label> <input type="text" class="form-control" placeholder="Username" value="haiplc">
                                             </div>
                                         </div>
                                         <div class="col-md-6 pl-1">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Mật khẩu</label> <input type="password" class="form-control" placeholder="password" value="123456">
+                                                <label for="exampleInputEmail1">[[#{lo.index.mk}]]</label> <input type="password" class="form-control" placeholder="password" value="123456">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
-                                                <label>Họ và tên</label> <input type="text" class="form-control" placeholder="Company" value="Đinh Quốc Hải">
+                                                <label>[[#{lo.index.hoten}]]</label> <input type="text" class="form-control" placeholder="Company" value="Đinh Quốc Hải">
                                             </div>
                                         </div>
                                         <div class="col-md-6 pl-1">
                                             <div class="form-group">
-                                                <label>Số điện thoại</label> <input type="text" class="form-control" placeholder="Last Name" value="0935828911">
+                                                <label>[[#{lo.index.sdt}]]</label> <input type="text" class="form-control" placeholder="Last Name" value="0935828911">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Giới thiệu về bản thân</label>
-                                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Sinh viên chuyên ngành Ứng dụng phần mềm - kỳ 6, Trường Cao đẳng thực hành FPT Polytechnic Tây Nguyên.</textarea>
+                                                <label>[[#{lo.index.gtbanthan}]]</label>
+                                                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">[[#{lo.index.gtbanthan1}]]</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                     <p class="description">haiplc</p>
                                 </div>
                                 <p class="description text-center">
-                                    "Sinh viên <br> chuyên ngành Ứng dụng phần mềm - kỳ 6 <br> Trường Cao đẳng thực hành FPT Polytechnic Tây Nguyên""
+                                    "[[#{lo.index.gtbanthan2}]] <br> [[#{lo.index.gtbanthan3}]] <br> [[#{lo.index.gtbanthan4}]]"
                                 </p>
                             </div>
                             <hr>

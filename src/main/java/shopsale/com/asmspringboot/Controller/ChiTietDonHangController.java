@@ -25,14 +25,38 @@ public class ChiTietDonHangController {
 	private static final int TOI_DA_SAN_PHAM = 3;
 
 	@GetMapping("/admin/quanlydonhang")
-	public String getChiTiet(@RequestParam(value = "page", defaultValue = "0") int pageIndex, Model model) {
+	public String getDonHang(@RequestParam(value = "key", defaultValue = "") String search,
+			@RequestParam(value = "page", defaultValue = "0") int pageIndex, Model model) {
 
 		// Pagi
 		Pageable pager = PageRequest.of(pageIndex, TOI_DA_SAN_PHAM);
 		Page<Orders> order = oderReponsitory.findAll(pager);
 		model.addAttribute("orders", order.getContent());
 
+		Page<Orders> orderPage = oderReponsitory.findByNameOrderContaining(search, pager);
+		model.addAttribute("orders", orderPage.getContent());
+		model.addAttribute("maxPage", orderPage.getTotalPages());
 		model.addAttribute("maxPage", order.getTotalPages());
+		model.addAttribute("key", search);
+		model.addAttribute("page", pageIndex);
+
+		return "admin/quanLyDonHang";
+	}
+
+	@GetMapping("/admin/quanlydonhang/search")
+	public String getDonHangSearch(@RequestParam(value = "key", defaultValue = "") String search,
+			@RequestParam(value = "page", defaultValue = "0") int pageIndex, Model model) {
+
+		// Pagi
+		Pageable pager = PageRequest.of(pageIndex, TOI_DA_SAN_PHAM);
+		Page<Orders> order = oderReponsitory.findAll(pager);
+		model.addAttribute("orders", order.getContent());
+
+		Page<Orders> orderPage = oderReponsitory.findByNameOrderContaining(search, pager);
+		model.addAttribute("orders", orderPage.getContent());
+		model.addAttribute("maxPage", orderPage.getTotalPages());
+		model.addAttribute("maxPage", order.getTotalPages());
+		model.addAttribute("key", search);
 		model.addAttribute("page", pageIndex);
 
 		return "admin/quanLyDonHang";

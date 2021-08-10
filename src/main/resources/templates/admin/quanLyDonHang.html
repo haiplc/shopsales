@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Quản lý đơn hàng | ShopSale</title>
+    <title>[[#{lo.index.qldh}]] | ShopSale</title>
     <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -51,7 +51,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"> <i class="fas fa-database"></i>
+                        <a th:href="@{/admin/quanlyphukien}"> <i class="fas fa-database"></i>
                             <p>[[#{lo.index.qlpk}]]</p>
                         </a>
                     </li>
@@ -95,7 +95,7 @@
 									class="navbar-toggler-bar bar3"></span>
 							</button>
                         </div>
-                        <a class="navbar-brand" th:href="@{admin/quanlydonhang}" style="font-size: 16px">Danh sách đơn hàng</a>
+                        <a class="navbar-brand" th:href="@{admin/quanlydonhang}" style="font-size: 16px">[[#{lo.index.qldh}]]</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-bar navbar-kebab"></span> <span
@@ -103,9 +103,9 @@
 							class="navbar-toggler-bar navbar-kebab"></span>
 					</button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="/admin/quanlydonhang/search">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
+                                <input type="text" name="key" th:value="${key}" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="fas fa-search" style="margin-left: 10px; cursor: pointer;"></i>
@@ -152,18 +152,18 @@
                     <div class="col-lg-10 col-md-10" style="margin: 0 auto;">
                         <div class="card card-chart" style="height: 400px">
                             <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
-                                <h5 class="card-category">Danh mục đơn hàng</h5>
+                                <h5 class="card-category">[[#{lo.index.dsdh}]]</h5>
                             </div>
                             <div class="bang-danhmuc-ls">
                                 <table>
                                     <thead>
                                         <tr class="header-donhangls">
-                                            <th class="title-ls-mad">Mã đơn hàng</th>
-                                            <th class="title-ls-tenkhd">Tên khách hàng</th>
-                                            <th class="title-ls-ngmuad">Ngày mua hàng</th>
-                                            <th class="title-ls-sdtd">Số điện thoại</th>
-                                            <th class="title-ls-diachid">Địa chỉ nhận hàng</th>
-                                            <th class="title-ls-tongtiendonhangd">Tổng tiền</th>
+                                            <th class="title-ls-mad">[[#{lo.index.madh}]]</th>
+                                            <th class="title-ls-tenkhd">[[#{lo.index.tenkh}]]</th>
+                                            <th class="title-ls-ngmuad">[[#{lo.index.ngmuahang}]]</th>
+                                            <th class="title-ls-sdtd">[[#{lo.index.sdt}]]</th>
+                                            <th class="title-ls-diachid">[[#{lo.index.dcnhanhang}]]</th>
+                                            <th class="title-ls-tongtiendonhangd">[[#{lo.index.tongtien}]]</th>
                                         </tr>
                                     </thead>
                                     <tbody th:each=" order: ${orders}">

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>[[#{lo.index.qlsp}]] | ShopSale</title>
+    <title>[[#{lo.index.qlpk}]] | ShopSale</title>
     <link rel="shortcut icon" th:href="@{/images/logotrang.png}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -46,12 +46,12 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="active">
-                        <a th:href="@{/admin/quanlysanpham}"> <i class="fas fa-database"></i>
+                    <li>
+                        <a th:href="@{/admin/quanlyphukien}"> <i class="fas fa-database"></i>
                             <p>[[#{lo.index.qlsp}]]</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a th:href="@{/admin/quanlyphukien}"> <i class="fas fa-database"></i>
                             <p>[[#{lo.index.qlpk}]]</p>
                         </a>
@@ -96,7 +96,7 @@
 									class="navbar-toggler-bar bar3"></span>
 							</button>
                         </div>
-                        <a class="navbar-brand" th:href="@{admin/quanlysanpham}" style="font-size: 16px">[[#{lo.index.qlsp}]]</a>
+                        <a class="navbar-brand" th:href="@{admin/quanlyphukien}" style="font-size: 16px">[[#{lo.index.qlpk}]]</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-bar navbar-kebab"></span> <span
@@ -104,9 +104,9 @@
 							class="navbar-toggler-bar navbar-kebab"></span>
 					</button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="/admon/qaunlyphukien/search">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
+                                <input type="text" name="key" th:value="${key}" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="fas fa-search" style="margin-left: 10px; cursor: pointer;"></i>
@@ -153,9 +153,9 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
-                                <h4 class="card-title">[[#{lo.index.dssanpham}]]</h4>
+                                <h4 class="card-title">[[#{lo.index.dspk}]]</h4>
                                 <div class="the-them-dt">
-                                    <a th:href="@{/admin/quanlysanpham/dienthoai/insert}" class="themmoiSP"> [[#{lo.index.themmoi}]] </a>
+                                    <a th:href="@{/admin/quanlysanpham/phukien/insert}" class="themmoiSP"> [[#{lo.index.themmoi}]] </a>
                                 </div>
                             </div>
                             <div class="card-body" style="height: 790px">
@@ -166,73 +166,76 @@
                                                 <th style="width: 60px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">
                                                     ID
                                                     <div class="the-sort-id">
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_idt}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_idt}">
                                                             <i class="fas fa-sort-up" style="color: #ccc; position: absolute;"></i>
                                                         </a>
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_idg}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_idg}">
                                                             <i class="fas fa-sort-down" style="color: #ccc"></i>
                                                         </a>
                                                     </div>
                                                 </th>
                                                 <th style="width: 250px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">
-                                                    [[#{lo.index.tensp}]]
+                                                    [[#{lo.index.tenphukien}]]
                                                     <div class="the-sort-name">
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_namet}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_namet}">
                                                             <i class="fas fa-sort-up" style="color: #ccc; position: absolute;"></i>
                                                         </a>
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_nameg}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_nameg}">
                                                             <i class="fas fa-sort-down" style="color: #ccc"></i>
                                                         </a>
                                                     </div>
                                                 </th>
-                                                <th style="width: 120px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.hang}]]</th>
-                                                <th style="width: 120px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.mau}]]</th>
+                                                <th style="width: 120px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.chatlieu}]]</th>
+                                                <th style="width: 120px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.loaip}]]</th>
                                                 <th style="width: 120px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">
                                                     [[#{lo.index.soluongsp}]]
                                                     <div class="the-sort-soluong">
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_soluongt}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_soluongt}">
                                                             <i class="fas fa-sort-up" style="color: #ccc; position: absolute;"></i>
                                                         </a>
-                                                        <a th:href="@{'/admin/quanlysanpham/order?orderBy='+sanpham_soluongg}">
+                                                        <a th:href="@{'/admin/quanlyphukien/order?orderBy='+phukien_soluongg}">
                                                             <i class="fas fa-sort-down" style="color: #ccc"></i>
                                                         </a>
                                                     </div>
                                                 </th>
-                                                <th style="width: 300px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.mota}]]</th>
+                                                <th style="width: 300px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.thoigianbaohanh}]]</th>
                                                 <th style="width: 200px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">
                                                     [[#{lo.index.giaban}]]
                                                     <div class="the-sort-giaban">
-                                                        <a th:href="@{/admin/quanlysanpham/order?orderBy=sanpham_giabant}">
+                                                        <a th:href="@{/admin/quanlyphukien/order?orderBy=phukien_giabant}">
                                                             <i class="fas fa-sort-up" style="color: #ccc; position: absolute;"></i>
                                                         </a>
-                                                        <a th:href="@{/admin/quanlysanpham/order?orderBy=sanpham_giabang}">
+                                                        <a th:href="@{/admin/quanlyphukien/order?orderBy=phukien_giabang}">
                                                             <i class="fas fa-sort-down" style="color: #ccc"></i>
                                                         </a>
                                                     </div>
                                                 </th>
-                                                <th style="text-align: center; width: 350px; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.lhh}]] </th>
+                                                <th style="text-align: center; width: 350px; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.tinhnangpk}]] </th>
                                                 <th style="width: 180px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.thaotac}]] </th>
                                             </tr>
                                         </thead>
-                                        <tbody th:each="sanpham : ${sanphamdt}">
+                                        <tbody th:each="pk : ${phukiens}">
                                             <tr>
-                                                <td style="text-align: center;">[[${sanpham.getSanpham_id()}]]</td>
-                                                <td style="text-align: center; font-weight: bold;">[[${sanpham.getSanpham_name()}]]</td>
-                                                <td style="text-align: center;">[[${sanpham.getHang().getHang_name()}]]</td>
-                                                <td style="text-align: center; font-weight: bold;">[[${sanpham.getMausac().getMausac_name()}]]</td>
-                                                <td style="text-align: center; font-weight: bold;">[[${sanpham.getSanpham_soluong()}]]</td>
-                                                <td style="text-align: justify; text-indent: 20px;">[[${sanpham.getSanpham_mota()}]]</td>
-                                                <td style="text-align: center; font-weight: bold;">[[${#numbers.formatDecimal(sanpham.getSanpham_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</td>
-                                                <td style="text-align: justify;text-indent: 20px;">[[${sanpham.getSanpham_lienhe()}]]</td>
+                                                <td style="text-align: center;">[[${pk.getPhukien_id()}]]</td>
+                                                <td style="text-align: center; font-weight: bold;">[[${pk.getPhukien_name()}]]</td>
+                                                <td style="text-align: center;">[[${pk.getChatlieu().getChatlieu_name()}]]</td>
+                                                <td style="text-align: center; font-weight: bold;">[[${pk.getLoaip().getLoaip_name()}]]</td>
+                                                <td style="text-align: center; font-weight: bold;">[[${pk.getPhukien_soluong()}]]</td>
+                                                <td style="text-align: justify; text-indent: 20px;">[[${pk.getPhukien_thoigianbaohanh()}]]</td>
+                                                <td style="text-align: center; font-weight: bold;">[[${#numbers.formatDecimal(pk.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</td>
+                                                <td style="text-align: justify;text-indent: 20px;">
+                                                    <p>[[${pk.getPhukien_tinhnang1()}]]</p>
+                                                    <p>[[${pk.getPhukien_tinhnang2()}]]</p>
+                                                </td>
                                                 <td>
                                                     <form action="product" method="post" style="text-align: center;">
-                                                        <input type="hidden" name="id" th:value="${sanpham.getSanpham_id()}" />
-                                                        <a style="width: 40px; height: 40px; border: none; background-color: white;" href="/admin/quanlysanpham/sanphamdt/edit?sanpham_dt_id=${sanpham.sanpham_id}">
+                                                        <input type="hidden" name="id" th:value="${pk.getPhukien_id()}" />
+                                                        <a style="width: 40px; height: 40px; border: none; background-color: white;" th:href="@{'/admin/quanlysanpham/phukien/edit?phukien_id='+${pk.getPhukien_id()}}">
                                                             <i class="fas fa-pencil-alt" style="color: green;"></i>
                                                         </a>
-                                                        <button type="button" style="background: white" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal${sanpham.sanpham_id}">
-                                                            <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
-                                                        </button>
+                                                        <a style="width: 40px; height: 40px; border: none; background-color: white;" onclick="return confirm('Xác nhận xóa Phụ kiện!')" th:href="@{'/admin/quanlysanpham/phukien/delete?phukien_id='+${pk.getPhukien_id()}}">
+                                                            <i class="fa fa-trash" style="color: red;"></i>
+                                                        </a>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -242,14 +245,14 @@
                                         <ul class="pagination">
                                             <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 600px; margin-top: -20px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
                                                 <li class="page-item">
-                                                    <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
+                                                    <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlyphukien?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
                                                 </li>
                                                 <li th:each="i : ${#numbers.sequence(0, maxPage - 1)}">
-                                                    <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${i}+'&search='+${search}}" th:utext="${i+1}">
+                                                    <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlyphukien?page='+${i}+'&search='+${search}}" th:utext="${i+1}">
                                                     </a>
                                                 </li>
                                                 <li class="page-item">
-                                                    <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page+1}+'&search='+${search}}">[[#{lo.index.next}]]</a>
+                                                    <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlyphukien?page='+${page+1}+'&search='+${search}}">[[#{lo.index.next}]]</a>
                                                 </li>
                                             </div>
 

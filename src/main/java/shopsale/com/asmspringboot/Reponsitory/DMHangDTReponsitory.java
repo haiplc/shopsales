@@ -24,4 +24,5 @@ public interface DMHangDTReponsitory extends JpaRepository<HangSanPham, Integer>
 
 	@Query(value = "select * from hangdt ORDER BY hang_name ASC", nativeQuery = true)
 	Page<HangSanPham> SortProductsByNameTang(String hang_name, Pageable pager);
+
 }

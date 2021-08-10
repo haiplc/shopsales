@@ -104,6 +104,23 @@ public class QLDMHangController {
 		return "admin/quanLyDanhMucHang";
 	}
 
+	@GetMapping("/admin/quanlydanhmuchang/search")
+	public String quanLyHangSearch(@RequestParam(name = "key", defaultValue = "") String search,
+			@RequestParam(name = "page", defaultValue = "0") int pageIndex, Model model) {
+		Pageable pager = PageRequest.of(pageIndex, TOI_DA_SAN_PHAM);
+
+		Page<HangSanPham> hangsp = dmhangDTReponsitory.findAll(pager);
+		model.addAttribute("hangdts", hangsp.getContent());
+
+		Page<HangSanPham> hangPage = dmhangDTReponsitory.findByNameHangContaining(search, pager);
+		model.addAttribute("hangdts", hangPage.getContent());
+		model.addAttribute("maxPage", hangPage.getTotalPages());
+		model.addAttribute("key", search);
+		model.addAttribute("page", pageIndex);
+
+		return "admin/quanLyDanhMucHang";
+	}
+
 	// số sản phẩm tối đa
 	private static final int TOI_DA_SAN_PHAM = 5;
 

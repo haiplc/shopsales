@@ -3,18 +3,18 @@
     <table class="popup-container">
         <thead>
             <tr style="display: flex; flex-direction: row; justify-content: space-between; font-size: 18px; width: 98%; height: 40px; line-height: 40px; margin-left: 20px">
-                <th style="color: #ccc" id="detail-id">Chi tiết hóa đơn</th>
+                <th style="color: #ccc" id="detail-id">[[#{lo.index.cthoadon}]]</th>
                 <th>
                     <i style="color: red; cursor: pointer;position:absolute; margin-left: 800px; margin-top: 10px; font-size: 20px" class="fa fa-times-circle button-click" aria-hidden="true" onclick='showPopup("popup-detail",false,"popup-show")'></i>
                 </th>
             </tr>
             <tr class="header-ctdonhangls" style="font-size: 18px">
-                <th class="title-ctls-mad">Mã sản phẩm</th>
-                <th class="title-ctls-anhsp">Ảnh sản phẩm</th>
-                <th class="title-ctls-tenkhd">Tên sản phẩm</th>
-                <th class="title-ctls-ngmuad">Đơn giá</th>
-                <th class="title-ctls-sdtd">Số lượng</th>
-                <th class="title-ctls-diachid">Thành tiền</th>
+                <th class="title-ctls-mad">[[#{lo.index.masp}]]</th>
+                <th class="title-ctls-anhsp">[[#{lo.index.anhsp}]]</th>
+                <th class="title-ctls-tenkhd">[[#{lo.index.tensp}]]</th>
+                <th class="title-ctls-ngmuad">[[#{lo.index.giaban}]]</th>
+                <th class="title-ctls-sdtd">[[#{lo.index.soluong}]]</th>
+                <th class="title-ctls-diachid">[[#{lo.index.thanhtien}]]</th>
             </tr>
 
         </thead>
@@ -24,7 +24,7 @@
         </tbody>
         <tfoot style="float: right;">
             <tr style="min-width: 200px; height: 50px; float: right; margin-right: 40px; display: flex; margin-top: 20px; flex-direction: row; justify-content: space-between;">
-                <td style="font-size: 20px; color: red" id="order-detail-total">Tổng tiền:</td>
+                <td style="font-size: 20px; color: red" id="order-detail-total">[[#{lo.index.tongtien}]]:</td>
                 <td style="color: red; font-weight: bold;">đ</td>
             </tr>
         </tfoot>
