@@ -460,15 +460,15 @@
                                             <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
                                         </tr>
                                     </thead>
-                                    <tbody th:each="loai:${loaipk}">
+                                    <tbody th:each="item:${loaipk}">
                                         <tr>
-                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoaip_id()}]]</td>
-                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoaip_name()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${item.getLoaip_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${item.getLoaip_name()}]]</td>
                                             <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
-                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/edit?loaip_id='+${loai.getLoaip_id()}}">
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/edit?loaip_id='+${item.getLoaip_id()}}">
                                                     <i class="far fa-edit" style="color: green;"></i>
                                                 </a>
-                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/delete?loaip_id='+${loai.getLoaip_id()}}">
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/delete?loaip_id='+${item.getLoaip_id()}}">
                                                     <i class="fas fa-trash" style="color: red;"></i>
                                                 </a>
                                             </td>
@@ -537,10 +537,10 @@
                                             <td style="text-align: center; line-height: 20px">[[${thoigian.getThoigianbaohanh_id()}]]</td>
                                             <td style="text-align: center; line-height: 20px">[[${thoigian.getThoigianbaohanh_name()}]]</td>
                                             <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
-                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/edit?thoigian_id='+${thoigian.getThoigianbaohanh_id()}}">
+                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/edit?thoigianbaohanh_id='+${thoigian.getThoigianbaohanh_id()}}">
                                                     <i class="far fa-edit" style="color: green;"></i>
                                                 </a>
-                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/delete?thoigian_id='+${thoigian.getThoigianbaohanh_id()}}">
+                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/delete?thoigianbaohanh_id='+${thoigian.getThoigianbaohanh_id()}}">
                                                     <i class="fas fa-trash" style="color: red;"></i>
                                                 </a>
                                             </td>
@@ -642,7 +642,6 @@
 <script th:src="@{/js/vendor/datatables.net/js/jquery.dataTables.min.js}"></script>
 <script th:src="@{/js/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
 <script th:src="@{/js/vendor/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js]"></script>
 <script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.html5.min.js}"></script>
 <script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.flash.min.js}"></script>
 <script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.print.min.js}"></script>

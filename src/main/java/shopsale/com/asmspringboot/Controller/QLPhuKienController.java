@@ -171,7 +171,7 @@ public class QLPhuKienController {
 	}
 
 	// số sản phẩm tối đa
-	private static final int TOI_DA_SAN_PHAM = 4;
+	private static final int TOI_DA_SAN_PHAM = 3;
 
 	// list danh sách và map danh sách ra trang chính
 	@GetMapping("/admin/quanlyphukien")

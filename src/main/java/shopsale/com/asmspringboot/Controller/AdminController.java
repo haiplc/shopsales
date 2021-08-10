@@ -592,8 +592,8 @@ public class AdminController {
 
 	// hàm sửa
 	@GetMapping("/admin/quanlydanhmuc/loaipk/edit")
-	public String indexLoaiPhuKien(@RequestParam(name = "loai_id") int loai_id, Model model) {
-		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loai_id);
+	public String indexLoaiPhuKien(@RequestParam(name = "loaip_id") int loaip_id, Model model) {
+		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loaip_id);
 		if (loaiOption.isEmpty()) {
 			return "redirect:/admin/quanlydanhmuc";
 		}
@@ -621,7 +621,7 @@ public class AdminController {
 
 	// hàm xóa
 	@GetMapping("/admin/quanlydanhmuc/loaipk/delete")
-	public String deleteLoaiPhuKien(@RequestParam(name = "loai_id") int loai_id) {
+	public String deleteLoaiPhuKien(@RequestParam(name = "loaip_id") int loai_id) {
 		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loai_id);
 		if (loaiOption.isEmpty()) {
 			return "redirect:/admin/quanlydanhmuc";

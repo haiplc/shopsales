@@ -104,7 +104,16 @@
                             <input type="number" th:field="*{phukien_giaban}" class="the-input-tm-3-1">
                             <i th:errors="*{phukien_giaban}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
                         </div>
-                        <input type="hidden" th:field="*{phukien_id}" class="the-input-tm-3-1">
+
+                        <input type="hidden" th:field="*{phukien_id}" class="the-input-tm-3-1" style="position: absolute;">
+
+                        <div class="tm-tt1">
+                            <label th:field="*{phukien_soluong}" class="the-ten-tm-3">[[#{lo.index.soluongsp}]]</label>
+                            <br/>
+                            <input type="number" th:field="*{phukien_soluong}" class="the-input-tm-3-11">
+                            <i th:errors="*{phukien_soluong}" style="color:red; margin-left: 5px; font-style: italic; position: absolute;  margin-top: 5px;"></i>
+                        </div>
+
                         <div class="tm-tt1">
                             <label th:field="*{phukien_namsx}" class="the-ten-tm-3">[[#{lo.index.namsx}]]</label>
                             <br/>

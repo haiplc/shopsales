@@ -198,7 +198,7 @@
                                                         </a>
                                                     </div>
                                                 </th>
-                                                <th style="width: 300px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.thoigianbaohanh}]]</th>
+                                                <th style="width: 180px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.thoigianbaohanh}]]</th>
                                                 <th style="width: 200px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">
                                                     [[#{lo.index.giaban}]]
                                                     <div class="the-sort-giaban">
@@ -210,18 +210,18 @@
                                                         </a>
                                                     </div>
                                                 </th>
-                                                <th style="text-align: center; width: 350px; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.tinhnangpk}]] </th>
+                                                <th style="text-align: center; width: 400px; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.tinhnangpk}]] </th>
                                                 <th style="width: 180px; text-align: center; font-size: 16px; color: rgb(44, 168, 255);">[[#{lo.index.thaotac}]] </th>
                                             </tr>
                                         </thead>
-                                        <tbody th:each="pk : ${phukiens}">
+                                        <tbody th:each="pk : ${phukien}">
                                             <tr>
                                                 <td style="text-align: center;">[[${pk.getPhukien_id()}]]</td>
                                                 <td style="text-align: center; font-weight: bold;">[[${pk.getPhukien_name()}]]</td>
                                                 <td style="text-align: center;">[[${pk.getChatlieu().getChatlieu_name()}]]</td>
                                                 <td style="text-align: center; font-weight: bold;">[[${pk.getLoaip().getLoaip_name()}]]</td>
                                                 <td style="text-align: center; font-weight: bold;">[[${pk.getPhukien_soluong()}]]</td>
-                                                <td style="text-align: justify; text-indent: 20px;">[[${pk.getPhukien_thoigianbaohanh()}]]</td>
+                                                <td style="text-align: center; text-indent: 20px;">[[${pk.getThoigianbaohanh().getThoigianbaohanh_name()}]]</td>
                                                 <td style="text-align: center; font-weight: bold;">[[${#numbers.formatDecimal(pk.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</td>
                                                 <td style="text-align: justify;text-indent: 20px;">
                                                     <p>[[${pk.getPhukien_tinhnang1()}]]</p>
