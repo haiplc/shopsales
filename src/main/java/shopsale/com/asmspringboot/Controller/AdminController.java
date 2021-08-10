@@ -16,21 +16,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import shopsale.com.asmspringboot.Model.BoNhoSanPham;
+import shopsale.com.asmspringboot.Model.ChatLieuPhuKien;
 import shopsale.com.asmspringboot.Model.ChipSanPham;
 import shopsale.com.asmspringboot.Model.HangSanPham;
+import shopsale.com.asmspringboot.Model.LoaiPhuKien;
 import shopsale.com.asmspringboot.Model.LoaiSanPham;
 import shopsale.com.asmspringboot.Model.ManHinhSanPham;
 import shopsale.com.asmspringboot.Model.MauSacSanPham;
 import shopsale.com.asmspringboot.Model.RamSanPham;
+import shopsale.com.asmspringboot.Model.ThoiGianBaoHanhPhuKien;
+import shopsale.com.asmspringboot.Model.ThuongHieuPhuKien;
+import shopsale.com.asmspringboot.Model.TuongThichPhuKien;
 import shopsale.com.asmspringboot.Model.Users;
+import shopsale.com.asmspringboot.Model.XuatXuPhuKien;
 import shopsale.com.asmspringboot.Reponsitory.BoNhoDTReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.ChatLieuPKReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.ChipDTReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.HangDTReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.LoaiDTReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.LoaiPKRepponsitory;
 import shopsale.com.asmspringboot.Reponsitory.ManHinhDTReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.MauSacDTReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.RamDTReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.ThoiGianBaoHanhReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.ThuongHieuPKReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.TuongThichPKReponsitory;
 import shopsale.com.asmspringboot.Reponsitory.UserReponsitory;
+import shopsale.com.asmspringboot.Reponsitory.XuatXuPKReponsitory;
 
 @Controller
 
@@ -246,7 +258,8 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/admin/quanlydanhmuc/chipdt/insert")
-	public String insertCompleteChip(@Valid @ModelAttribute("chipdt") ChipSanPham chip, Errors errors, Model model) {
+	public String insertCompleteChip(@Validated @ModelAttribute("chipdt") ChipSanPham chip, Errors errors,
+			Model model) {
 		if (errors.hasErrors()) {
 			return "admin/quanlydanhmuc/chipdt/insert";
 		}
@@ -266,7 +279,8 @@ public class AdminController {
 	}
 
 	@PostMapping("/admin/quanlydanhmuc/chipdt/edit")
-	public String indexChip(@Valid @ModelAttribute("chipdt") ChipSanPham chip, Errors errors, ModelAttribute model) {
+	public String indexChip(@Validated @ModelAttribute("chipdt") ChipSanPham chip, Errors errors,
+			ModelAttribute model) {
 		if (errors.hasErrors()) {
 			return "admin/quanlydanhmuc/chipdt/insert";
 
@@ -305,7 +319,8 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/admin/quanlydanhmuc/loaidt/insert")
-	public String insertCompleteLoai(@Valid @ModelAttribute("loaidt") LoaiSanPham loai, Errors errors, Model model) {
+	public String insertCompleteLoai(@Validated @ModelAttribute("loaidt") LoaiSanPham loai, Errors errors,
+			Model model) {
 		if (errors.hasErrors()) {
 
 			return "admin/quanlydanhmuc/loaidt/insert";
@@ -327,7 +342,8 @@ public class AdminController {
 	}
 
 	@PostMapping("/admin/quanlydanhmuc/loaidt/edit")
-	public String indexLoai(@Valid @ModelAttribute("loaidt") LoaiSanPham loai, Errors errors, ModelAttribute model) {
+	public String indexLoai(@Validated @ModelAttribute("loaidt") LoaiSanPham loai, Errors errors,
+			ModelAttribute model) {
 		if (errors.hasErrors()) {
 			return "admin/quanlydanhmuc/loaidt/insert";
 
@@ -366,7 +382,7 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/admin/quanlydanhmuc/manhinhdt/insert")
-	public String insertCompleteManHinh(@Valid @ModelAttribute("manhinhdt") ManHinhSanPham manhinh, Errors errors,
+	public String insertCompleteManHinh(@Validated @ModelAttribute("manhinhdt") ManHinhSanPham manhinh, Errors errors,
 			Model model) {
 		if (errors.hasErrors()) {
 
@@ -389,7 +405,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/admin/quanlydanhmuc/manhinhdt/edit")
-	public String indexManHinh(@Valid @ModelAttribute("manhinhdt") ManHinhSanPham manhinh, Errors errors,
+	public String indexManHinh(@Validated @ModelAttribute("manhinhdt") ManHinhSanPham manhinh, Errors errors,
 			ModelAttribute model) {
 		if (errors.hasErrors()) {
 			return "admin/quanlydanhmuc/manhinhdt/insert";
@@ -416,6 +432,7 @@ public class AdminController {
 		return "redirect:/admin/quanlydanhmuc";
 	}
 
+	// 7
 	@Autowired
 	RamDTReponsitory ramReponsitory;
 
@@ -428,7 +445,7 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/admin/quanlydanhmuc/ramdt/insert")
-	public String insertCompleteRam(@Valid @ModelAttribute("ramdt") RamSanPham ram, Errors errors, Model model) {
+	public String insertCompleteRam(@Validated @ModelAttribute("ramdt") RamSanPham ram, Errors errors, Model model) {
 		if (errors.hasErrors()) {
 
 			return "admin/quanlydanhmuc/ramdt/insert";
@@ -450,7 +467,7 @@ public class AdminController {
 	}
 
 	@PostMapping("/admin/quanlydanhmuc/ramdt/edit")
-	public String indexRam(@Valid @ModelAttribute("ramdt") RamSanPham ram, Errors errors, ModelAttribute model) {
+	public String indexRam(@Validated @ModelAttribute("ramdt") RamSanPham ram, Errors errors, ModelAttribute model) {
 		if (errors.hasErrors()) {
 			return "admin/quanlydanhmuc/ramdt/insert";
 
@@ -476,6 +493,409 @@ public class AdminController {
 		return "redirect:/admin/quanlydanhmuc";
 	}
 
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// PHỤ KIỆN
+	// 1
+	@Autowired
+	ChatLieuPKReponsitory chatLieuPKReponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/chatlieupk/insert")
+	public String insertChatLieu(Model model) {
+		ChatLieuPhuKien chatlieu = new ChatLieuPhuKien();
+		model.addAttribute("chatlieupk", chatlieu);
+
+		return "admin/quanlydanhmuc/chatlieupk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/chatlieupk/insert")
+	public String insertCompleteChatLieu(@Validated @ModelAttribute("chatlieupk") ChatLieuPhuKien chatlieu,
+			Errors errors, Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/chatlieupk/insert";
+		}
+		chatLieuPKReponsitory.save(chatlieu);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/chatlieupk/edit")
+	public String indexChatLieu(@RequestParam(name = "chatlieu_id") int chatlieu_id, Model model) {
+		Optional<ChatLieuPhuKien> chatLieuOption = chatLieuPKReponsitory.findById(chatlieu_id);
+		if (chatLieuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("chatlieupk", chatLieuOption.get());
+
+		return "admin/quanlydanhmuc/chatlieupk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/chatlieupk/edit")
+	public String indexChatLieu(@Validated @ModelAttribute("chatlieupk") ChatLieuPhuKien chatlieu, Errors errors,
+			ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/chatlieupk/insert";
+
+		}
+		Optional<ChatLieuPhuKien> chatlieuOption = chatLieuPKReponsitory.findById(chatlieu.getChatlieu_id());
+		if (chatlieuOption.isEmpty()) {
+			return "admin/quanlydanhmuc/chatlieupk/insert";
+		}
+		ChatLieuPhuKien chatlieuld = chatlieuOption.get();
+		chatlieuld.setChatlieu_name(chatlieu.getChatlieu_name());
+		chatLieuPKReponsitory.save(chatlieuld);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/chatlieupk/delete")
+	public String deleteChatLieu(@RequestParam(name = "chatlieu_id") int chatlieu_id) {
+		Optional<ChatLieuPhuKien> chatLieuOption = chatLieuPKReponsitory.findById(chatlieu_id);
+		if (chatLieuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		chatLieuPKReponsitory.delete(chatLieuOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// 2
+	@Autowired
+	LoaiPKRepponsitory loaiPKRepponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/loaipk/insert")
+	public String insertLoaiPhuKien(Model model) {
+		LoaiPhuKien loai = new LoaiPhuKien();
+		model.addAttribute("loaipk", loai);
+
+		return "admin/quanlydanhmuc/loaipk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/loaipk/insert")
+	public String insertCompleteLoaiPhuKien(@Validated @ModelAttribute("loaipk") LoaiPhuKien loai, Errors errors,
+			Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/loaipk/insert";
+		}
+		loaiPKRepponsitory.save(loai);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/loaipk/edit")
+	public String indexLoaiPhuKien(@RequestParam(name = "loai_id") int loai_id, Model model) {
+		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loai_id);
+		if (loaiOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("loaipk", loaiOption.get());
+
+		return "admin/quanlydanhmuc/loaipk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/loaipk/edit")
+	public String indexLoaiPhuKien(@Validated @ModelAttribute("loaipk") LoaiPhuKien loai, Errors errors,
+			ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/loaipk/insert";
+
+		}
+		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loai.getLoaip_id());
+		if (loaiOption.isEmpty()) {
+			return "admin/quanlydanhmuc/loaipk/insert";
+		}
+		LoaiPhuKien loaild = loaiOption.get();
+		loaild.setLoaip_name(loai.getLoaip_name());
+		loaiPKRepponsitory.save(loaild);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/loaipk/delete")
+	public String deleteLoaiPhuKien(@RequestParam(name = "loai_id") int loai_id) {
+		Optional<LoaiPhuKien> loaiOption = loaiPKRepponsitory.findById(loai_id);
+		if (loaiOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		loaiPKRepponsitory.delete(loaiOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// 3
+	@Autowired
+	TuongThichPKReponsitory tuongThichPKReponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/tuongthichpk/insert")
+	public String insertTuongThich(Model model) {
+		TuongThichPhuKien tuongthich = new TuongThichPhuKien();
+		model.addAttribute("tuongthichpk", tuongthich);
+
+		return "admin/quanlydanhmuc/tuongthichpk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/tuongthichpk/insert")
+	public String insertCompleteTuongThich(@Validated @ModelAttribute("tuongthichpk") TuongThichPhuKien tuongthich,
+			Errors errors, Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/tuongthichpk/insert";
+		}
+		tuongThichPKReponsitory.save(tuongthich);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/tuongthichpk/edit")
+	public String indexTuongThich(@RequestParam(name = "tuongthich_id") int tuongthich_id, Model model) {
+		Optional<TuongThichPhuKien> tuongthichOption = tuongThichPKReponsitory.findById(tuongthich_id);
+		if (tuongthichOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("tuongthichpk", tuongthichOption.get());
+
+		return "admin/quanlydanhmuc/tuongthichpk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/tuongthichpk/edit")
+	public String indexTuongThich(@Validated @ModelAttribute("tuongthichpk") TuongThichPhuKien tuongthich,
+			Errors errors, ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/tuongthichpk/insert";
+
+		}
+		Optional<TuongThichPhuKien> tuongthichOption = tuongThichPKReponsitory.findById(tuongthich.getTuongthich_id());
+		if (tuongthichOption.isEmpty()) {
+			return "admin/quanlydanhmuc/tuongthichpk/insert";
+		}
+		TuongThichPhuKien tuongthichld = tuongthichOption.get();
+		tuongthichld.setTuongthich_name(tuongthich.getTuongthich_name());
+		tuongThichPKReponsitory.save(tuongthichld);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/tuongthichpk/delete")
+	public String deleteTuongThich(@RequestParam(name = "tuongthich_id") int tuongthich_id) {
+		Optional<TuongThichPhuKien> tuongthichOption = tuongThichPKReponsitory.findById(tuongthich_id);
+		if (tuongthichOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		tuongThichPKReponsitory.delete(tuongthichOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// 4
+	@Autowired
+	ThoiGianBaoHanhReponsitory thoiGianBaoHanhReponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/thoigianbaohanhpk/insert")
+	public String insertThoiGian(Model model) {
+		ThoiGianBaoHanhPhuKien thoigianbaohanh = new ThoiGianBaoHanhPhuKien();
+		model.addAttribute("thoigianbaohanhpk", thoigianbaohanh);
+
+		return "admin/quanlydanhmuc/thoigianbaohanhpk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/thoigianbaohanhpk/insert")
+	public String insertCompleteThoiGian(
+			@Validated @ModelAttribute("thoigianbaohanhpk") ThoiGianBaoHanhPhuKien thoigianbaohanh, Errors errors,
+			Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/thoigianbaohanhpk/insert";
+		}
+		thoiGianBaoHanhReponsitory.save(thoigianbaohanh);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/thoigianbaohanhpk/edit")
+	public String indexThoiGian(@RequestParam(name = "thoigianbaohanh_id") int thoigianbaohanh_id, Model model) {
+		Optional<ThoiGianBaoHanhPhuKien> thoigianbaohanhOption = thoiGianBaoHanhReponsitory
+				.findById(thoigianbaohanh_id);
+		if (thoigianbaohanhOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("thoigianbaohanhpk", thoigianbaohanhOption.get());
+
+		return "admin/quanlydanhmuc/thoigianbaohanhpk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/thoigianbaohanhpk/edit")
+	public String indexThoiGian(@Validated @ModelAttribute("thoigianbaohanhpk") ThoiGianBaoHanhPhuKien thoigianbaohanh,
+			Errors errors, ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/thoigianbaohanhpk/insert";
+
+		}
+		Optional<ThoiGianBaoHanhPhuKien> thoigianbaohanhOption = thoiGianBaoHanhReponsitory
+				.findById(thoigianbaohanh.getThoigianbaohanh_id());
+		if (thoigianbaohanhOption.isEmpty()) {
+			return "admin/quanlydanhmuc/thoigianbaohanhpk/insert";
+		}
+		ThoiGianBaoHanhPhuKien thoigianbaohanhld = thoigianbaohanhOption.get();
+		thoigianbaohanhld.setThoigianbaohanh_name(thoigianbaohanh.getThoigianbaohanh_name());
+		thoiGianBaoHanhReponsitory.save(thoigianbaohanhld);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/thoigianbaohanhpk/delete")
+	public String deleteThoiGian(@RequestParam(name = "thoigianbaohanh_id") int thoigianbaohanh_id) {
+		Optional<ThoiGianBaoHanhPhuKien> thoigianbaohanhOption = thoiGianBaoHanhReponsitory
+				.findById(thoigianbaohanh_id);
+		if (thoigianbaohanhOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		thoiGianBaoHanhReponsitory.delete(thoigianbaohanhOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// 5
+	@Autowired
+	ThuongHieuPKReponsitory thuongHieuPKReponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/thuonghieupk/insert")
+	public String insertThuongHieu(Model model) {
+		ThuongHieuPhuKien thuonghieu = new ThuongHieuPhuKien();
+		model.addAttribute("thuonghieupk", thuonghieu);
+
+		return "admin/quanlydanhmuc/thuonghieupk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/thuonghieupk/insert")
+	public String insertCompleteThuongHieu(@Validated @ModelAttribute("thuonghieupk") ThuongHieuPhuKien thuonghieu,
+			Errors errors, Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/thuonghieupk/insert";
+		}
+		thuongHieuPKReponsitory.save(thuonghieu);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/thuonghieupk/edit")
+	public String indexThuongHieu(@RequestParam(name = "thuonghieu_id") int thuonghieu_id, Model model) {
+		Optional<ThuongHieuPhuKien> thuonghieuOption = thuongHieuPKReponsitory.findById(thuonghieu_id);
+		if (thuonghieuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("thuonghieupk", thuonghieuOption.get());
+
+		return "admin/quanlydanhmuc/thuonghieupk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/thuonghieupk/edit")
+	public String indexThuongHieu(@Validated @ModelAttribute("thuonghieupk") ThuongHieuPhuKien thuonghieu,
+			Errors errors, ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/thuonghieupk/insert";
+
+		}
+		Optional<ThuongHieuPhuKien> thuonghieuOption = thuongHieuPKReponsitory.findById(thuonghieu.getThuonghieu_id());
+		if (thuonghieuOption.isEmpty()) {
+			return "admin/quanlydanhmuc/thuonghieupk/insert";
+		}
+		ThuongHieuPhuKien thuonghieuld = thuonghieuOption.get();
+		thuonghieuld.setThuonghieu_name(thuonghieu.getThuonghieu_name());
+		thuongHieuPKReponsitory.save(thuonghieuld);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/thuonghieupk/delete")
+	public String deleteThuongHieu(@RequestParam(name = "thuonghieu_id") int thuonghieu_id) {
+		Optional<ThuongHieuPhuKien> thuonghieuOption = thuongHieuPKReponsitory.findById(thuonghieu_id);
+		if (thuonghieuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		thuongHieuPKReponsitory.delete(thuonghieuOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// 6
+	@Autowired
+	XuatXuPKReponsitory xuatXuPKReponsitory;
+
+	@GetMapping("/admin/quanlydanhmuc/xuatxupk/insert")
+	public String insertXuatXu(Model model) {
+		XuatXuPhuKien xuatxu = new XuatXuPhuKien();
+		model.addAttribute("xuatxupk", xuatxu);
+
+		return "admin/quanlydanhmuc/xuatxupk/insert";
+	}
+
+	@PostMapping(path = "/admin/quanlydanhmuc/xuatxupk/insert")
+	public String insertCompleteXuatXu(@Validated @ModelAttribute("xuatxupk") XuatXuPhuKien xuatxu, Errors errors,
+			Model model) {
+		if (errors.hasErrors()) {
+
+			return "admin/quanlydanhmuc/xuatxupk/insert";
+		}
+		xuatXuPKReponsitory.save(xuatxu);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm sửa
+	@GetMapping("/admin/quanlydanhmuc/xuatxupk/edit")
+	public String indexXuatXu(@RequestParam(name = "xuatxu_id") int xuatxu_id, Model model) {
+		Optional<XuatXuPhuKien> xuatxuOption = xuatXuPKReponsitory.findById(xuatxu_id);
+		if (xuatxuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		model.addAttribute("xuatxupk", xuatxuOption.get());
+
+		return "admin/quanlydanhmuc/xuatxupk/insert";
+	}
+
+	@PostMapping("/admin/quanlydanhmuc/xuatxupk/edit")
+	public String indexXuatXu(@Validated @ModelAttribute("xuatxupk") XuatXuPhuKien xuatxu, Errors errors,
+			ModelAttribute model) {
+		if (errors.hasErrors()) {
+			return "admin/quanlydanhmuc/xuatxupk/insert";
+
+		}
+		Optional<XuatXuPhuKien> xuatxuOption = xuatXuPKReponsitory.findById(xuatxu.getXuatxu_id());
+		if (xuatxuOption.isEmpty()) {
+			return "admin/quanlydanhmuc/xuatxupk/insert";
+		}
+		XuatXuPhuKien xuatxuld = xuatxuOption.get();
+		xuatxuld.setXuatxu_name(xuatxu.getXuatxu_name());
+		xuatXuPKReponsitory.save(xuatxuld);
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	// hàm xóa
+	@GetMapping("/admin/quanlydanhmuc/xuatxupk/delete")
+	public String deleteXuatXu(@RequestParam(name = "xuatxu_id") int xuatxu_id) {
+		Optional<XuatXuPhuKien> xuatxuOption = xuatXuPKReponsitory.findById(xuatxu_id);
+		if (xuatxuOption.isEmpty()) {
+			return "redirect:/admin/quanlydanhmuc";
+		}
+		xuatXuPKReponsitory.delete(xuatxuOption.get());
+		return "redirect:/admin/quanlydanhmuc";
+	}
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@GetMapping("admin/quanlydanhmuc")
 	public String quanLyDanhMuc(Model model) {
 		// 1
@@ -499,10 +919,40 @@ public class AdminController {
 		// 7
 		List<HangSanPham> hangdts = hangDTReponsitory.findAll();
 		model.addAttribute("hangdts", hangdts);
+
+		// PHỤ KIỆN
+		// 1
+		List<ChatLieuPhuKien> chatlieu = chatLieuPKReponsitory.findAll();
+		model.addAttribute("chatlieupk", chatlieu);
+		// 2
+		List<LoaiPhuKien> loaip = loaiPKRepponsitory.findAll();
+		model.addAttribute("loaipk", loaip);
+		// 3
+		List<TuongThichPhuKien> tuongthich = tuongThichPKReponsitory.findAll();
+		model.addAttribute("tuongthichpk", tuongthich);
+		// 4
+		List<ThoiGianBaoHanhPhuKien> thoigian = thoiGianBaoHanhReponsitory.findAll();
+		model.addAttribute("thoigianbaohanhpk", thoigian);
+		// 5
+		List<ThuongHieuPhuKien> thuonghieu = thuongHieuPKReponsitory.findAll();
+		model.addAttribute("thuonghieupk", thuonghieu);
+		// 6
+		List<XuatXuPhuKien> xuatxu = xuatXuPKReponsitory.findAll();
+		model.addAttribute("xuatxupk", xuatxu);
+
 		return "admin/quanLyDanhMuc";
 	}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	@Autowired
 	UserReponsitory usersReponsitory;

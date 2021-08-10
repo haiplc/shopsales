@@ -406,6 +406,221 @@
                     </div>
                     <div class="col-lg-4 col-md-6"> </div>
                 </div>
+                <!-- Danh mục phụ kiện -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.clpk}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/chatlieupk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.chatlieu}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="chatlieu:${chatlieupk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${chatlieu.getChatlieu_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${chatlieu.getChatlieu_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/chatlieupk/edit?chatlieu_id='+${chatlieu.getChatlieu_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/chatlieupk/delete?chatlieu_id='+${chatlieu.getChatlieu_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.loaiphukien}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/loaipk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.tenloaiphukien}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="loai:${loaipk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoaip_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${loai.getLoaip_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/edit?loaip_id='+${loai.getLoaip_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/loaipk/delete?loaip_id='+${loai.getLoaip_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.sptuongthich}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/tuongthichpk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.tensptuongthich}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="tuongthich:${tuongthichpk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${tuongthich.getTuongthich_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${tuongthich.getTuongthich_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/tuongthichpk/edit?tuongthich_id='+${tuongthich.getTuongthich_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/tuongthichpk/delete?tuongthich_id='+${tuongthich.getTuongthich_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.tgbh}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/thoigianbaohanhpk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.muctg}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="thoigian:${thoigianbaohanhpk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${thoigian.getThoigianbaohanh_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${thoigian.getThoigianbaohanh_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/edit?thoigian_id='+${thoigian.getThoigianbaohanh_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/thoigianbaohanhpk/delete?thoigian_id='+${thoigian.getThoigianbaohanh_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.thpk}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/thuonghieupk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.tenthuonghieu}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="thuonghieu:${thuonghieupk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${thuonghieu.getThuonghieu_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${thuonghieu.getThuonghieu_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/thuonghieupk/edit?thuonghieu_id='+${thuonghieu.getThuonghieu_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/thuonghieupk/delete?thuonghieu_id='+${thuonghieu.getThuonghieu_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card card-chart">
+                            <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
+                                <h5 class="card-category">[[#{lo.index.xuatxupk}]]</h5>
+                                <a th:href="@{/admin/quanlydanhmuc/xuatxupk/insert}"><i
+									class="fas fa-plus-circle"
+									style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                            </div>
+                            <div class="bang-danhmuc">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px; text-align: center;">ID</th>
+                                            <th style="width: 300px; text-align: center;">[[#{lo.index.noixuatxu}]]</th>
+                                            <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody th:each="xuatxu:${xuatxupk}">
+                                        <tr>
+                                            <td style="text-align: center; line-height: 20px">[[${xuatxu.getXuatxu_id()}]]</td>
+                                            <td style="text-align: center; line-height: 20px">[[${xuatxu.getXuatxu_name()}]]</td>
+                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
+                                                <a th:href="@{'/admin/quanlydanhmuc/xuatxupk/edit?xuatxu_id='+${xuatxu.getXuatxu_id()}}">
+                                                    <i class="far fa-edit" style="color: green;"></i>
+                                                </a>
+                                                <a th:href="@{'/admin/quanlydanhmuc/xuatxupk/delete?xuatxu_id='+${xuatxu.getXuatxu_id()}}">
+                                                    <i class="fas fa-trash" style="color: red;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <footer class="footer">
                 <div class=" container-fluid ">
