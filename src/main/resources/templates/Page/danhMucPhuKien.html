@@ -1,15 +1,15 @@
 <div class="col col-sm-12 hangdtss" th:fragment="loaipkien">
     <h6>[[#{lo.index.loaip}]]</h6>
-    <a th:classappend="${loaip == 0 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/phukien/search?key='+${key}+'&loaip='+0+'&thuonghieu='+${thuonghieu}+'&order='+${order}+'&sort='+${sort}}">[[#{lo.index.tatca}]]</a>
+    <a th:classappend="${loaip == 0 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/phukien/search?key='+${key}+'&loaip='+0+'&thuonghieu='+${thuonghieu}+'&order='+${order}+'&sort='+${sort}}">[[#{lo.index.tatca}]]</a>
     <div th:each="item:${loaipk}">
-        <a th:classappend="${loaip == item.getLoaip_id() ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/phukien/search?key='+${key}+'&loaip='+${item.getLoaip_id()}+'&thuonghieu='+${thuonghieu}+'&order='+${order}+'&sort='+${sort}}">[[${item.getLoaip_name()}]]</a>
+        <a th:classappend="${loaip == item.getLoaip_id() ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'phukien/search?key='+${key}+'&loaip='+${item.getLoaip_id()}+'&thuonghieu='+${thuonghieu}+'&order='+${order}+'&sort='+${sort}}">[[${item.getLoaip_name()}]]</a>
     </div>
 </div>
 
 <div class="col col-sm-12 hangdtss" th:fragment="thuonghieu">
     <h6>[[#{lo.index.thpk}]]</h6>
-    <a th:classappend="${thuonghieu == 0 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/phukien/search?key='+${key}+'&loaip='+${loaip}+'&thuonghieu='+0+'&order='+${order}+'&sort='+${sort}}">[[#{lo.index.tatca}]]</a>
+    <a th:classappend="${thuonghieu == 0 ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'phukien/search?key='+${key}+'&loaip='+${loaip}+'&thuonghieu='+0+'&order='+${order}+'&sort='+${sort}}">[[#{lo.index.tatca}]]</a>
     <div th:each="item:${thuonghieupk}">
-        <a th:classappend="${thuonghieu == item.getThuonghieu_id() ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'/home/phukien/search?key='+${key}+'&loaip='+${loaip}+'&thuonghieu='+${item.getThuonghieu_id()}+'&order='+${order}+'&sort='+${sort}}">[[${item.getThuonghieu_name()}]]</a>
+        <a th:classappend="${thuonghieu == item.getThuonghieu_id() ? 'activeDanhMuc' : 'NoActiveDanhMuc'}" th:href="@{'phukien/search?key='+${key}+'&loaip='+${loaip}+'&thuonghieu='+${item.getThuonghieu_id()}+'&order='+${order}+'&sort='+${sort}}">[[${item.getThuonghieu_name()}]]</a>
     </div>
 </div>

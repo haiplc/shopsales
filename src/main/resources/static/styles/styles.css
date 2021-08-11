@@ -745,6 +745,10 @@ i {
     font-weight: bold;
     margin: 0 auto;
     text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 165px;
 }
 
 .cards:hover {
