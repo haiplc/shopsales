@@ -236,8 +236,6 @@
 
     <div th:replace="${body}" th:remove="tag"></div>
 
-    <div th:replace="~{Layout/footer}" th:remove="tag"></div>
-
     <div class="hienThi-giohangmini">
         <div class="hien-body-giohang">
             <div class="gio-hang">
@@ -252,10 +250,10 @@
             </div>
         </div>
     </div>
+    <div th:replace="~{Layout/footer}" th:remove="tag"></div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript" th:src="@{/js/gioHangShopsale.js}"></script>
 <script type="text/javascript" th:src="@{/js/loadSlider.js}"></script>
-
 
 </html>

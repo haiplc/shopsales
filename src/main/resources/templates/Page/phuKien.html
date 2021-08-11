@@ -1,0 +1,36 @@
+<div th:each="item:${phukien}" th:fragment="phukiensp">
+    <div class="khungchuadienthoai">
+        <div class="cards">
+            <!-- hiển thị hình ảnh sản phẩm -->
+            <a th:href="@{'/home/phukien/chitiet?phukien_id='+${item.getPhukien_id()}}">
+                <img th:src="@{${item.getPhukien_anh1()}}" class="card-img-top" height="178px" width="178px" alt="">
+            </a>
+            <div class="card-body pt-0 px-0">
+                <div class="tenspdt">
+                    <a href="#"> [[${item.getPhukien_name()}]]</a>
+                </div>
+                <!-- hiển thị giá bán sản phẩm -->
+                <div class="d-flex flex-row justify-content-between mb-0 px-3">
+                    <small class="text-muted mt-1">[[#{lo.index.gia}]]</small>
+                    <h6 style="margin-top: 3px; color: red"> [[${#numbers.formatDecimal(item.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</h6>
+                </div>
+                <div class="item-tenShopSale">
+                    <img class="logoNen" th:src="@{/images/image.png}" alt="">
+                    <span class="tenShop_Sale"> ShopSale</span>
+                </div>
+                <div class="chatluong" style="width: 200px; height: 20px; display: flex; flex-direction: row; justify-content: space-between;">
+                    <span style="color: #ccc; font-size: 14px; margin-left: 25px;">[[#{lo.index.ngaytao}]] [[${item.getDate()}]]</span>
+                </div>
+                <hr class="mt-2 mx-3">
+                <div class="mx-3 mt-3 mb-2">
+                    <form action="#" method="post">
+                        <input type="hidden" name="masp" th:value="${item.getPhukien_id()}" />
+                        <button type="submit" name="cart" value="add" class="btn btn-danger btn-block" style="margin-top: 10px" onclick="thongBaoThanhCong(event)">
+                                            <a style="color: white; font-size: 18px" th:href="@{'/home/giohang/themsanpham/'+${item.getPhukien_id()}}">[[#{lo.index.themvaogiohang}]]</a>
+                                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

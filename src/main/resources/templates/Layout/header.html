@@ -29,9 +29,8 @@
                 <li class="nd1 hiennd"><i class="fa fa-bell-o" aria-hidden="true"></i>
                     <a href="#">[[#{lo.index.thongbao}]]</a>
                     <div class="thongbao">
-                        <img class="thongbao-hinhanh" th:src="@{/images/5a83ec8ec1bc1ea687fdf9c6e68eee0b.png}" alt="">
-
-                        <c:if test="${empty currentUser}">
+                        <div th:if="${currentUser == null}">
+                            <img class="thongbao-hinhanh" th:src="@{/images/5a83ec8ec1bc1ea687fdf9c6e68eee0b.png}" alt="">
                             <div class="nhacnho">[[#{lo.index.dnhaptb}]]</div>
                             <div class="dangki">
                                 <a th:href="@{/shopsale/dangky}">[[#{lo.index.dky}]]</a>
@@ -39,19 +38,17 @@
                             <div class="dangnhap">
                                 <a th:href="@{/shopsale/dangnhap}">[[#{lo.index.dnhap}]]</a>
                             </div>
-                        </c:if>
-                        <c:choose>
-                            <c:when test="${currentUser != null}">
-                                <div class="nhacnho" style="color: red; margin-top: 10px">[[#{lo.index.newtbm}]]</div>
-                            </c:when>
-                        </c:choose>
+                        </div>
+                        <div th:if="@{currentUser != null}">
+                            <img src="https://miro.medium.com/max/1400/0*Tsd8rfwqlA-GwXxL.png" alt="">
+                            <div class="nhacnho" style="color: red; margin-top: 10px">[[#{lo.index.newtbm}]]</div>
+                        </div>
                     </div>
                 </li>
                 <li class="nd1">
                     <i class="fa fa-question-circle-o" aria-hidden="true"></i>
                     <a th:href="@{/home/lienhe}">[[#{lo.index.trogiup}]]</a>
                 </li>
-
                 <div th:if="${currentUser == null}">
                     <li class="nd1 phancachchedoc">
                         <a th:href="@{/shopsale/dangky}">[[#{lo.index.dky}]]</a>
@@ -60,8 +57,6 @@
                         <a th:href="@{/shopsale/dangnhap}">[[#{lo.index.dnhap}]]</a>
                     </li>
                 </div>
-
-
                 <div th:if="${currentUser != null}">
                     <li class="nav-item dropdown">
                         <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -140,15 +135,7 @@
                             </ul>
                         </li>
                         <li class="item-lv1">
-                            <a href="#" class="item-lv1-title">[[#{lo.index.phukien}]]</a>
-                            <ul class="menu-lv2">
-                                <li class="item-lv2">
-                                    <a href="#" class="item-lv2-title">[[#{lo.index.dthoai}]]</a>
-                                </li>
-                                <li class="item-lv2">
-                                    <a href="#" class="item-lv2-title">[[#{lo.index.dogiadung}]]</a>
-                                </li>
-                            </ul>
+                            <a th:href="@{/home/phukien}" class="item-lv1-title">[[#{lo.index.phukien}]]</a>
                         </li>
                         <li class="item-lv1">
                             <a th:href="@{/home/tuyendung}" class="item-lv1-title">[[#{lo.index.tuyendung}]]</a>

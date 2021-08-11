@@ -17,10 +17,10 @@
                                     <div style="margin-top: 100px">
                                         <div class="slider" id="slider1" style="width: 450px; height: 800px; border: none;">
                                             <div class="slider-item" name="slider-item">
-                                                <img th:src="${phukien.getPhukien_anh1()}" width="400px" />
+                                                <img th:src="${chitiet.getPhukien_anh1()}" width="400px" />
                                             </div>
                                             <div class="slider-item" name="slider-item">
-                                                <img th:src="${phukien.getPhukien_anh2()}" width="400px" />
+                                                <img th:src="${chitiet.getPhukien_anh2()}" width="400px" />
                                             </div>
                                             <div class="nut-slider">
                                                 <span onclick="onClickXemAnhTruoc()" id="btn-prev"> 
@@ -37,11 +37,11 @@
                         </aside>
                         <aside class="col-sm-7">
                             <article class="card-body p-5">
-                                <h3 class="title mb-3" style="text-align: center;">[[${phukien.getPhukien_name()}]]</h3>
+                                <h3 class="title mb-3" style="text-align: center;">[[${chitiet.getPhukien_name()}]]</h3>
 
                                 <p class="price-detail-wrap" style="text-align: center; color: blue;">
                                     <span class="price h3"> 
-                                        <span class="num">[[${#numbers.formatDecimal(phukien.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</span>
+                                        <span class="num">[[${#numbers.formatDecimal(chitiet.getPhukien_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng</span>
                                     </span>
                                 </p>
                                 <!--  HIỂN THỊ NỘI DUNG SẢN PHẨM -->
@@ -59,21 +59,21 @@
                                             <p>[[#{lo.index.sptuongthich}]]</p>
                                         </div>
                                         <div class="ketquanoidungchitietdt">
-                                            <p>[[${phukien.getMausac().getMausac_name()}]]</p>
-                                            <p>[[${phukien.getChatlieu().getChatlieu_name()}]]</p>
-                                            <p>[[${phukien.getLoaip().getLoaip_name()}]]</p>
-                                            <p>[[${phukien.getThoigianbaohanh().getThoigianbaohanh_name()}]]</p>
-                                            <p>[[${phukien.getThuonghieu().getThuonghieu_name()}]]</p>
-                                            <p>[[${phukien.getXuatxu().getXuatxu_name()}]]</p>
-                                            <p>[[${phukien.getPhukien_namsx()}]]</p>
-                                            <p>[[${phukien.getTuongthich().getTuongthich_name()}]]</p>
+                                            <p>[[${chitiet.getMausac().getMausac_name()}]]</p>
+                                            <p>[[${chitiet.getChatlieu().getChatlieu_name()}]]</p>
+                                            <p>[[${chitiet.getLoaip().getLoaip_name()}]]</p>
+                                            <p>[[${chitiet.getThoigianbaohanh().getThoigianbaohanh_name()}]]</p>
+                                            <p>[[${chitiet.getThuonghieu().getThuonghieu_name()}]]</p>
+                                            <p>[[${chitiet.getXuatxu().getXuatxu_name()}]]</p>
+                                            <p>[[${chitiet.getPhukien_namsx()}]]</p>
+                                            <p>[[${chitiet.getTuongthich().getTuongthich_name()}]]</p>
                                         </div>
                                     </div>
 
                                 </dl>
                                 <!-- price-detail-wrap .// -->
                                 <hr>
-                                <a onclick="thongBaoThanhCong(event)" th:href="@{'/home/giohang/themsanpham/'+${phukien.getPhukien_id()}}" class="btn btn-lg btn-primary text-uppercase" style="margin-left: 150px; background-color: var(--primary-color)">[[#{lo.index.thegio}]]</a>
+                                <a onclick="thongBaoThanhCong(event)" th:href="@{'/home/giohang/themsanpham/'+${chitiet.getPhukien_id()}}" class="btn btn-lg btn-primary text-uppercase" style="margin-left: 150px; background-color: var(--primary-color)">[[#{lo.index.thegio}]]</a>
                                 <hr>
                                 <a style="margin-left: 225px; font-size: 16px; color: blue;">[[#{lo.index.chiase}]]</a>
                                 <div class="chiase" style="width: 500px; height: 60px; margin-top: 20px;">
@@ -87,16 +87,16 @@
                             </article>
                         </aside>
                         <h3>[[#{lo.index.ttct}]]</h3>
-                        <div>
-                            <img th:src="${phukien.getPhukien_anh1()}" alt="">
+                        <div class="the-div-chitiet-phukien">
+                            <img th:src="${chitiet.getPhukien_anh1()}" width="900" height="450" alt="">
                             <br>
-                            <p>[[${phukien.getPhukien_tinhnang1()}]]</p>
+                            <p>[[${chitiet.getPhukien_tinhnang1()}]]</p>
                         </div>
                         <br>
-                        <div>
-                            <img th:src="${phukien.getPhukien_anh2()}" alt="">
+                        <div class="the-div-chitiet-phukien">
+                            <img th:src="${chitiet.getPhukien_anh2()}" width="900" height="450" alt="">
                             <br>
-                            <p>[[${phukien.getPhukien_tinhnang2()}]]</p>
+                            <p>[[${chitiet.getPhukien_tinhnang2()}]]</p>
                         </div>
                     </div>
                 </div>

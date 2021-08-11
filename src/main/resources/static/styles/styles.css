@@ -1613,3 +1613,21 @@ a {
 .opacityNull {
     opacity: 0;
 }
+
+.the-div-chitiet-phukien {
+    width: 900px;
+    min-height: 450px;
+    margin: 0 auto;
+}
+
+.the-div-chitiet-phukien img {
+    text-align: center;
+}
+
+.the-div-chitiet-phukien p {
+    text-align: justify;
+    text-indent: 20px;
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 5px;
+}

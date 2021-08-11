@@ -47,8 +47,8 @@ public interface PhuKienReponsitory extends JpaRepository<PhuKien, Integer> {
 
 	/// client
 	// search home : hang, orders, key
-	@Query(value = "select * from phukien where phukien_name ~* :key  and phukien_giaban >= :min and phukien_giaban < :max and (CASE WHEN :loaip > 0 THEN loaip_id = :loaip ELSE true END)", nativeQuery = true)
+	@Query(value = "select * from phukien where phukien_name ~* :key and (CASE WHEN :loaip > 0 THEN loaip_id = :loaip ELSE true END) and (CASE WHEN :thuonghieu > 0 THEN thuonghieu_id = :thuonghieu ELSE true END)", nativeQuery = true)
 	Page<PhuKien> SearchProductsOrder(@Param(value = "key") String key, @Param(value = "loaip") int loaip,
-			@Param(value = "min") int min, @Param(value = "max") int max, Pageable pager);
+			@Param(value = "thuonghieu") int thuonghieu, Pageable pager);
 
 }
