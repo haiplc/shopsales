@@ -1,0 +1,74 @@
+<style>
+    .distangthem {
+        opacity: 0;
+    }
+    
+    .tangthem {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        border: none;
+        background-color: green;
+        color: white;
+    }
+    
+    .giamdi {
+        width: 25px;
+        height: 25px;
+        margin-left: 15px;
+        border-radius: 50%;
+        text-align: center;
+        border: none;
+        background-color: red;
+        color: white;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th style="width: 120px; text-align: center;"><s:message code="lo.index.anhsp" /></th>
+            <th style="width: 350px; text-align: center;"><s:message code="lo.index.tensp" /></th>
+            <th style="width: 100px; text-align: center;"><s:message code="lo.index.soluongsp" /></th>
+            <th style="width: 150px; text-align: center;"><s:message code="lo.index.thanhtien" /></th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:set var="total" value="${0}" />
+        <c:forEach var="chitiet" items="${giohang.chiTietGioHang}">
+            <tr style="margin-top: 20px; border-bottom: 1px solid green; padding-bottom: 20px">
+                <td style="margin: 0 auto; margin-top: 20px;"><img src="${chitiet.key.sanpham_anh1}" style="width: 100px; height: 100px; margin-top: 20px; padding-bottom: 20px; margin-left: 10px">
+                    <button onclick="xoaSP(event)" id="${chitiet.key.sanpham_id}" style="width: 25px; height: 25px; border-radius: 50%; text-align: center; border: none; color: red; position: absolute; opacity: 0.7">
+                            X
+                        </button></td>
+                <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 350px; text-align: center; color: green;">${chitiet.key.sanpham_name}</td>
+                <td style="width: 90px; margin-top: 40px; text-align: center; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                    <button onclick="truSP(event)" id="${chitiet.key.sanpham_id}" class='${chitiet.value > 1 ? "giamdi" : "giamdi distangthem"}' <c:if test="${chitiet.value == 1}">disabled="disabled"></c:if>
+                            -</button> ${chitiet.value}
+                    <button onclick="congSP(event)" id="${chitiet.key.sanpham_id}" class='${chitiet.value < 10 ? "tangthem" : "tangthem distangthem"}' <c:if test="${chitiet.value == 10}">disabled="disabled"></c:if>+</button>
+                </td>
+                <td style="width: 150px; margin-top: 20px; text-align: center;">
+                    <h6 style="margin-top: 3px; color: red">
+                        <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban*chitiet.value}" /> VNĐ
+                    </h6>
+                </td>
+            </tr>
+            <c:set var="total" value="${total + (chitiet.key.sanpham_giaban*chitiet.value)}" />
+        </c:forEach>
+    </tbody>
+    <tfoot>
+        <tr style="width: 680px; height: 60px; margin: 0 auto;">
+            <td style="width: 150px; height: 30px;  background: rgb(250,80,48); font-size: 18px; margin-left: 40px; text-align: center;">
+                <a href="/home/chitietgiohang" style="color: white"><s:message code="lo.index.thanhtoanngay" /></a>
+            </td>
+            <td style="width: 150px; height: 60px; margin: 0 auto; position: absolute; margin-left: 150px; text-align: center; color: blue; font-size: 24px; line-height: 60px">
+                <s:message code="lo.index.thanhtien" />:</td>
+            <td style="width: 250px; height: 60px; margin: 0 auto;position: absolute;  margin-left: 250px;">
+                <h6 style="margin-left: 70px; color: red; font-size: 24px; line-height: 60px">
+                    <fmt:formatNumber type="number" maxFractionDigits="1" value="${total}" /> đ
+                </h6>
+            </td>
+
+        </tr>
+    </tfoot>
+</table>

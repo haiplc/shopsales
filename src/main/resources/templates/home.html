@@ -59,12 +59,12 @@
                                 <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/home/search?page='+${page+1}+'&key='+${key}+'&hang='+${hang}+'&order='+${order}+'&sort='+${sort}+'&min='+${min}+'&max='+${max}}">[[#{lo.index.next}]]</a>
                             </li>
                         </div>
-
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 
 </html>

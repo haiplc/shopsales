@@ -47,24 +47,24 @@
                                 <!--  HIỂN THỊ NỘI DUNG SẢN PHẨM -->
                                 <dl class="item-property">
                                     <dt>[[#{lo.index.chitietpk}]]:</dt>
-                                    <div class="thechitietdt">
-                                        <div class="noidungchitietdt">
-                                            <p>[[#{lo.index.mau}]]</p>
-                                            <p>[[#{lo.index.chatlieu}]]</p>
+                                    <div class="thechitietdtpk">
+                                        <div class="noidungchitietdtpk">
+                                            <p>[[#{lo.index.noixuatxu}]]</p>
                                             <p>[[#{lo.index.loaiphukien}]]</p>
+                                            <p>[[#{lo.index.mspkpk}]]</p>
+                                            <p>[[#{lo.index.clpkpk}]]</p>
                                             <p>[[#{lo.index.thoigianbaohanh}]]</p>
                                             <p>[[#{lo.index.thpk}]]</p>
-                                            <p>[[#{lo.index.xuatxu}]]</p>
-                                            <p>[[#{lo.index.namsx}]]</p>
-                                            <p>[[#{lo.index.sptuongthich}]]</p>
+                                            <p>[[#{lo.index.namxpk}]]</p>
+                                            <p>[[#{lo.index.tensptuongthich}]]</p>
                                         </div>
-                                        <div class="ketquanoidungchitietdt">
+                                        <div class="ketquanoidungchitietdtpk">
+                                            <p>[[${chitiet.getXuatxu().getXuatxu_name()}]]</p>
+                                            <p>[[${chitiet.getLoaip().getLoaip_name()}]]</p>
                                             <p>[[${chitiet.getMausac().getMausac_name()}]]</p>
                                             <p>[[${chitiet.getChatlieu().getChatlieu_name()}]]</p>
-                                            <p>[[${chitiet.getLoaip().getLoaip_name()}]]</p>
                                             <p>[[${chitiet.getThoigianbaohanh().getThoigianbaohanh_name()}]]</p>
                                             <p>[[${chitiet.getThuonghieu().getThuonghieu_name()}]]</p>
-                                            <p>[[${chitiet.getXuatxu().getXuatxu_name()}]]</p>
                                             <p>[[${chitiet.getPhukien_namsx()}]]</p>
                                             <p>[[${chitiet.getTuongthich().getTuongthich_name()}]]</p>
                                         </div>
@@ -86,17 +86,19 @@
                                 </div>
                             </article>
                         </aside>
-                        <h3>[[#{lo.index.ttct}]]</h3>
+                        <h3 style="text-align: center; color: rgb(254,100,51); font-weight: bold;">[[#{lo.index.ttct}]]</h3>
                         <div class="the-div-chitiet-phukien">
-                            <img th:src="${chitiet.getPhukien_anh1()}" width="900" height="450" alt="">
+                            <img th:src="${chitiet.getPhukien_anh1()}" width="650px" height="450px" alt="">
                             <br>
                             <p>[[${chitiet.getPhukien_tinhnang1()}]]</p>
+                            <br>
                         </div>
                         <br>
                         <div class="the-div-chitiet-phukien">
-                            <img th:src="${chitiet.getPhukien_anh2()}" width="900" height="450" alt="">
+                            <img th:src="${chitiet.getPhukien_anh2()}" width="650px" height="450px" alt="">
                             <br>
                             <p>[[${chitiet.getPhukien_tinhnang2()}]]</p>
+                            <br>
                         </div>
                     </div>
                 </div>

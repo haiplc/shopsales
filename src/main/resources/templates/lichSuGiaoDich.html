@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layout::dynamic(~{::title},~{::body})}">
+
+<head>
+    <title>[[#{lo.index.lsgdich}]] | ShopSale</title>
+</head>
+
+<body>
+    <main id="main-giohang">
+        <h2 class="cart-title">
+            [[#{lo.index.lsgdich}]]
+        </h2>
+        <div class="thanhngang"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 120px; text-align: center;">Mã hóa đơn</th>
+                    <th style="width: 350px; text-align: center;">Ngày lập</th>
+                    <th style="width: 100px; text-align: center;">Sản phẩm</th>
+                    <th style="width: 150px; text-align: center;">Đơn giá</th>
+                    <th style="width: 150px; text-align: center;">Số lượng</th>
+                    <th style="width: 150px; text-align: center;">Cước vận chuyển</th>
+                    <th style="width: 150px; text-align: center;">Thành tiền</th>
+                    <th style="width: 150px; text-align: center;">Địa chỉ nhận hàng</th>
+                    <th style="width: 150px; text-align: center;">Ngày nhận hàng</th>
+                    <th style="width: 150px; text-align: center;">Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <div th:each="chitiet : ${giohang.chiTietGioHang}">
+                    <tr style="margin-top: 20px; border-bottom: 1px solid green; padding-bottom: 20px">
+                        <td style="margin: 0 auto; margin-top: 20px; width: 250px; text-align: center;">
+                            <img th:src="${chitiet.key.sanpham_anh1}" style="width: 150px; height: 150px; margin-top: 20px; padding-bottom: 20px; margin-left: 10px">
+                        </td>
+                        <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 350px; text-align: center; color: green;">${chitiet.key.sanpham_name}</td>
+                        <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 180px; text-align: center; color: green;">
+                            <h6 style="margin-top: 3px; color: red">
+                                <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban}" /> VNĐ
+                            </h6>
+                        </td>
+                        <td style="width: 150px; text-align: center; font-size: 17px;">
+                            ${chitiet.value} chiếc</td>
+                        <td style="width: 200px; margin-top: 20px; text-align: center;">
+                            <h6 style="margin-top: 3px; color: red">
+                                <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban*chitiet.value}" /> VNĐ
+                            </h6>
+                        </td>
+                    </tr>
+                </div> -->
+            </tbody>
+        </table>
+
+        <div class="thanhngang"></div>
+    </main>
+</body>
+
+</html>

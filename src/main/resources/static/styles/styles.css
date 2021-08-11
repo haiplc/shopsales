@@ -1349,6 +1349,40 @@ a {
     margin-left: 10px;
 }
 
+.thechitietdtpk {
+    width: 380px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.noidungchitietdtpk {
+    width: 50%;
+    min-height: 300px;
+    float: right;
+    border-right: 1px solid #ccc;
+}
+
+.noidungchitietdtpk p {
+    padding: 0;
+    color: red;
+    float: right;
+    margin-right: 10px;
+}
+
+.ketquanoidungchitietdtpk {
+    width: 40%;
+    height: 300px;
+    float: left;
+}
+
+.ketquanoidungchitietdtpk p {
+    padding: 0;
+    color: blue;
+    margin-left: 10px;
+}
+
 
 /*==================SẢN PHẨM===========*/
 
@@ -1619,13 +1653,15 @@ a {
 }
 
 .the-div-chitiet-phukien {
-    width: 900px;
+    width: 700px;
     min-height: 450px;
     margin: 0 auto;
+    align-items: center;
 }
 
 .the-div-chitiet-phukien img {
-    text-align: center;
+    width: 600px;
+    height: 350px;
 }
 
 .the-div-chitiet-phukien p {
@@ -1634,4 +1670,5 @@ a {
     font-size: 18px;
     line-height: 25px;
     margin-top: 5px;
+    color: blue;
 }

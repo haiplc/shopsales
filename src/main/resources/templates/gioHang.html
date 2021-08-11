@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org" th:replace="~{layout::dynamic(~{::title},~{::body})}">
+
+<head>
+    <title>[[#{lo.index.gh}]] | ShopSale</title>
+</head>
+
+<body>
+    <main id="main-giohang">
+        <h2 class="cart-title">
+            [[#{lo.index.mygh}]]
+        </h2>
+        <div class="thanhngang"></div>
+        <div class="menugiohang">
+            <div class="hinh">
+                [[#{lo.index.anhsp}]]
+            </div>
+            <div class="tenspp">
+                [[#{lo.index.tensp}]]
+            </div>
+            <div class="giaspp">
+                [[#{lo.index.gia}]]
+            </div>
+            <div class="soluongspp">
+                [[#{lo.index.soluongsp}]]
+            </div>
+            <div class="thanhtien">
+                [[#{lo.index.tongtien}]]
+            </div>
+        </div>
+        <div class="table-content" style="width: 1100px; min-height: 100px; margin: 0 auto; background: white">
+            <table>
+                <tbody>
+                    <!-- <c:forEach var="chitiet" items="${giohang.chiTietGioHang}">
+                        <tr style="margin-top: 20px; border-bottom: 1px solid green; padding-bottom: 20px">
+                            <td style="margin: 0 auto; margin-top: 20px; width: 250px; text-align: center;">
+                                <img src="${chitiet.key.sanpham_anh1}" style="width: 150px; height: 150px; margin-top: 20px; padding-bottom: 20px; margin-left: 10px">
+                            </td>
+                            <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 350px; text-align: center; color: green;">${chitiet.key.sanpham_name}</td>
+                            <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 180px; text-align: center; color: green;">
+                                <h6 style="margin-top: 3px; color: red">
+                                    <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban}" /> VNĐ
+                                </h6>
+                            </td>
+                            <td style="width: 150px; text-align: center; font-size: 17px;">
+                                ${chitiet.value} chiếc</td>
+                            <td style="width: 200px; margin-top: 20px; text-align: center;">
+                                <h6 style="margin-top: 3px; color: red">
+                                    <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban*chitiet.value}" /> VNĐ
+                                </h6>
+                            </td>
+                        </tr>
+                    </c:forEach> -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="thanhToan">
+            <div class="tamTinh">
+                <p class="nd1_tt">
+                    [[#{lo.index.tamtinh}]]
+                </p>
+                <div class="tamthanhtoan">
+                    <!-- <c:set var="total" value="${0}" />
+                    <c:forEach var="chitiet" items="${giohang.chiTietGioHang}">
+                        <c:set var="total" value="${total + (chitiet.key.sanpham_giaban*chitiet.value)}" />
+                    </c:forEach> -->
+                    <p class="tongTienTra" id="tongTienTam">
+                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${total}" /> đ -->
+                    </p>
+                </div>
+            </div>
+            <div class="tamTinh">
+                <p class="nd1_tt">
+                    [[#{lo.index.phivc}]]
+                </p>
+                <div class="tamthanhtoan">
+                    <p class="tongTienTra" id="tongTienTam">
+                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${22000}" /> đ -->
+                    </p>
+                </div>
+            </div>
+            <div class="tienPhaiTra">
+                <p class="nd1_tt">
+                    [[#{lo.index.thanhtien}]]
+                </p>
+                <div class="thanhtoanEnd">
+                    <p class="tongTienTra" id="tongTienTra">
+                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${total + 22000}" /> đ -->
+                    </p>
+                </div>
+            </div>
+            <div class="vat">
+                <p class="vat_tt">
+                    [[#{lo.index.vat}]]
+                </p>
+            </div>
+        </div>
+        <div class="thanhngang"></div>
+
+        <form action="/home/chitietgiohang" method="post" th:object="${order}">
+            <div class="khungchuamua">
+
+                <div class="customer-info">
+                    <h2 class="cart-title">
+                        [[#{lo.index.ttkh}]]
+                    </h2>
+                    <label for="name">[[#{lo.index.hotenngnh}]]</label>
+                    <input type="text" name="name" th:field="*{name}" id="hoten">
+                    <i th:errors="*{name}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"></i>
+
+                    <label for="phoneNumber">[[#{lo.index.sdt}]]</label>
+                    <input type="text" th:value="${currentUser.getUser_sdt()}" th:field="*{phoneNumber}" name="phonenumber" id="phonenumber">
+                    <i th:errors="*{phoneNumber}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"> </i>
+
+                    <label for="email">[[#{lo.index.email}]]</label>
+                    <input type="email" name="email" th:field="*{email}" id="email">
+                    <i th:errors="*{email}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"></i>
+
+                    <label th:field="address">[[#{lo.index.dcnhanhang}]]</label>
+                    <input type="text" name="address" th:field="*{address}" id="diachi">
+                    <i th:errors="*{address}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"> </i>
+
+                    <input type="submit" class="thanhtoanbtn" th:value="#{lo.index.xacnhantt}">
+                </div>
+
+                <div class="phanbenphai">
+                    <h2 class="cart-title">
+                        [[#{lo.index.cttt}]]
+                    </h2>
+                    <div class="phantrentt">
+                        <div class="hinhthuctt">
+                            <p class="tenhthuc">
+                                [[#{lo.index.htvcc}]]
+                            </p>
+                            <div class="noidungnay">
+                                <p class="item-tenhthuc">
+                                    <i class="fas fa-caret-right"></i> [[#{lo.index.ghtk}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    [[#{lo.index.ghnh}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    [[#{lo.index.ghdb}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    <i class="fas fa-sort-down"></i> [[#{lo.index.xemthem}]]
+                                    <i class="fas fa-sort-down"></i>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ngangiuan"></div>
+                        <div class="dvivanchuyen">
+                            <p class="tenhthuc">
+                                [[#{lo.index.dvvcc}]]
+                            </p>
+                            <div class="noidung2nay">
+                                <p class="item-tenhthuc">
+                                    <i class="fas fa-caret-right"></i> [[#{lo.index.40}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    [[#{lo.index.e}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    [[#{lo.index.nship}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    [[#{lo.index.ninja}]]
+                                </p>
+                                <p class="item-tenhthuc2">
+                                    <i class="fas fa-sort-down"></i> [[#{lo.index.xemthem}]]
+                                    <i class="fas fa-sort-down"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ngancuoi"></div>
+                    <div class="chinhsachvc">
+                        <p class="chinhsachvc">
+                            [[#{lo.index.csgiohang}]]
+                        </p>
+                    </div>
+                    <div class="ngancuoi"></div>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
