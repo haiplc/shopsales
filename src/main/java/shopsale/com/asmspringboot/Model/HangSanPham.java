@@ -8,8 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,11 +26,11 @@ public class HangSanPham {
 	@Column(name = "hang_id")
 	int hang_id;
 
-	@NotNull
 	@Size(min = 2, max = 30, message = "Không được để trống! Tối thiểu 2, tối đa 30 ký tự.")
 	@Column(name = "hang_name", unique = true)
 	String hang_name;
 
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "hang")
 	List<SanPhamDT> sanphamdt;
 }

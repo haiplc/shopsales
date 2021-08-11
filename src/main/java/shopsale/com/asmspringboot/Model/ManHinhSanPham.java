@@ -25,7 +25,6 @@ public class ManHinhSanPham {
 	@Column(name = "manhinh_id")
 	int manhinh_id;
 
-	@NotNull
 	@Size(min = 2, max = 10, message = "Không được để trống! Tối thiểu 2, tối đa 10 ký tự.")
 	@Column(name = "manhinh_name", unique = true)
 	String manhinh_name;

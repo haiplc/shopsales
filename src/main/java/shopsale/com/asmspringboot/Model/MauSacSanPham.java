@@ -25,7 +25,6 @@ public class MauSacSanPham {
 	@Column(name = "mausac_id")
 	int mausac_id;
 
-	@NotNull
 	@Size(min = 2, max = 30, message = "Không được để trống! Tối thiểu 2, tối đa 30 ký tự.")
 	@Column(name = "mausac_name", unique = true)
 	String mausac_name;

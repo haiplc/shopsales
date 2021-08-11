@@ -25,7 +25,6 @@ public class LoaiSanPham {
 	@Column(name = "loai_id")
 	int loai_id;
 
-	@NotNull
 	@Size(min = 5, max = 30, message = "Không được để trống! Tối thiểu 5, tối đa 30 ký tự.")
 	@Column(name = "loai_name", unique = true)
 	String loai_name;

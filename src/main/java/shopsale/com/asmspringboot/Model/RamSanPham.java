@@ -25,7 +25,6 @@ public class RamSanPham {
 	@Column(name = "ram_id")
 	int ram_id;
 
-	@NotNull
 	@Size(min = 3, max = 20, message = "Không được để trống! Tối thiểu 3, tối đa 20 ký tự.")
 	@Column(name = "ram_name", unique = true)
 	String ram_name;
