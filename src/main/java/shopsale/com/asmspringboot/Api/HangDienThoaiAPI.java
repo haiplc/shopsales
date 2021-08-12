@@ -36,8 +36,8 @@ public class HangDienThoaiAPI {
         return hangDTReponsitory.save(hangsp);
     }
 
-    @PutMapping(value = "/api/hangdt")
-    public HangSanPham update(@Validated @RequestBody HangSanPham hangsp) {
+    @PutMapping(value = "/api/hangdt/{id}")
+    public HangSanPham update(@PathVariable("id") int id, @RequestBody HangSanPham hangsp) {
         return hangDTReponsitory.save(hangsp);
     }
 
