@@ -31,26 +31,26 @@
         <div class="table-content" style="width: 1100px; min-height: 100px; margin: 0 auto; background: white">
             <table>
                 <tbody>
-                    <!-- <c:forEach var="chitiet" items="${giohang.chiTietGioHang}">
+                    <div th:each="chitiet : ${giohang.chiTietGioHang}">
                         <tr style="margin-top: 20px; border-bottom: 1px solid green; padding-bottom: 20px">
                             <td style="margin: 0 auto; margin-top: 20px; width: 250px; text-align: center;">
-                                <img src="${chitiet.key.sanpham_anh1}" style="width: 150px; height: 150px; margin-top: 20px; padding-bottom: 20px; margin-left: 10px">
+                                <img th:src="${chitiet.key.getSanpham_anh1()}" style="width: 150px; height: 150px; margin-top: 20px; padding-bottom: 20px; margin-left: 10px">
                             </td>
-                            <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 350px; text-align: center; color: green;">${chitiet.key.sanpham_name}</td>
+                            <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 350px; text-align: center; color: green;">[[${chitiet.key.getSanpham_name()}]]</td>
                             <td style="margin: 0 auto; margin-top: 20px; font-size: 18px; width: 180px; text-align: center; color: green;">
                                 <h6 style="margin-top: 3px; color: red">
-                                    <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban}" /> VNĐ
+                                    [[${#numbers.formatDecimal(chitiet.key.getSanpham_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng
                                 </h6>
                             </td>
                             <td style="width: 150px; text-align: center; font-size: 17px;">
-                                ${chitiet.value} chiếc</td>
+                                1 chiếc</td>
                             <td style="width: 200px; margin-top: 20px; text-align: center;">
                                 <h6 style="margin-top: 3px; color: red">
-                                    <fmt:formatNumber type="number" maxFractionDigits="2" value="${chitiet.key.sanpham_giaban*chitiet.value}" /> VNĐ
+                                    [[${#numbers.formatDecimal(chitiet.key.getSanpham_giaban(), 0, 'COMMA', 0, 'POINT')}]] đồng
                                 </h6>
                             </td>
                         </tr>
-                    </c:forEach> -->
+                    </div>
                 </tbody>
             </table>
         </div>
@@ -66,7 +66,7 @@
                         <c:set var="total" value="${total + (chitiet.key.sanpham_giaban*chitiet.value)}" />
                     </c:forEach> -->
                     <p class="tongTienTra" id="tongTienTam">
-                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${total}" /> đ -->
+
                     </p>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                 </p>
                 <div class="tamthanhtoan">
                     <p class="tongTienTra" id="tongTienTam">
-                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${22000}" /> đ -->
+                        [[${#numbers.formatDecimal(20000, 0, 'COMMA', 0, 'POINT')}]] đồng
                     </p>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                 </p>
                 <div class="thanhtoanEnd">
                     <p class="tongTienTra" id="tongTienTra">
-                        <!-- <fmt:formatNumber type="number" maxFractionDigits="1" value="${total + 22000}" /> đ -->
+
                     </p>
                 </div>
             </div>
