@@ -26,6 +26,46 @@
 </head>
 
 <body>
+    <div class="modal fade" id="editHangModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Hãng điện thoại</h5>
+                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editHangForm">
+                        <!-- nội dung -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="save">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editMauModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Màu sắc điện thoại</h5>
+                    <button type="button" class="close" id="closeMau" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editMauForm">
+                        <!-- nội dung -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="saveMau">Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="wrapper ">
         <div class="sidebar" data-color=blue>
             <!--  Tip 1: Màu nền chọn: data-color="blue | green | orange | red | yellow" -->
@@ -188,9 +228,9 @@
                         <div class="card card-chart">
                             <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
                                 <h5 class="card-category">[[#{lo.index.dmmau}]]</h5>
-                                <a th:href="@{/admin/quanlydanhmuc/mausacdt/insert}"><i
+                                <a id="themMau"><i
                                     class="fas fa-plus-circle"
-                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                                    style="color: green; font-size: 24px; margin-top: -10px;"></i></a>
                             </div>
                             <div class="bang-danhmuc">
                                 <table>
@@ -199,35 +239,22 @@
                                             <th style="width: 70px; text-align: center;">ID</th>
                                             <th style="width: 300px; text-align: center;">[[#{lo.index.mau}]]</th>
                                             <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
-
                                         </tr>
                                     </thead>
-                                    <tbody th:each="mau : ${mausacdt}">
-                                        <tr>
-                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_id()}]]</td>
-                                            <td style="text-align: center; line-height: 20px">[[${mau.getMausac_name()}]]</td>
-                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
-                                                <a th:href="@{'/admin/quanlydanhmuc/mausacdt/edit?mausac_id='+${mau.getMausac_id()}}">
-                                                    <i class="far fa-edit" style="color: green;"></i>
-                                                </a>
-                                                <a onclick="return confirm('Xác nhận xóa Danh mục Màu sắc Điện thoại - Phụ kiện')" th:href="@{'/admin/quanlydanhmuc/mausacdt/delete?mausac_id='+${mau.getMausac_id()}}">
-                                                    <i class="fas fa-trash" style="color: red;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tableMauBody">
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-4 col-md-6">
                         <div class="card card-chart">
                             <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
                                 <h5 class="card-category">[[#{lo.index.qldmh}]]</h5>
-                                <a th:href="@{/admin/quanlydanhmuc/hangdt/insert}"><i
-                                    class="fas fa-plus-circle"
-                                    style="color: green; font-size: 24px; margin-top: -10px"></i></a>
+                                <a id="them"><i
+                                        class="fas fa-plus-circle"
+                                        style="color: green; font-size: 24px; margin-top: -10px;"></i></a>
                             </div>
                             <div class="bang-danhmuc">
                                 <table>
@@ -238,19 +265,8 @@
                                             <th style="width: 70px; text-align: center;">[[#{lo.index.thaotac}]]</th>
                                         </tr>
                                     </thead>
-                                    <tbody th:each="hang:${hangdts}">
-                                        <tr>
-                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_id()}]]</td>
-                                            <td style="text-align: center; line-height: 20px">[[${hang.getHang_name()}]]</td>
-                                            <td style="width: 50px; margin: 0 auto; display: flex; flex-direction: row; justify-content: space-between;">
-                                                <a th:href="@{'/admin/quanlydanhmuc/hangdt/edit?hang_id='+${hang.getHang_id()}}">
-                                                    <i class="far fa-edit" style="color: green;"></i>
-                                                </a>
-                                                <a onclick="return confirm('Xác nhận xóa Danh mục Hãng Điện thoại')" th:href="@{'/admin/quanlydanhmuc/hangdt/delete?hang_id='+${hang.getHang_id()}}">
-                                                    <i class="fas fa-trash" style="color: red;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    <tbody id="tableHangBody">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -639,14 +655,14 @@
         </div>
     </div>
 </body>
-<!-- THƯ VIỆN PHÂN TRANG -->
-<script th:src="@{/js/vendor/datatables.net/js/jquery.dataTables.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/dataTables.buttons.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.html5.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.flash.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-buttons/js/buttons.print.min.js}"></script>
-<script th:src="@{/js/vendor/datatables.net-select/js/dataTables.select.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://brainfoolong.github.io/form-data-json/lib/form-data-json.min.js"></script>
+<script th:src="@{/js/Api/hangDT.js}"></script>
+<!-- <script th:src="@{/js/Api/mauSacDTPK.js}"></script> -->
+
+
 <!--   Core JS Files   -->
 <script th:src="@{/js/now-ui-dashboard.js}"></script>
 <script th:src="@{/js/jquery.min.js}"></script>

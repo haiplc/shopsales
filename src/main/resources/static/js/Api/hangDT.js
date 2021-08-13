@@ -4,8 +4,8 @@ var rowTemplate = "{{#each hangdt}}" +
     '<td style="text-align: center; line-height: 20px">{{hang_id}}</td>' +
     '<td style="text-align: center; line-height: 20px;">{{hang_name}}</td>' +
     '<td style="width: 60px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 0 auto">' +
-    '<button class="edit" c-id="{{hang_id}}" style="border: none; background: white; cursor: pointer;"><i class="far fa-edit" style="color: green;"></i></button> ' +
-    '<button class="delete" c-id="{{hang_id}}" style="border: none; background: white; cursor: pointer;"><i class="fas fa-trash" style="color: red;"></i></button>' +
+    '<button class="edit" hang-id="{{hang_id}}" style="border: none; background: white; cursor: pointer;"><i class="far fa-edit" style="color: green;"></i></button> ' +
+    '<button class="delete" hang-id="{{hang_id}}" style="border: none; background: white; cursor: pointer;"><i class="fas fa-trash" style="color: red;"></i></button>' +
     '</td>' +
     "</tr>" +
     "{{/each}}";
@@ -18,7 +18,7 @@ function loadList() {
             var rows = rowHbs({
                 hangdt: data
             });
-            $("#tableBody").html(rows);
+            $("#tableHangBody").html(rows);
             bindClick();
             bindDelete();
             exitModal();
@@ -28,7 +28,7 @@ loadList();
 
 // chức năng sửa
 // show modal
-var insertModal = new bootstrap.Modal(document.getElementById('editModal'), {
+var insertModal = new bootstrap.Modal(document.getElementById('editHangModal'), {
     keyboard: false
 });
 
@@ -41,7 +41,7 @@ $("#them").click(function() {
         '<input name="hang_name" value="" class="form-control" id="hang_name" placeholder="Tên hãng">' +
         '</div>';
     // thêm nội dung vào modal 
-    $("#editForm").html(insertForm);
+    $("#editHangForm").html(insertForm);
 
 
 });
@@ -77,12 +77,12 @@ var editHbs = Handlebars.compile(editTemplateStr);
 function bindClick() {
     $(".edit").click(function() {
         insertModal.show();
-        var id = $(this).attr("c-id");
+        var id = $(this).attr("hang-id");
         fetch(url + "/" + id)
             .then(res => res.json())
             .then(data => {
                 var editHtml = editHbs(data);
-                $("#editForm").html(editHtml);
+                $("#editHangForm").html(editHtml);
             });
     });
 }
@@ -115,7 +115,7 @@ function bindDelete() {
 }
 
 function deleteHang($button) {
-    var id = $button.attr("c-id");
+    var id = $button.attr("hang-id");
     alert("Xác nhận xóa");
     var deleteOption = {
         method: "delete",
