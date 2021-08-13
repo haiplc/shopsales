@@ -440,4 +440,14 @@ public class HomeController {
 
         return "chiTietPhuKien";
     }
+
+    @GetMapping("/home/khuyenmai")
+    public String khuyenMaiPage() {
+        return "khuyenMai";
+    }
+
+    @GetMapping("/home/tuyendung")
+    public String tuyenDungPage() {
+        return "tuyenDung";
+    }
 }
