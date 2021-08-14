@@ -18,7 +18,7 @@ function loadList() {
             var rows = rowHbs({
                 hangdt: data
             });
-            $("#tableHangBody").html(rows);
+            $("#tableBody").html(rows);
             bindClick();
             bindDelete();
             exitModal();
@@ -28,7 +28,7 @@ loadList();
 
 // chức năng sửa
 // show modal
-var insertModal = new bootstrap.Modal(document.getElementById('editHangModal'), {
+var insertModal = new bootstrap.Modal(document.getElementById('editModal'), {
     keyboard: false
 });
 
@@ -38,14 +38,21 @@ $("#them").click(function() {
     // nội dung forrm thêm; chú ý k để value
     var insertForm = '<div class="mb-3">' +
         '<label for="hang_name" class="form-label">Tên hãng</label>' +
-        '<input name="hang_name" value="" class="form-control" id="hang_name" placeholder="Tên hãng">' +
+        '<input name="hang_name" value="" class="form-control" id="hang_name" placeholder="Tên hãng" >' +
         '</div>';
     // thêm nội dung vào modal 
-    $("#editHangForm").html(insertForm);
+    $("#editForm").html(insertForm);
 
 
 });
 $("#save").click(function() {
+    // var arr = document.getElementsByTagName("input");
+    // var hangName = arr[0].value;
+
+    // if (hangName == "") {
+    //     alert("Không được để trống thông tin!")
+
+    // }
     var hang = FormDataJson.formToJson(document.querySelector("form"));
     var insertOption = {
         method: 'POST',
@@ -62,6 +69,9 @@ $("#save").click(function() {
             loadList();
         })
     insertModal.hide();
+
+
+
 });
 // luu noi dung moi them
 
@@ -82,7 +92,7 @@ function bindClick() {
             .then(res => res.json())
             .then(data => {
                 var editHtml = editHbs(data);
-                $("#editHangForm").html(editHtml);
+                $("#editForm").html(editHtml);
             });
     });
 }
