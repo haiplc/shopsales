@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,7 @@ public class MauSacSanPham {
 	@Size(min = 2, max = 30, message = "Không được để trống! Tối thiểu 2, tối đa 30 ký tự.")
 	@Column(name = "mausac_name", unique = true)
 	String mausac_name;
-
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "mausac")
 	List<SanPhamDT> sanphamdt;
 }
