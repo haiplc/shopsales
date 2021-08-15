@@ -18,7 +18,7 @@ public class SearchForm {
         this.ten = "";
         this.trang = 0;
         this.xepTheo = "sanpham_id";
-        this.thuTu = true;
+        this.thuTu = false;
     }
 
     public String getTen() {
