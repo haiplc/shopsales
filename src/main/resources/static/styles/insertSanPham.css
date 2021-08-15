@@ -64,14 +64,14 @@ body {
 }
 
 .them-sanpham-phai {
-    width: 600px;
+    width: 400px;
     display: block;
 }
 
 .tm-anh-1 {
     width: 580px;
     margin: 0 auto;
-    height: 300px;
+    height: 125px;
     display: block;
 }
 
@@ -88,7 +88,7 @@ body {
 
 .tm-anh-2 {
     width: 580px;
-    height: 300px;
+    height: 125px;
     margin: 0 auto;
     background-color: green;
 }
@@ -151,6 +151,27 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.thong-tin-tm-323 {
+    width: 600px;
+    height: 250px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.thong-tin-tm-333 {
+    width: 600px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.thong-tin-tm-334 {
+    width: 600px;
 }
 
 .tm-tt1 {
@@ -235,6 +256,11 @@ body {
     height: 200px;
 }
 
+.lienhe-11 {
+    widows: 600px;
+    margin-top: -40px;
+}
+
 .noidung-mota {
     width: 590px;
     height: 150px;
@@ -253,6 +279,23 @@ body {
     margin-top: 10px;
 }
 
+.noidung-mota1 {
+    width: 600px;
+    height: 100px;
+    font-size: 16px;
+    font-family: serif;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.noidung-lienhe1 {
+    width: 600px;
+    height: 40px;
+    font-size: 16px;
+    font-family: serif;
+    margin-left: 25px;
+}
+
 .rut-xuong {
     margin-top: 50px;
 }
@@ -263,6 +306,13 @@ body {
     font-size: 18px;
     margin-left: 15px;
     margin-top: 50px;
+}
+
+.the-ten-tm-anh1 {
+    color: #ccc;
+    font-family: serif;
+    font-size: 18px;
+    margin-left: 15px;
 }
 
 .the-input-tm-anh {
@@ -277,6 +327,21 @@ body {
 }
 
 .the-input-tm-anh:focus {
+    border: none;
+    border-bottom: 1px solid blue;
+}
+
+.the-input-tm-anh1 {
+    width: 600px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid blue;
+    font-size: 18px;
+    font-family: serif;
+    margin-top: 10px;
+}
+
+.the-input-tm-anh1:focus {
     border: none;
     border-bottom: 1px solid blue;
 }
@@ -305,4 +370,38 @@ body {
     width: 20px;
     border: none;
     color: white;
+}
+
+.mglef10 {
+    margin-left: 6px;
+}
+
+.thetimkiem-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1000px;
+    font-size: 16px;
+    margin-top: 5px;
+    align-items: center;
+    height: 40px;
+}
+
+.thetimkiem-search p {
+    color: red;
+    font-size: 17px;
+    margin-top: 10px;
+    text-decoration: underline;
+}
+
+.thetimkiem-search input {
+    font-size: 17px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid red;
+}
+
+.thetimkiem-search select {
+    font-size: 17px;
+    height: 40px;
 }

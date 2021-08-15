@@ -1,4 +1,4 @@
-var urlSanPham = "/api/sanphamdt";
+var url = "/api/sanphamdt";
 var rowDanhSachDT = "{{#each dienthoai}}" +
     "<tr>" +
     '<td style="text-align: center;">{{sanpham_id}}</td>' +
@@ -18,152 +18,301 @@ var rowDanhSachDT = "{{#each dienthoai}}" +
 
 var rowDtHbs = Handlebars.compile(rowDanhSachDT);
 
-// var hangSelect = '<select id="hang.hang_id">{{#each hangdts}}' +
-//     '<option value="{{hang_id}}>' +
-//     '"{{hang_name}}' +
-//     '</option>' +
+// render Hang
+var hangSelect = '<select name="hang.hang_id"> {{#each hangdts}}' +
+    '<option value="{{hang_id}}">{{hang_name}}</option>' +
+    '{{/each}}</select>';
+
+var hangSelectHbs = Handlebars.compile(hangSelect);
+
+// render Manhinh
+var manHinhSelect = '<select name="manhinh.manhinh_id"> {{#each manhinhdts}}' +
+    '<option value="{{manhinh_id}}">{{manhinh_name}}</option>' +
+    '{{/each}}</select>';
+
+var manHinhSelectHbs = Handlebars.compile(manHinhSelect);
+
+// render Mausac
+var mauSacSelect = '<select name="mausac.mausac_id"> {{#each mausacdts}}' +
+    '<option value="{{mausac_id}}">{{mausac_name}}</option>' +
+    '{{/each}}</select>';
+
+var mauSacSelectHbs = Handlebars.compile(mauSacSelect);
+
+// render CHIP
+var chipSelect = '<select name="chip.chip_id"> {{#each chipdts}}' +
+    '<option value="{{chip_id}}">{{chip_name}}</option>' +
+    '{{/each}}</select>';
+
+var chipSelectHbs = Handlebars.compile(chipSelect);
+
+// render RAM
+var ramSelect = '<select name="ram.ram_id"> {{#each ramdts}}' +
+    '<option value="{{ram_id}}">{{ram_name}}</option>' +
+    '{{/each}}</select>';
+
+var ramSelectHbs = Handlebars.compile(ramSelect);
+
+// render Bonho
+var boNhoSelect = '<select  name="bonho.bonho_id"> {{#each bonhodts}}' +
+    '<option value="{{bonho_id}}">{{bonho_name}}</option>' +
+    '{{/each}}</select>';
+
+var boNhoSelectHbs = Handlebars.compile(boNhoSelect);
+
+// render Loai
+var loaiSelect = '<select name="loai.loai_id"> {{#each loaidts}}' +
+    '<option value="{{loai_id}}">{{loai_name}}</option>' +
+    '{{/each}}</select>';
+
+var loaiSelectHbs = Handlebars.compile(loaiSelect);
 
 function loadDanhSachDT() {
-    fetch(urlSanPham)
+    var searchForm = FormDataJson.formToJson(document.querySelector("form"));
+    var searchOption = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(searchForm)
+    };
+
+    fetch("/api/sanphamdt/search", searchOption)
         .then(res => res.json())
-        .then(datas => {
+        .then(data => {
             var rowDTs = rowDtHbs({
-                dienthoai: datas
+                dienthoai: data.content
             });
             $("#tableSanPham").html(rowDTs);
+
+            var pageHTML = "";
+            for (var i = 0; i < data.totalPages; i++) {
+                pageHTML += `<button value="${i}" class="page-link pageIndex">${i+1}</button>`
+            }
+            $("#phanTrang").html(pageHTML);
+
+            $(".pageIndex").click(function() {
+                $('#searchFormTB input[name="trang"]').val($(this).val());
+                loadDanhSachDT();
+            });
             exitModal();
         });
 }
 loadDanhSachDT();
 
 // danh sách url select
-var urlMauSac = "/api/mausacdt";
-var urlHang = "/api/hangdt";
-var urlChip = "/api/chipdt";
-var urlRam = "/api/ramdt";
-var urlManHinh = "/api/manhinhdt";
-var urlBoNho = "/api/bonhodt";
-var urlLoai = "/api/loaidt";
 
 //Show model
 var insertDTModal = new bootstrap.Modal(document.getElementById('editDTModal'), {
     keyboard: false
 });
 
+////////////////////////THÊM ĐIỆN THOẠI///////////////////////////////////
 // Chức năng thêm
 $("#themDT").click(function() {
     insertDTModal.show();
-    var formAdd =
-        '<div class="them-sp-ndthaotac">' +
-        '<div class="them-sanpham-trai">' +
-        '<label th:field="*{sanpham_name}" class="the-ten-tm">[[#{lo.index.tensp}]]</label>' +
-        '<br/>' +
-        '<input th:field="*{sanpham_name}" class="the-input-tm">' +
-        '<br/>' +
-        '<i th:errors="*{sanpham_name}" style="color:red; margin-left: 30px; font-style: italic; position: absolute;  margin-top: 5px;"></i>' +
-        ' <br/>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '<div class="selects-group-product">' +
-        '<div class="select-group">' +
-        '<label th:field="*{hang}">[[#{lo.index.hangdtss}]]</label>' +
-        '<select th:field="*{hang}">' +
-        '</select>' +
-        '</div>' +
-        '</div>' +
-        '<div class="thong-tin-tm-3">' +
-        '<div class="tm-tt1">' +
-        '<label th:field="*{sanpham_giaban}" class="the-ten-tm-3">Giá bán</label>' +
-        ' <br/>' +
-        ' <input type="number" th:field="*{sanpham_giaban}" class="the-input-tm-3-1">' +
-        ' <br/>' +
-        '</div>' +
-        ' <input type="hidden" th:field="*{sanpham_giaban}" class="the-input-tm-3-1">' +
-        '<div class="tm-tt1">' +
-        '<label th:field="*{sanpham_giaban}" class="the-ten-tm-3">Giá bán</label>' +
-        ' <br/>' +
-        ' <input type="number" th:field="*{sanpham_giaban}" class="the-inputid">' +
-        ' <br/>' +
-        '</div>' +
-        '</div>' +
-        ' <br/>' +
-        '<label th:field="*{sanpham_url}" class="the-ten-tm">URL sản phẩm</label>' +
-        ' <br/>' +
-        '<input th:field="*{sanpham_url}" class="the-input-tm">' +
-        ' <br/>' +
-        '</div>' +
-        '<div class="them-sanpham-phai">' +
-        '<div class="tm-anh-1">' +
-        ' <br/>' +
-        '<label th:field="*{sanpham_anh1}" class="the-ten-tm-anh">Link ảnh 1</label>' +
-        '<br/>' +
-        '<input th:field="*{sanpham_anh1}" class="the-input-tm-anh">' +
-        '<br/>' +
-        '<br/>' +
-        '<label th:field="*{sanpham_anh2}" class="the-ten-tm-anh">Link ảnh 2</label>' +
-        '<br/>' +
-        '<input th:field="*{sanpham_anh2}" class="the-input-tm-anh">' +
-        '<br/>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="them-sp-ndthaotac rut-xuong">' +
-        '<div class="mota-1">' +
-        '<label th:field="*{sanpham_mota}" class="the-ten-tm">Mô tả sản phẩm</label>' +
-        '<br/>' +
-        '<textarea th:field="*{sanpham_mota}" class="noidung-mota" cols="30" rows="10"></textarea>' +
-        '<br/>' +
-        '</div>' +
-        '<div class="lienhe-1">' +
-        '<label th:field="*{sanpham_lienhe}" class="the-ten-tm">Liên hệ mua hàng</label>' +
-        '<br/>' +
-        '<textarea th:field="*{sanpham_lienhe}" class="noidung-lienhe" cols="30" rows="10"></textarea>' +
-        '<br/>' +
-        '</div>' +
-        '</div>';
-    // thêm nội dung vào modal
-    $("#editDTForm").html(formAdd);
+    // lấy danh mục hãng
+    fetch("/api/hangdt")
+        .then(res => res.json())
+        .then(data => {
+            var hangSelectHtml = hangSelectHbs({ hangdts: data });
+
+            fetch("/api/manhinhdt")
+                .then(res => res.json())
+                .then(data => {
+                    var manHinhSelectHtml = manHinhSelectHbs({ manhinhdts: data });
+
+                    fetch("/api/mausacdt")
+                        .then(res => res.json())
+                        .then(data => {
+                            var mauSacSelectHtml = mauSacSelectHbs({ mausacdts: data });
+
+                            fetch("/api/chipdt")
+                                .then(res => res.json())
+                                .then(data => {
+                                    var chipSelectHtml = chipSelectHbs({ chipdts: data });
+
+                                    fetch("/api/ramdt")
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            var ramSelectHtml = ramSelectHbs({ ramdts: data });
+
+                                            fetch("/api/bonhodt")
+                                                .then(res => res.json())
+                                                .then(data => {
+                                                    var boNhoSelectHtml = boNhoSelectHbs({ bonhodts: data });
+
+                                                    fetch("/api/loaidt")
+                                                        .then(res => res.json())
+                                                        .then(data => {
+                                                            var loaiSelectHtml = loaiSelectHbs({ loaidts: data });
+
+                                                            var formAdd = '<div class="them-sp-ndthaotac">' +
+                                                                '<div class="them-sanpham-trai">' +
+                                                                '<label for="sanpham_name" class="the-ten-tm">Tên sản phẩm</label>' +
+                                                                '<br/>' +
+                                                                '<input id="sanpham_name" name="sanpham_name" class="the-input-tm">' +
+                                                                '<br/>' +
+                                                                '<div class="selects-group-product">' +
+                                                                '<div class="select-group">' +
+                                                                '<label for="hang">Hãng điện thoại</label>';
+
+                                                            formAdd += hangSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<label for="manhinh">Màn hình</label>';
+
+                                                            formAdd += manHinhSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<label for="mausac">Màu sắc</label>';
+
+                                                            formAdd += mauSacSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<br/>' +
+                                                                '<label for="chip">CHIP sản phẩm</label>';
+
+                                                            formAdd += chipSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<br/>' +
+                                                                '<label for="ram">RAM sản phẩm</label>';
+
+                                                            formAdd += ramSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<br/>' +
+                                                                '<label for="bonho">Dung lượng bộ nhớ</label>';
+
+                                                            formAdd += boNhoSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '<div class="select-group">' +
+                                                                '<br/>' +
+                                                                '<label for="loai">Loại sản phẩm</label>';
+
+                                                            formAdd += loaiSelectHtml;
+
+                                                            formAdd += '</div>' +
+                                                                '</div>' +
+                                                                '<div class="thong-tin-tm-323">' +
+                                                                '<div class="tm-anh-1">' +
+                                                                '<label for="sanpham_anh1" class="the-ten-tm-anh1">Link ảnh 1</label>' +
+                                                                '<input id="sanpham_anh1" name="sanpham_anh1" class="the-input-tm-anh1">' +
+                                                                '<label for="sanpham_anh2" class="the-ten-tm-anh">Link ảnh 2</label>' +
+                                                                '<input id="sanpham_anh2" name="sanpham_anh2" class="the-input-tm-anh1">' +
+                                                                '</div>' +
+                                                                '</div>' +
+                                                                '<div class="thong-tin-tm-333">' +
+                                                                '<div class="tm-tt1">' +
+                                                                '<label for="sanpham_giaban" class="the-ten-tm-3">Giá bán</label>' +
+                                                                '<br/>' +
+                                                                '<input type="number" id="sanpham_giaban" name="sanpham_giaban" class="the-input-tm-3-1 mglef10">' +
+                                                                '<br/>' +
+                                                                '</div>' +
+                                                                '<div class="tm-tt2">' +
+                                                                '<label for="sanpham_soluong" class="the-ten-tm-3">Số lượng</label>' +
+                                                                '<br/>' +
+                                                                '<input type="number" name="sanpham_soluong" id="sanpham_soluong" class="the-input-tm-3">' +
+                                                                '<br/>' +
+                                                                '</div>' +
+                                                                '</div>' +
+                                                                '<div class="them-sanpham-duoi">' +
+                                                                '<br>' +
+                                                                '<label for="sanpham_url" class="the-ten-tm">URL sản phẩm</label>' +
+                                                                '<br/>' +
+                                                                '<input id="sanpham_url" name="sanpham_url" class="the-input-tm">' +
+                                                                '<br/>' +
+                                                                '</div>' +
+                                                                '<div class="thong-tin-tm-334">' +
+                                                                '<br>' +
+                                                                '<div class="mota-1">' +
+                                                                '<label for="sanpham_mota" class="the-ten-tm">Mô tả sản phẩm</label>' +
+                                                                '<br/>' +
+                                                                '<textarea id="sanpham_mota" name="sanpham_mota"  class="noidung-mota1" cols="15" rows="5"></textarea>' +
+                                                                '<br/>' +
+                                                                '</div>' +
+                                                                '<div class="lienhe-11">' +
+                                                                '<label for="sanpham_lienhe" class="the-ten-tm">Liên hệ mua hàng</label>' +
+                                                                '<br/>' +
+                                                                '<input id="sanpham_lienhe" name="sanpham_lienhe"  class="noidung-lienhe1">' +
+                                                                '<br/>' +
+                                                                '</div>' +
+                                                                '</div>' +
+                                                                '</div>' +
+                                                                '</div>';
+                                                            // thêm nội dung vào modal
+                                                            $("#editDTForm").html(formAdd);
+                                                        });
+                                                });
+                                        });
+                                });
+                        });
+                });
+        });
+
 });
 
+$("#save").click(function() {
+    var dienThoai = FormDataJson.formToJson(document.querySelector("form"));
+    var insertOption = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dienThoai)
 
+    };
+    dienThoai = fetch(url, insertOption)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            loadDanhSachDT();
+        })
+    alert("Thêm vào thành công!");
+    insertDTModal.hide();
+});
 
+/////////////////////////////DELETE////////////////////////////
+
+function bindEventDelete() {
+    $(".delete").click(function() {
+        deleteSanPham($(this));
+    })
+}
+
+function deleteSanPham($button) {
+    var id = $button.attr("sp-id");
+    alert("Xác nhận xóa");
+    var deleteOption = {
+        method: "delete",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    fetch(url + "/" + id, deleteOption)
+        .then(response => {
+            loadDanhSachDT();
+        });
+}
+
+//////////////////////////////THOÁT////////////////////////////////
 function exitModal() {
     $("#close").click(function() {
         alert("Xác nhận thoát!")
         insertDTModal.hide()
     })
 }
+
+////////////////////////TÌM KIẾM///////////////////////////////////
+$("#searchBtn").click(function() {
+    loadDanhSachDT();
+});
+
+////////////////////////CHỨC NĂNG SỬA///////////////////////////////////

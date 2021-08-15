@@ -28,13 +28,11 @@
 
 <body>
     <div class="modal fade" id="editDTModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Sản phẩm</h5>
-                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                     <form id="editDTForm" role="form">
@@ -123,16 +121,7 @@
 							class="navbar-toggler-bar navbar-kebab"></span>
 					</button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
-                            <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" th:placeholder="#{lo.index.timkiemnc}">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <i class="fas fa-search" style="margin-left: 10px; cursor: pointer;"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -173,12 +162,34 @@
                         <div class="card">
                             <div class="card-header" style="display: flex; flex-direction: row; justify-content: space-between;">
                                 <h4 class="card-title">[[#{lo.index.dssanpham}]]</h4>
+                                <!-- FORM TÌM KIẾM -->
+                                <form id="searchFormTB">
+                                    <div class="thetimkiem-search">
+                                        <p>Tên:</p>
+                                        <input name="ten" type="text">
+                                        <input type="text" name="trang" value="0">
+                                        <p>Xếp theo:</p>
+                                        <select name="xepTheo">
+                                            <option value="sanpham_id">ID</option>
+                                            <option value="sanpham_name">Tên sản phẩm</option>
+                                            <option value="sanpham_soluong">Số lượng</option>
+                                            <option value="sanpham_giaban">Giá bán</option>
+                                        </select>
+                                        <p>Thứ tự:</p>
+                                        <select id="thuTu">
+                                            <option value="false">Tăng dần</option>
+                                            <option value="true">Giảm dần</option>
+                                        </select>
+                                        <button type="button" id="searchBtn" class="btn btn-info">Tìm kiếm</button>
+                                    </div>
+                                </form>
                                 <div class="the-them-dt">
                                     <a id="themDT" class="themmoiSP"> [[#{lo.index.themmoi}]] </a>
                                 </div>
                             </div>
                             <div class="card-body" style="height: 790px">
                                 <div class="table-responsive">
+
                                     <table class="table">
                                         <thead class=" text-primary">
                                             <tr>
@@ -237,22 +248,9 @@
 
                                         </tbody>
                                     </table>
-                                    <!-- <div class="menu-danhmuc-duoi">
-                                        <ul class="pagination">
-                                            <div th:if="${maxPage > 1 }" style="width: 250px; margin-left: 600px; margin-top: -20px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
-                                                <li class="page-item">
-                                                    <a th:classappend="${page == 0 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page-1}+'&search='+${search}}">[[#{lo.index.pre}]]</a>
-                                                </li>
-                                                <li th:each="i : ${#numbers.sequence(0, maxPage - 1)}">
-                                                    <a th:classappend="${i == page ? 'page-link activePage' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${i}+'&search='+${search}}" th:utext="${i+1}">
-                                                    </a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a th:classappend="${page == maxPage - 1 ? 'page-link opacityNull' : 'page-link' }" th:href="@{'/admin/quanlysanpham?page='+${page+1}+'&search='+${search}}">[[#{lo.index.next}]]</a>
-                                                </li>
-                                            </div>
-                                        </ul>
-                                    </div> -->
+                                    <div id="phanTrang" style="width: 250px; margin-left: 600px; margin-top: 30px; display: flex; flex-direction: row; justify-content: space-between; position: absolute;">
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -274,12 +272,13 @@
             </footer>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="https://brainfoolong.github.io/form-data-json/lib/form-data-json.min.js"></script>
+    <script th:src="@{/js/Api/dienthoaiApi.js}"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<script src="https://brainfoolong.github.io/form-data-json/lib/form-data-json.min.js"></script>
-<script th:src="@{/js/Api/dienthoaiApi.js}"></script>
+
 
 
 </html>

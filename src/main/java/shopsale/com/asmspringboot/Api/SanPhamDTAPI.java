@@ -3,9 +3,11 @@ package shopsale.com.asmspringboot.Api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import shopsale.com.asmspringboot.Model.SanPhamDT;
+import shopsale.com.asmspringboot.Model.SearchForm;
 import shopsale.com.asmspringboot.Reponsitory.SanPhamDTReponsitory;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,11 +57,13 @@ public class SanPhamDTAPI {
     private static final int TOI_DA_SAN_PHAM = 4;
 
     // list danh sách và map danh sách ra trang chính
-    @GetMapping("/api/sanphamdt/search")
-    public Page<SanPhamDT> quanLySanPham(@RequestBody String search, @RequestBody int pageIndex) {
-        Pageable pager = PageRequest.of(pageIndex, TOI_DA_SAN_PHAM);
+    @PostMapping("/api/sanphamdt/search")
+    public Page<SanPhamDT> search(@RequestBody SearchForm sf) {
+        Pageable phanTrang = PageRequest.of(sf.getTrang(), TOI_DA_SAN_PHAM,
+                sf.getThuTu() ? Direction.ASC : Direction.DESC, sf.getXepTheo());
 
-        Page<SanPhamDT> sanphamPage = sanPhamDTReponsitory.findByNameContaining(search, pager);
+        Page<SanPhamDT> sanphamPage = sanPhamDTReponsitory.findByNameContaining(sf.getTen(), phanTrang);
+
         return sanphamPage;
     }
 }

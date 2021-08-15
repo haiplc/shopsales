@@ -26,7 +26,6 @@ function loadList() {
 }
 loadList();
 
-// chức năng sửa
 // show modal
 var insertModal = new bootstrap.Modal(document.getElementById('editModal'), {
     keyboard: false
