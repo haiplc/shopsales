@@ -18,55 +18,6 @@ var rowDanhSachDT = "{{#each dienthoai}}" +
 
 var rowDtHbs = Handlebars.compile(rowDanhSachDT);
 
-// render Hang
-var hangSelect = '<select name="hang.hang_id" id="hang.hang_id"> {{#each hangdts}}' +
-    '<option value="{{hang_id}}">{{hang_name}}</option>' +
-    '{{/each}}</select>';
-
-var hangSelectHbs = Handlebars.compile(hangSelect);
-
-// render Manhinh
-var manHinhSelect = '<select name="manhinh.manhinh_id" id="manhinh.manhinh_id"> {{#each manhinhdts}}' +
-    '<option value="{{manhinh_id}}">{{manhinh_name}}</option>' +
-    '{{/each}}</select>';
-
-var manHinhSelectHbs = Handlebars.compile(manHinhSelect);
-
-// render Mausac
-var mauSacSelect = '<select name="mausac.mausac_id" id="mausac.mausac_id"> {{#each mausacdts}}' +
-    '<option value="{{mausac_id}}">{{mausac_name}}</option>' +
-    '{{/each}}</select>';
-
-var mauSacSelectHbs = Handlebars.compile(mauSacSelect);
-
-// render CHIP
-var chipSelect = '<select name="chip.chip_id" id="chip.chip_id"> {{#each chipdts}}' +
-    '<option value="{{chip_id}}">{{chip_name}}</option>' +
-    '{{/each}}</select>';
-
-var chipSelectHbs = Handlebars.compile(chipSelect);
-
-// render RAM
-var ramSelect = '<select name="ram.ram_id" id="ram.ram_id"> {{#each ramdts}}' +
-    '<option value="{{ram_id}}">{{ram_name}}</option>' +
-    '{{/each}}</select>';
-
-var ramSelectHbs = Handlebars.compile(ramSelect);
-
-// render Bonho
-var boNhoSelect = '<select id="bonho.bonho_id" name="bonho.bonho_id"> {{#each bonhodts}}' +
-    '<option value="{{bonho_id}}">{{bonho_name}}</option>' +
-    '{{/each}}</select>';
-
-var boNhoSelectHbs = Handlebars.compile(boNhoSelect);
-
-// render Loai
-var loaiSelect = '<select name="loai.loai_id" id="loai.loai_id"> {{#each loaidts}}' +
-    '<option value="{{loai_id}}">{{loai_name}}</option>' +
-    '{{/each}}</select>';
-
-var loaiSelectHbs = Handlebars.compile(loaiSelect);
-
 var generalSelect = '<div class="select-group">' +
     '<br/>' +
     '<label for="{{name}}">{{propName}}</label>' +
