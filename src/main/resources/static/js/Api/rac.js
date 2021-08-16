@@ -212,21 +212,19 @@ $("#searchBtn").click(function() {
 function bindClickEdit() {
     $(".edit").click(function() {
         insertDTModal.show();
-        var id = $(this).attr("sp-id");
-
-        fetch(url + "/" + id)
+        fetch("/api/sanphamdt/allproperties")
             .then(res => res.json())
-            .then(data => {
+            .then(properties => {
+                let selects = "";
+                for (let property of properties) {
+                    selects += generalSelectHbs(property);
+                }
 
-                fetch("/api/sanphamdt/allproperties")
+                var id = $(this).attr("sanpham_id");
+
+                fetch(url + "/" + id)
                     .then(res => res.json())
-                    .then(properties => {
-                        let selects = "";
-                        for (let property of properties) {
-                            selects += generalSelectHbs(property);
-                        }
-
-
+                    .then(data => {
                         var formAdd = '<input type="text" name="sanpham_id" id-sanpham="sanpham_id" value = "{{sanpham_id}}">' +
                             '<div class="them-sp-ndthaotac">' +
                             '<div class="them-sanpham-trai">' +
@@ -287,14 +285,6 @@ function bindClickEdit() {
                         var editSanPham = Handlebars.compile(formAdd);
                         var editHtml = editSanPham(data)
                         $("#editDTForm").html(editHtml);
-
-                        $('select[name="hang.hang_id"]').val(data.hang.hang_id);
-                        $('select[name="bonho.bonho_id"]').val(data.bonho.bonho_id);
-                        $('select[name="mausac.mausac_id"]').val(data.mausac.mausac_id);
-                        $('select[name="chip.chip_id"]').val(data.chip.chip_id);
-                        $('select[name="ram.ram_id"]').val(data.ram.ram_id);
-                        $('select[name="manhinh.manhinh_id"]').val(data.manhinh.manhinh_id);
-                        $('select[name="loai.loai_id"]').val(data.loai.loai_id);
                     })
 
             });
