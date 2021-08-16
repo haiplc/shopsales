@@ -110,7 +110,7 @@
                     <i th:errors="*{name}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"></i>
 
                     <label for="phoneNumber">[[#{lo.index.sdt}]]</label>
-                    <input type="text" th:value="${currentUser.getUser_sdt()}" th:field="*{phoneNumber}" name="phonenumber" id="phonenumber">
+                    <input type="text" value="${currentUser.getUser_sdt()}" th:field="*{phoneNumber}" name="phonenumber" id="phonenumber">
                     <i th:errors="*{phoneNumber}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"> </i>
 
                     <label for="email">[[#{lo.index.email}]]</label>

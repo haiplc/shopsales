@@ -316,6 +316,7 @@ public class HomeController {
             item.setTotal((listItems.get(dt)) * (dt.getSanpham_giaban()));
             orderItemsRepository.save(item);
         }
+        model.addAttribute("currentUser", customerService.getUsers());
 
         // gui email
         mailService.guiMailXacNhanDonHang(order, listItems);
