@@ -143,7 +143,7 @@ $("#themDT").click(function() {
 });
 
 $("#save").click(function() {
-    var dienThoai = FormDataJson.formToJson(document.querySelector("form"));
+
     var selectProps = $(".prop");
     for (let i = 0; i < selectProps.length; i++) {
         let select = $(selectProps[i]);
@@ -168,6 +168,7 @@ $("#save").click(function() {
         })
     alert("Thêm vào thành công!");
     insertDTModal.hide();
+
 });
 
 /////////////////////////////DELETE////////////////////////////
@@ -225,9 +226,7 @@ function bindClickEdit() {
                         for (let property of properties) {
                             selects += generalSelectHbs(property);
                         }
-
-
-                        var formAdd = '<input type="text" name="sanpham_id" id-sanpham="sanpham_id" value = "{{sanpham_id}}">' +
+                        var formAdd = '<input type="hidden" name="sanpham_id" id-sanpham="sanpham_id" value = "{{sanpham_id}}">' +
                             '<div class="them-sp-ndthaotac">' +
                             '<div class="them-sanpham-trai">' +
                             '<label for="sanpham_name" class="the-ten-tm">Tên sản phẩm</label>' +
@@ -302,7 +301,9 @@ function bindClickEdit() {
     });
 }
 
+
 $("#save").click(function() {
+
     var sanPham = FormDataJson.formToJson(document.querySelector("form"));
     var id = $(this).attr("id-sanpham");
     var editOption = {

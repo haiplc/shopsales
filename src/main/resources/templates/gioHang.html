@@ -106,15 +106,15 @@
                         [[#{lo.index.ttkh}]]
                     </h2>
                     <label for="name">[[#{lo.index.hotenngnh}]]</label>
-                    <input type="text" name="name" th:field="*{name}" id="hoten">
+                    <input type="text" name="name" th:value="${currentUser.getUser_name()}" id="hoten">
                     <i th:errors="*{name}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"></i>
 
                     <label for="phoneNumber">[[#{lo.index.sdt}]]</label>
-                    <input type="text" value="${currentUser.getUser_sdt()}" th:field="*{phoneNumber}" name="phonenumber" id="phonenumber">
+                    <input type="text" th:value="${currentUser.getUser_sdt()}" name="phoneNumber" id="phoneNumber">
                     <i th:errors="*{phoneNumber}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"> </i>
 
                     <label for="email">[[#{lo.index.email}]]</label>
-                    <input type="email" name="email" th:field="*{email}" id="email">
+                    <input type="email" name="email" th:value="${currentUser.getUser_email()}" id="email">
                     <i th:errors="*{email}" style="color:red; margin-left: 5px; font-style: italic;  margin-top: 75px;"></i>
 
                     <label th:field="address">[[#{lo.index.dcnhanhang}]]</label>
