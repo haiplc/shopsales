@@ -2,6 +2,7 @@ package shopsale.com.asmspringboot;
 
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -10,8 +11,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
+import shopsale.com.asmspringboot.Interceptor.AdminInterceptor;
+import shopsale.com.asmspringboot.Interceptor.GioHangInterceptor;
+
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
+	@Autowired
+	GioHangInterceptor gioHangInterceptor;
+
+	@Autowired
+	AdminInterceptor adminInterceptor;
 
 	@Bean("localeResolver")
 	public LocaleResolver getLocaleResolver() {
@@ -25,9 +34,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-		// registry.addInterceptor(gioHangInterceptor).addPathPatterns("/home/chitietgiohang",
-		// "/home/giohang");
-		// registry.addInterceptor(adminInterceptor).addPathPatterns("/admin/*");
+		registry.addInterceptor(gioHangInterceptor).addPathPatterns("/home/giohang");
+		registry.addInterceptor(adminInterceptor).addPathPatterns("/admin/*");
 		// set da ngon ngu
 		LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
 		lci.setParamName("lang");

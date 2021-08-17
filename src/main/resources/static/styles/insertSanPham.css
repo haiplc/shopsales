@@ -387,6 +387,10 @@ body {
     color: white;
 }
 
+.opacityNull {
+    opacity: 0;
+}
+
 .mglef10 {
     margin-left: 6px;
 }

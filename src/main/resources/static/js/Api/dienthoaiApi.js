@@ -85,7 +85,7 @@ $("#themDT").click(function() {
                 '<div class="them-sanpham-trai">' +
                 '<label for="sanpham_name" class="the-ten-tm">Tên sản phẩm</label>' +
                 '<br/>' +
-                '<input id="sanpham_name" name="sanpham_name" class="the-input-tm">' +
+                '<input id="sanpham_name" name="sanpham_name" class="the-input-tm" required minlength="3" maxlength="100">' +
                 '<br/>' +
                 '<div class="selects-group-product">';
             formAdd += selects;
@@ -143,7 +143,7 @@ $("#themDT").click(function() {
 });
 
 $("#save").click(function() {
-
+    var dienThoai = FormDataJson.formToJson(document.querySelector("form"));
     var selectProps = $(".prop");
     for (let i = 0; i < selectProps.length; i++) {
         let select = $(selectProps[i]);
