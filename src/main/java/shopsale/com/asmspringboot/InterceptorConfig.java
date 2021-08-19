@@ -34,7 +34,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 
-		registry.addInterceptor(gioHangInterceptor).addPathPatterns("/home/giohang");
+		registry.addInterceptor(gioHangInterceptor).addPathPatterns("/home/chitietgiohang");
 		registry.addInterceptor(adminInterceptor).addPathPatterns("/admin/*");
 		// set da ngon ngu
 		LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
