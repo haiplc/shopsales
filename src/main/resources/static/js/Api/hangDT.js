@@ -45,31 +45,32 @@ $("#them").click(function() {
 
 });
 $("#save").click(function() {
-    // var arr = document.getElementsByTagName("input");
-    // var hangName = arr[0].value;
-
-    // if (hangName == "") {
-    //     alert("Không được để trống thông tin!")
-
-    // }
     var hang = FormDataJson.formToJson(document.querySelector("form"));
-    var insertOption = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(hang)
+    var nameHang = document.getElementById('hang_name').value;
+    if (nameHang == "") {
+        alert('Không được để trống tên Hãng!')
+    } else if (nameHang.length < 3) {
+        alert('Tên Hãng tối thiểu 3 kí tự!')
+    } else if (nameHang.length > 30) {
+        alert('Tên hãng tối đa 30 kí tự!')
+    } else {
+        var insertOption = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(hang)
 
-    };
-    hang = fetch(url, insertOption)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            loadList();
-        })
-    insertModal.hide();
+        };
+        hang = fetch(url, insertOption)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                loadList();
+            })
+        insertModal.hide();
 
-
+    }
 
 });
 // luu noi dung moi them
@@ -98,22 +99,33 @@ function bindClick() {
 
 $("#save").click(function() {
     var hang = FormDataJson.formToJson(document.querySelector("form"));
+
     var id = $(this).attr("id-hang");
-    var editOption = {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(hang)
 
-    };
+    var nameHang = document.getElementById('hang_name').value;
+    if (nameHang == "") {
+        alert('Không được để trống tên Hãng!')
+    } else if (nameHang.length < 3) {
+        alert('Tên Hãng tối thiểu 3 kí tự!')
+    } else if (nameHang.length > 30) {
+        alert('Tên hãng tối đa 30 kí tự!')
+    } else {
+        var editOption = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(hang)
 
-    hang = fetch(url + "/" + id, editOption)
-        .then(response => response.json())
-        .then(data => {
-            loadList();
-        })
-    insertModal.hide();
+        };
+
+        hang = fetch(url + "/" + id, editOption)
+            .then(response => response.json())
+            .then(data => {
+                loadList();
+            })
+        insertModal.hide();
+    }
 });
 
 // xóa
