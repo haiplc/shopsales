@@ -240,15 +240,21 @@ $("#save").click(function() {
 
 /////////////////////////////DELETE////////////////////////////
 
+
 function bindEventDelete() {
     $(".delete").click(function() {
-        deleteSanPham($(this));
-    })
+        var result = confirm("Bạn muốn xóa sản phẩm này!!!");
+        if (result == true) {
+            deleteSanPham($(this));
+        } else {
+            return false;
+        }
+    });
 }
 
 function deleteSanPham($button) {
     var id = $button.attr("sp-id");
-    alert("Xác nhận xóa sản phẩm có ID = " + id);
+
     var deleteOption = {
         method: "delete",
         headers: {

@@ -129,10 +129,17 @@ $("#save").click(function() {
 });
 
 // xóa
+
+
 function bindDelete() {
     $(".delete").click(function() {
-        deleteHang($(this))
-    })
+        var result = confirm("Bạn muốn xóa sản phẩm này!!!");
+        if (result == true) {
+            deleteHang($(this));
+        } else {
+            return false;
+        }
+    });
 }
 
 function deleteHang($button) {
