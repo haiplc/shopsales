@@ -424,3 +424,19 @@ body {
     font-size: 17px;
     height: 40px;
 }
+
+.errorItem {
+    color: red;
+    font-style: italic;
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.errorItem1 {
+    color: red;
+    font-style: italic;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 5px;
+}

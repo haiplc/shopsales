@@ -74,6 +74,7 @@ var insertDTModal = new bootstrap.Modal(document.getElementById('editDTModal'), 
 // Chức năng thêm
 $("#themDT").click(function() {
     insertDTModal.show();
+    document.getElementById("save").action = "add";
     fetch("/api/sanphamdt/allproperties")
         .then(res => res.json())
         .then(properties => {
@@ -87,6 +88,7 @@ $("#themDT").click(function() {
                 '<br/>' +
                 '<input id="sanpham_name" name="sanpham_name" class="the-input-tm" required minlength="3" maxlength="100">' +
                 '<br/>' +
+                '<i class="errorItem" id="sanpham_name"></i>' +
                 '<div class="selects-group-product">';
             formAdd += selects;
             formAdd +=
@@ -95,8 +97,10 @@ $("#themDT").click(function() {
                 '<div class="tm-anh-1">' +
                 '<label for="sanpham_anh1" class="the-ten-tm-anh1">Link ảnh 1</label>' +
                 '<input id="sanpham_anh1" name="sanpham_anh1" class="the-input-tm-anh1">' +
+                '<i class="errorItem1" id="sanpham_anh1"></i>' +
                 '<label for="sanpham_anh2" class="the-ten-tm-anh">Link ảnh 2</label>' +
                 '<input id="sanpham_anh2" name="sanpham_anh2" class="the-input-tm-anh1">' +
+                '<i class="errorItem1" id="sanpham_anh2"></i>' +
                 '</div>' +
                 '</div>' +
                 '<div class="thong-tin-tm-333">' +
@@ -105,12 +109,14 @@ $("#themDT").click(function() {
                 '<br/>' +
                 '<input type="number" id="sanpham_giaban" name="sanpham_giaban" class="the-input-tm-3-1 mglef10">' +
                 '<br/>' +
+                '<i class="errorItem1" id="sanpham_giaban"></i>' +
                 '</div>' +
                 '<div class="tm-tt2">' +
                 '<label for="sanpham_soluong" class="the-ten-tm-3">Số lượng</label>' +
                 '<br/>' +
                 '<input type="number" name="sanpham_soluong" id="sanpham_soluong" class="the-input-tm-3">' +
                 '<br/>' +
+                '<i class="errorItem1" id="sanpham_soluong"></i>' +
                 '</div>' +
                 '</div>' +
                 '<div class="them-sanpham-duoi">' +
@@ -119,6 +125,7 @@ $("#themDT").click(function() {
                 '<br/>' +
                 '<input id="sanpham_url" name="sanpham_url" class="the-input-tm">' +
                 '<br/>' +
+                '<i class="errorItem" id="sanpham_url"></i>' +
                 '</div>' +
                 '<div class="thong-tin-tm-334">' +
                 '<br>' +
@@ -127,11 +134,16 @@ $("#themDT").click(function() {
                 '<br/>' +
                 '<textarea id="sanpham_mota" name="sanpham_mota"  class="noidung-mota1" cols="15" rows="5"></textarea>' +
                 '<br/>' +
+                '<i class="errorItem" id="sanpham_mota"></i>' +
+                '<br/>' +
                 '</div>' +
                 '<div class="lienhe-11">' +
+                '<br/>' +
                 '<label for="sanpham_lienhe" class="the-ten-tm">Liên hệ mua hàng</label>' +
                 '<br/>' +
                 '<input id="sanpham_lienhe" name="sanpham_lienhe"  class="noidung-lienhe1">' +
+                '<br/>' +
+                '<i class="errorItem" id="sanpham_lienhe"></i>' +
                 '<br/>' +
                 '</div>' +
                 '</div>' +
@@ -143,31 +155,86 @@ $("#themDT").click(function() {
 });
 
 $("#save").click(function() {
-    var dienThoai = FormDataJson.formToJson(document.querySelector("form"));
-    var selectProps = $(".prop");
-    for (let i = 0; i < selectProps.length; i++) {
-        let select = $(selectProps[i]);
-        let name = select.attr("name");
-        let names = name.split(".");
-        dienThoai[names[0]] = {};
-        dienThoai[names[0]][names[1]] = select.val();
-    }
-    var insertOption = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dienThoai)
+    var action = document.getElementById("save").action;
+    if (action = "add") {
+        //Khối hàm với chức năng add
+        var dienThoai = FormDataJson.formToJson(document.querySelector("form"));
+        var selectProps = $(".prop");
+        for (let i = 0; i < selectProps.length; i++) {
+            let select = $(selectProps[i]);
+            let name = select.attr("name");
+            let names = name.split(".");
+            dienThoai[names[0]] = {};
+            dienThoai[names[0]][names[1]] = select.val();
+        }
+        var insertOption = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dienThoai)
 
-    };
-    dienThoai = fetch(url, insertOption)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            loadDanhSachDT();
-        })
-    alert("Thêm vào thành công!");
-    insertDTModal.hide();
+        };
+        dienThoai = fetch(url, insertOption)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    alert("Thêm vào thành công!");
+                    insertDTModal.hide();
+                } else {
+                    Object.keys(data.data).forEach(function(key) {
+                        var field = key;
+                        var message = data.data[key];
+
+                        var ListDOMError = Array.from(document.body.getElementsByTagName("i"));
+
+                        ListDOMError.forEach(errorDom => {
+                            if (errorDom.id == field) {
+                                errorDom.innerHTML = message;
+                            }
+                        })
+
+
+                    })
+
+                }
+                loadDanhSachDT();
+            })
+    } else {
+        //Khối hàm với chức năng edit
+        var sanPham = FormDataJson.formToJson(document.querySelector("form"));
+        var id = $(this).attr("id-sanpham");
+        var editOption = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(sanPham)
+
+        };
+
+        sanPham = fetch(url + "/" + id, editOption)
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.status) {
+                    alert("Thêm vào thành công!");
+                    insertDTModal.hide();
+                } else {
+                    Object.keys(data.data).forEach(function(key) {
+                        var field = key;
+                        var message = data.data[key];
+                        var ListDOMError = Array.from(document.body.getElementsByTagName("i"));
+                        ListDOMError.forEach(errorDom => {
+                            if (errorDom.id == field) {
+                                errorDom.innerHTML = message;
+                            }
+                        })
+                    })
+                }
+                loadDanhSachDT();
+            })
+    }
 
 });
 
@@ -213,6 +280,8 @@ $("#searchBtn").click(function() {
 function bindClickEdit() {
     $(".edit").click(function() {
         insertDTModal.show();
+        document.getElementById("save").action = "edit";
+
         var id = $(this).attr("sp-id");
 
         fetch(url + "/" + id)
@@ -233,6 +302,7 @@ function bindClickEdit() {
                             '<br/>' +
                             '<input id="sanpham_name" name="sanpham_name" value="{{sanpham_name}}"  class="the-input-tm">' +
                             '<br/>' +
+                            '<i class="errorItem" id="sanpham_name"></i>' +
                             '<div class="selects-group-product">';
                         formAdd += selects;
                         formAdd +=
@@ -241,8 +311,10 @@ function bindClickEdit() {
                             '<div class="tm-anh-1">' +
                             '<label for="sanpham_anh1" class="the-ten-tm-anh1">Link ảnh 1</label>' +
                             '<input id="sanpham_anh1" name="sanpham_anh1" value="{{sanpham_anh1}}" class="the-input-tm-anh1">' +
+                            '<i class="errorItem1" id="sanpham_anh1"></i>' +
                             '<label for="sanpham_anh2" class="the-ten-tm-anh">Link ảnh 2</label>' +
                             '<input id="sanpham_anh2" name="sanpham_anh2" value="{{sanpham_anh2}}" class="the-input-tm-anh1">' +
+                            '<i class="errorItem1" id="sanpham_anh2"></i>' +
                             '</div>' +
                             '</div>' +
                             '<div class="thong-tin-tm-333">' +
@@ -251,12 +323,14 @@ function bindClickEdit() {
                             '<br/>' +
                             '<input type="number" id="sanpham_giaban" name="sanpham_giaban" value="{{sanpham_giaban}}" class="the-input-tm-3-1 mglef10">' +
                             '<br/>' +
+                            '<i class="errorItem1" id="sanpham_giaban"></i>' +
                             '</div>' +
                             '<div class="tm-tt2">' +
                             '<label for="sanpham_soluong" class="the-ten-tm-3">Số lượng</label>' +
                             '<br/>' +
                             '<input type="number" name="sanpham_soluong" id="sanpham_soluong" value="{{sanpham_soluong}}" class="the-input-tm-3">' +
                             '<br/>' +
+                            '<i class="errorItem1" id="sanpham_soluong"></i>' +
                             '</div>' +
                             '</div>' +
                             '<div class="them-sanpham-duoi">' +
@@ -273,11 +347,15 @@ function bindClickEdit() {
                             '<br/>' +
                             '<textarea id="sanpham_mota" name="sanpham_mota"  class="noidung-mota1" cols="15" rows="5">{{sanpham_mota}}</textarea>' +
                             '<br/>' +
+                            '<i class="errorItem" id="sanpham_mota"></i>' +
                             '</div>' +
                             '<div class="lienhe-11">' +
+                            '<br/>' +
                             '<label for="sanpham_lienhe" class="the-ten-tm">Liên hệ mua hàng</label>' +
                             '<br/>' +
                             '<input id="sanpham_lienhe" name="sanpham_lienhe" value="{{sanpham_lienhe}}"  class="noidung-lienhe1">' +
+                            '<br/>' +
+                            '<i class="errorItem" id="sanpham_lienhe"></i>' +
                             '<br/>' +
                             '</div>' +
                             '</div>' +
@@ -300,26 +378,3 @@ function bindClickEdit() {
 
     });
 }
-
-
-$("#save").click(function() {
-
-    var sanPham = FormDataJson.formToJson(document.querySelector("form"));
-    var id = $(this).attr("id-sanpham");
-    var editOption = {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(sanPham)
-
-    };
-
-    sanPham = fetch(url + "/" + id, editOption)
-        .then(response => response.json())
-        .then(data => {
-            loadDanhSachDT();
-        })
-    insertDTModal.hide();
-
-})

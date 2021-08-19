@@ -1,6 +1,7 @@
 package shopsale.com.asmspringboot.Api;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,12 +53,32 @@ public class SanPhamDTAPI {
     }
 
     @PostMapping(value = "/api/sanphamdt")
-    public SanPhamDT insert(@RequestBody @Validated SanPhamDT dienthoai) {
-        return sanPhamDTReponsitory.save(dienthoai);
+    public HashMap<String, Object> insert(@RequestBody @Validated SanPhamDT dienthoai, BindingResult result) {
+
+        HashMap<String, Object> ResponseData = new HashMap<>();
+        ResponseData.put("status", true);
+
+        if (result.hasErrors()) {
+            List<FieldError> fieldErrors = result.getFieldErrors();
+
+            HashMap<String, String> ListValid = new HashMap<>();
+
+            for (FieldError error : fieldErrors) {
+                ListValid.put(error.getField(), error.getDefaultMessage());
+            }
+
+            ResponseData.put("status", false);
+            ResponseData.put("data", ListValid);
+
+            return ResponseData;
+        }
+        ResponseData.put("data", sanPhamDTReponsitory.save(dienthoai));
+
+        return ResponseData;
     }
 
     @PutMapping(value = "/api/sanphamdt/{id}")
-    public SanPhamDT update(@PathVariable("id") int id, @RequestBody SanPhamDT dienthoai) {
+    public SanPhamDT update(@Validated @PathVariable("id") int id, @RequestBody SanPhamDT dienthoai) {
         return sanPhamDTReponsitory.save(dienthoai);
     }
 

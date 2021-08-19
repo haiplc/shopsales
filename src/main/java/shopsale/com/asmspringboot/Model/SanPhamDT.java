@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -72,17 +73,13 @@ public class SanPhamDT {
 	// bonho, mausac, giaban, soluong, anh 1, anh 2, url,
 	// lienhe, mota, ngaytao
 	@NotNull(message = "Không được để trống!")
-	// @Pattern(regexp =
-	// "(http://|https://|/|../)[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\/[a-zA-Z0-9-]*)+(.jpg|.png)",
-	// message = "Sai định dạng ảnh! Mời nhập lại!")
+	@Pattern(regexp = "(http://|https://|/|../)[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\/[a-zA-Z0-9-]*)+(.jpg|.png)", message = "Sai định dạng ảnh! Mời nhập lại!")
 	@Column(name = "sanpham_anh1")
 	@Size(max = 400)
 	String sanpham_anh1;
 
 	@NotNull(message = "Không được để trống!")
-	// @Pattern(regexp =
-	// "(http://|https://|/|../)[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\/[a-zA-Z0-9-]*)+(.jpg|.png)",
-	// message = "Sai định dạng ảnh! Mời nhập lại!")
+	@Pattern(regexp = "(http://|https://|/|../)[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\/[a-zA-Z0-9-]*)+(.jpg|.png)", message = "Sai định dạng ảnh! Mời nhập lại!")
 	@Column(name = "sanpham_anh2")
 	@Size(max = 400)
 	String sanpham_anh2;
