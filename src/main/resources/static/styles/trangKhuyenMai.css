@@ -1,0 +1,211 @@
+.thenoidung-khuyenmai {
+    width: 1200px;
+    margin: 0 auto;
+    font-family: serif;
+}
+
+.cumnoidung-1 {
+    width: 1200px;
+    height: 445px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.thenoidungtrai {
+    width: 870px;
+    height: 445px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.thenoidungduoi {
+    width: 1200px;
+    min-height: 445px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mar20 {
+    margin-top: 20px !important;
+}
+
+.thenoidungphai {
+    width: 310px;
+    height: 445px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.cumnoidung-2 {
+    width: 1200px;
+    min-height: 445px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tieude1km {
+    width: 530px;
+    height: 445px;
+    float: left;
+}
+
+.anh-tieude1 img {
+    width: 490px;
+    height: 330px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.noidunganh1 {
+    width: 490px;
+    height: 75px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.noidunganh1 span {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.noidunganh1 p {
+    color: #ccc;
+}
+
+.thetnnoidungxemnhieu {
+    margin-top: 10px;
+}
+
+.thetnnoidungxemnhieu span {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.noidungxem {
+    width: 310px;
+    height: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.noidungxem p {
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.noidungxem span {
+    width: 220px;
+    text-align: justify;
+    text-indent: 10px;
+    margin-left: 10px;
+}
+
+.thu1 {
+    background-color: rgb(203, 28, 34);
+}
+
+.thu2 {
+    background-color: rgb(153, 162, 170);
+}
+
+.thun {
+    background-color: rgb(206, 212, 218);
+}
+
+.tieude2km {
+    width: 340px;
+    min-height: 200px;
+    float: left;
+}
+
+.noidungkmthu1 {
+    width: 340px;
+    height: 80px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.anhtieude2 img {
+    width: 120px;
+    height: 80px;
+}
+
+.noidungthe {
+    width: 200px;
+    height: 80px;
+}
+
+.noidungkm2 {
+    width: 200px;
+    height: 55px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.thoigiankm2 {
+    width: 200px;
+    color: #ccc;
+    margin-left: 10px;
+    height: 25px;
+}
+
+.kmai1 {
+    width: 1020px;
+    height: 200px;
+    margin-top: 30px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.anh-kmai1 img {
+    width: 300px;
+    height: 200px;
+}
+
+.noidung-kmai1 {
+    margin-left: 20px;
+    width: 740px;
+    height: 200px;
+}
+
+.tieude-kmai1 span {
+    font-size: 24px;
+    width: 740px;
+    font-weight: bold;
+}
+
+.noidung1111 span {
+    font-size: 16px;
+    width: 740px;
+    text-align: justify;
+    text-indent: 20px;
+    color: #ccc;
+}
+
+.thengancachkm {
+    width: 1020px;
+    margin: 0 auto;
+    height: 30px;
+    border-bottom: 1px solid #ccc;
+}

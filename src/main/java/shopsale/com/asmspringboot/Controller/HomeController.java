@@ -447,8 +447,8 @@ public class HomeController {
         return "khuyenMai";
     }
 
-    @GetMapping("/home/tuyendung")
-    public String tuyenDungPage() {
-        return "tuyenDung";
+    @GetMapping("/home/huongdanmuahang")
+    public String huongDanMuaHang() {
+        return "huongDanMuaHang";
     }
 }
