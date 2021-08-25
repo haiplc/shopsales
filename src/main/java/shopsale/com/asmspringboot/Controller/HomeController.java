@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import shopsale.com.asmspringboot.Controller.GobalController.LAST_PAGE;
 import shopsale.com.asmspringboot.Model.FooterInfo;
-import shopsale.com.asmspringboot.Model.GioHang;
 import shopsale.com.asmspringboot.Model.HangSanPham;
 import shopsale.com.asmspringboot.Model.LoaiPhuKien;
 import shopsale.com.asmspringboot.Model.OrderItems;
