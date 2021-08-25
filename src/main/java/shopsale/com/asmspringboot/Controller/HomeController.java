@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import shopsale.com.asmspringboot.Controller.GobalController.LAST_PAGE;
 import shopsale.com.asmspringboot.Model.FooterInfo;
+import shopsale.com.asmspringboot.Model.GioHang;
 import shopsale.com.asmspringboot.Model.HangSanPham;
 import shopsale.com.asmspringboot.Model.LoaiPhuKien;
 import shopsale.com.asmspringboot.Model.OrderItems;
@@ -202,7 +203,9 @@ public class HomeController {
 
     @GetMapping("/home/giohang")
     public String gioHang(Model model) {
+        // System.out.println(giohangService.getGioHang().getChiTietGioHang());
         model.addAttribute("giohang", giohangService.getGioHang());
+
         return "giohangmini";
     }
 

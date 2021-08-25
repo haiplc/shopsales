@@ -55,16 +55,16 @@
             </table>
         </div>
 
-        <div class="thanhToan">
+        <!-- <div class="thanhToan">
             <div class="tamTinh">
                 <p class="nd1_tt">
                     [[#{lo.index.tamtinh}]]
                 </p>
                 <div class="tamthanhtoan">
-                    <!-- <c:set var="total" value="${0}" />
+                     <c:set var="total" value="${0}" />
                     <c:forEach var="chitiet" items="${giohang.chiTietGioHang}">
                         <c:set var="total" value="${total + (chitiet.key.sanpham_giaban*chitiet.value)}" />
-                    </c:forEach> -->
+                    </c:forEach>
                     <p class="tongTienTra" id="tongTienTam">
 
                     </p>
@@ -95,7 +95,7 @@
                     [[#{lo.index.vat}]]
                 </p>
             </div>
-        </div>
+        </div> -->
         <div class="thanhngang"></div>
 
         <form action="/home/chitietgiohang" method="post" th:object="${order}">

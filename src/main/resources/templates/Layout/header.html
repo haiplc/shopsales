@@ -39,7 +39,7 @@
                                 <a th:href="@{/shopsale/dangnhap}">[[#{lo.index.dnhap}]]</a>
                             </div>
                         </div>
-                        <div th:if="@{currentUser != null}">
+                        <div th:if="${currentUser != null}">
                             <img src="https://miro.medium.com/max/1400/0*Tsd8rfwqlA-GwXxL.png" alt="">
                             <div class="nhacnho" style="color: red; margin-top: 10px">[[#{lo.index.newtbm}]]</div>
                         </div>
